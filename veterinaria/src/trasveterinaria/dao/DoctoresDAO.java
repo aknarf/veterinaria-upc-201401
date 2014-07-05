@@ -43,16 +43,25 @@ public class DoctoresDAO extends BaseDAO {
 		return lista;
 	}*/
 
-	public Doctores insertar(Doctores vo) throws DAOExcepcion {
-		String query = "insert into producto (id_categoria,nombre) values (?,?)";
+	public void  insertar (Doctores vo) throws DAOExcepcion {
+		String query = "insert into doctores (DniDoc,Nombre,ApePaterno,ApeMaterno,Email,Telefono,Tipo,Contraseña) values (?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setInt(1, vo.getCategoria().getIdCategoria());
+			stmt.setInt(1, vo.getDni());
 			stmt.setString(2, vo.getNombre());
+			stmt.setString(3, vo.getApePaterno());
+			stmt.setString(4, vo.getApeMaterno());
+			stmt.setString(5, vo.getEmail());
+			stmt.setString(6, vo.getTelefono());
+			stmt.setString(7, vo.getTipo());
+			stmt.setString(8, vo.getContraseña());
+			
+			//stmt.setString(2, vo.getNombre());
+			
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
