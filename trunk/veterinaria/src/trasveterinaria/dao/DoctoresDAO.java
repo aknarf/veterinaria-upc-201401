@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Doctores;
@@ -12,37 +14,7 @@ import trasveterinaria.util.ConexionBD;
 public class DoctoresDAO extends BaseDAO {
 	
 	
-	/*public Collection<Categoria> buscarPorNombre(String nombre)
-			throws DAOExcepcion {
-		String query = "select id_categoria, nombre, descripcion from categoria where nombre like ?";
-		Collection<Categoria> lista = new ArrayList<Categoria>();
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		try {
-			con = ConexionBD.obtenerConexion();
-			stmt = con.prepareStatement(query);
-			stmt.setString(1, "%" + nombre + "%");
-			rs = stmt.executeQuery();
-			while (rs.next()) {
-				Categoria vo = new Categoria();
-				vo.setIdCategoria(rs.getInt("id_categoria"));
-				vo.setNombre(rs.getString("nombre"));
-				vo.setDescripcion(rs.getString("descripcion"));
-				lista.add(vo);
-			}
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			throw new DAOExcepcion(e.getMessage());
-		} finally {
-			this.cerrarResultSet(rs);
-			this.cerrarStatement(stmt);
-			this.cerrarConexion(con);
-		}
-		System.out.println(lista.size());
-		return lista;
-	}*/
-
+	
 	public void  insertar (Doctores vo) throws DAOExcepcion {
 		String query = "insert into doctores (DniDoc,Nombre,ApePaterno,ApeMaterno,Email,Telefono,Tipo,Contraseña) values (?,?,?,?,?,?,?,?)";
 		Connection con = null;
@@ -79,32 +51,6 @@ public class DoctoresDAO extends BaseDAO {
 		//return vo;
 	}
 
-	/*public Categoria obtener(int idCategoria) throws DAOExcepcion {
-		Categoria vo = new Categoria();
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		try {
-			String query = "select id_categoria, nombre, descripcion from categoria where id_categoria=?";
-			con = ConexionBD.obtenerConexion();
-			stmt = con.prepareStatement(query);
-			stmt.setInt(1, idCategoria);
-			rs = stmt.executeQuery();
-			if (rs.next()) {
-				vo.setIdCategoria(rs.getInt(1));
-				vo.setNombre(rs.getString(2));
-				vo.setDescripcion(rs.getString(3));
-			}
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			throw new DAOExcepcion(e.getMessage());
-		} finally {
-			this.cerrarResultSet(rs);
-			this.cerrarStatement(stmt);
-			this.cerrarConexion(con);
-		}
-		return vo;
-	}*/
 	
 		public int elimina(int id) throws DAOExcepcion {
 		Connection conn = null;
@@ -129,14 +75,18 @@ public class DoctoresDAO extends BaseDAO {
 		}
 		return eliminados;
 	}
+		
 
-	public Doctores actualizar(Doctores vo) throws DAOExcepcion {
+
+	public Doctores  actualiza(Doctores vo) throws DAOExcepcion {
 		String query = "update Doctores set Nombre=?,ApePaterno=?,ApeMaterno=?,Email=?,Telefono=?,Tipo=?,Contraseña=? where dniDoc=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
+		int actualizado=-1;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
+			
 			stmt.setString(1, vo.getNombre());
 			stmt.setString(2, vo.getApePaterno());
 			stmt.setString(3, vo.getApeMaterno());
@@ -144,8 +94,10 @@ public class DoctoresDAO extends BaseDAO {
 			stmt.setString(5,vo.getTelefono());
 			stmt.setString(6, vo.getTipo());
 			stmt.setString(7, vo.getContraseña());
-			int i = stmt.executeUpdate();
-			if (i != 1) {
+			stmt.setInt(8, vo.getDni());
+			
+			 actualizado = stmt.executeUpdate();
+			if (actualizado != 1) {
 				throw new SQLException("No se pudo actualizar");
 			}
 		} catch (SQLException e) {
@@ -158,21 +110,24 @@ public class DoctoresDAO extends BaseDAO {
 		return vo;
 	}
 
-	/*public Collection<Categoria> listar() throws DAOExcepcion {
-		Collection<Categoria> c = new ArrayList<Categoria>();
+	public Collection<Doctores> listar() throws DAOExcepcion {
+		Collection<Doctores> c = new ArrayList<Doctores>();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		try {
 			con = ConexionBD.obtenerConexion();
-			String query = "select id_categoria,nombre,descripcion from categoria order by nombre";
+			String query = "select DniDoc,Nombre,ApePaterno,ApeMaterno,Tipo  from doctores order by DniDoc";
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
-				Categoria vo = new Categoria();
-				vo.setIdCategoria(rs.getInt("id_categoria"));
-				vo.setNombre(rs.getString("nombre"));
-				vo.setDescripcion(rs.getString("descripcion"));
+				Doctores vo = new Doctores();
+				vo.setDni(rs.getInt("DniDoc"));
+				vo.setNombre(rs.getString("Nombre"));
+				vo.setApePaterno(rs.getString("ApePaterno"));
+				vo.setApeMaterno(rs.getString("ApeMaterno"));
+				vo.setTipo(rs.getString("Tipo"));
+				
 				c.add(vo);
 			}
 
@@ -185,7 +140,7 @@ public class DoctoresDAO extends BaseDAO {
 			this.cerrarConexion(con);
 		}
 		return c;
-	}*/
+	}
 
 
 }
