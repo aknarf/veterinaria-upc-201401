@@ -105,38 +105,45 @@ public class DoctoresDAO extends BaseDAO {
 		}
 		return vo;
 	}*/
-
-	/*public void eliminar(int idCategoria) throws DAOExcepcion {
-		String query = "delete from categoria WHERE id_categoria=?";
-		Connection con = null;
-		PreparedStatement stmt = null;
+	
+		public int elimina(int id) throws DAOExcepcion {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		int eliminados =-1;
 		try {
-			con = ConexionBD.obtenerConexion();
-			stmt = con.prepareStatement(query);
-			stmt.setInt(1, idCategoria);
-			int i = stmt.executeUpdate();
-			if (i != 1) {
+			String sql = "delete from doctores WHERE DniDoc=?";
+			conn =ConexionBD.obtenerConexion();
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, id);
+			int i= pstm.executeUpdate();
+			//eliminados = pstm.executeUpdate();
+			if (i!=1){
 				throw new SQLException("No se pudo eliminar");
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
 		} finally {
-			this.cerrarStatement(stmt);
-			this.cerrarConexion(con);
+			this.cerrarStatement(pstm);
+			this.cerrarConexion(conn);
 		}
-	}*/
+		return eliminados;
+	}
 
-	/*public Categoria actualizar(Categoria vo) throws DAOExcepcion {
-		String query = "update categoria set nombre=?,descripcion=? where id_categoria=?";
+	public Doctores actualizar(Doctores vo) throws DAOExcepcion {
+		String query = "update Doctores set Nombre=?,ApePaterno=?,ApeMaterno=?,Email=?,Telefono=?,Tipo=?,Contraseña=? where dniDoc=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, vo.getNombre());
-			stmt.setString(2, vo.getDescripcion());
-			stmt.setInt(3, vo.getIdCategoria());
+			stmt.setString(2, vo.getApePaterno());
+			stmt.setString(3, vo.getApeMaterno());
+			stmt.setString(4, vo.getEmail());
+			stmt.setString(5,vo.getTelefono());
+			stmt.setString(6, vo.getTipo());
+			stmt.setString(7, vo.getContraseña());
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo actualizar");
@@ -149,7 +156,7 @@ public class DoctoresDAO extends BaseDAO {
 			this.cerrarConexion(con);
 		}
 		return vo;
-	}*/
+	}
 
 	/*public Collection<Categoria> listar() throws DAOExcepcion {
 		Collection<Categoria> c = new ArrayList<Categoria>();
