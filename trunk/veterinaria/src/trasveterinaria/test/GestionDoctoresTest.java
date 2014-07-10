@@ -11,7 +11,7 @@ import trasveterinaria.negocio.GestionDoctores;
 public class GestionDoctoresTest {
 	
 	
-	@Test
+	
 	public void insertar(){
 		//Doctores cat= new Doctores();
 		//cat.setDni(43564198);
@@ -36,6 +36,24 @@ public class GestionDoctoresTest {
 			// TODO: handle exception
 			Assert.fail("No Inserto"+ e.getMessage());
 		}
+	}
+	@Test
+	public void eliminar(){
+		Doctores cat= new Doctores();
+		//cat.setDni(43564198);
+		int dni=43564198;
+		Doctores prod= new Doctores();
+				
+		GestionDoctores negocio=new GestionDoctores();
+		try {
+			negocio.eliminar(dni);
+			System.out.println("se elimino correctamente");
+		} catch (Exception e) {
+			// TODO: handle exception
+			Assert.fail("No inserto" + e.getMessage());
+		}
+						
+		
 	}
 
 }
