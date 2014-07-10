@@ -14,6 +14,7 @@ public class Cliente {
 	private String celular;
 	private String telefonofijo;
 	private String ruc;
+	
 	public int getDni() {
 		return dni;
 	}
