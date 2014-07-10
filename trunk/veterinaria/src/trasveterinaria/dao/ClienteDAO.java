@@ -18,7 +18,7 @@ import trasveterinaria.util.ConexionBD;
 public class ClienteDAO extends BaseDAO{
 
 	public void  insertar (Cliente vo) throws DAOExcepcion {
-		String query = "insert into doctores (dni,nombre,apePaterno,apeMaterno,correoelectronico,direccion,foto,celular,telefonofijo,ruc) values (?,?,?,?,?,?,?,?,?,?)";
+		String query = "insert into cliente (Dni,nombre,apePaterno,apeMaterno,correoelectronico,direccion,foto,celular,telefonofijo,ruc) values (?,?,?,?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -34,13 +34,13 @@ public class ClienteDAO extends BaseDAO{
 			stmt.setString(5, vo.getCorreoelectronico());
 			stmt.setString(6, vo.getDireccion());
 			
-		    File file = new File("myPhoto.png");
+		    File file = new File("E:\\java.gif");
 		    fis = new FileInputStream(file);
 			stmt.setBinaryStream(7, fis, (int) file.length());
 			
 			stmt.setString(8, vo.getCelular());
-			stmt.setString(8, vo.getTelefonofijo());
-			stmt.setString(8, vo.getRuc());
+			stmt.setString(9, vo.getTelefonofijo());
+			stmt.setString(10, vo.getRuc());
 
 			
 			//stmt.setString(2, vo.getNombre());
