@@ -33,25 +33,21 @@ public class MascotaDAO extends BaseDAO {
 			stmt.setInt(11, vo.getCliente_Dni());
 			stmt.setInt(12, vo.getEspecie_idEspecie());
 			
-			
-			
-		
-			//stmt.setString(2, vo.getNombre());
-		
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
-		}
+			}
 	
+		}
+		
+		catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
 
-	} catch (SQLException e) {
-		System.err.println(e.getMessage());
-		throw new DAOExcepcion(e.getMessage());
-	} finally {
-		this.cerrarResultSet(rs);
-		this.cerrarStatement(stmt);
-		this.cerrarConexion(con);
 	}
-	//return vo;
-}
 }
