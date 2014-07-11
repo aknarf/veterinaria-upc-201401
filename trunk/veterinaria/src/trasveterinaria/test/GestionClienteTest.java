@@ -33,5 +33,5 @@ public class GestionClienteTest {
 			// TODO: handle exception
 			Assert.fail("No Inserto"+ e.getMessage());
 		}
-	}
+	}*/
 }
