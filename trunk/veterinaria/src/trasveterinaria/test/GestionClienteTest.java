@@ -8,7 +8,7 @@ import trasveterinaria.negocio.GestionCliente;
 
 public class GestionClienteTest {
 
-	@Test
+	/*@Test
 	public void insertar(){
 
 		Cliente prod= new Cliente();
