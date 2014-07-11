@@ -220,4 +220,29 @@ insert into raza values (68,'Guacamayo rojo ',3);
 insert into raza values (69,'Guacamayo rojo de alas verdes',3);
 insert into raza values (70,'Guacamayo azul y amarillo ',3);
 
+insert into doctores values (43564198,'Carmen','Rios','Samaniego','askur@gmail.com','3356643','ADMINISTRADOR','564$65');
+insert into doctores values (43564197,'Esteban','Sandro','Casas','esandro@gmail.com','3355343','ADMINISTRADOR','564$65');
+insert into doctores values (43567718,'Grecia','Samaniego','Ojeda','gSamaniego@hotmail.com','3345643','ADMINISTRADOR','564$65');
+insert into doctores values (43364198,'Javier','Casas','Peña','Jcasas@gmail.com','3356643','DOCTOR','564$65');
+insert into doctores values (43564772,'Juan','Rios','Samaniego','jrios@gmail.com','3356643','DOCTOR','564$65');
+insert into doctores values (43564643,'Jose','Alvarez','Olguin','jAlvarez@gmail.com','3356643','DOCTOR','564$65');
+insert into doctores values (43654198,'Maria','Flores','cervantes','mflores@gmail.com','3356643','DOCTOR','564$65');
+insert into doctores values (43565698,'Esteban','Palomino','llaury','epalomino@gmail.com','3356643','DOCTOR','564$65');
+insert into doctores values (43568698,'Roberto','Ku','Cortes','Rku@gmail.com','3356643','DOCTOR','564$65');
+insert into doctores values (43579198,'Lorena','cabanillas','Rios','askur@gmail.com','3356643','DOCTOR','564$65');
+insert into doctores values (43532198,'Viviana','castillo','sandoval','vcastillo@gmail.com','3356643','DOCTOR','564$65');
+
+insert into cliente values (44544398,'Carmen','Palomo','Casas','cpalomo@gmail.com','av las flores 254 - SJL','F','945168883','3356672','0');
+insert into cliente values (44565398,'Sandra','Rivera','Mejia','srivera@gmail.com','av los sauces 365 -SMP','F','945168883','3356672','0');
+insert into cliente values (44544798,'Ronald','Caceres','Arcaya','rcaceres@hotmail.com','av Brasil 365- BREÑA','F','945168883','3356672','0');
+insert into cliente values (44994398,'ridee','sanchez','saldaña','rsanchez@gmail.com','av izaguirre 765 -los olivos','F','945168883','3356672','0');
+insert into cliente values (44543598,'Jhoan','saldaña','ruiz','jsaldaña@gmail.com','av larco 62- miraflores','F','945168883','3356672','0');
+insert into cliente values (44546598,'Jesus','candela',' pareja','jcandela@gmail.com','av alfredo mendiola -los olivos','F','945168883','3356672','0');
+insert into cliente values (43844398,'Miguel','Carpio','Fernandes','mcarpio@gmail.com','av iquitos 652 - la victoria','F','945168883','3356672','0');
+insert into cliente values (44474398,'susan','montero','calderon','smontero@gmail.com','av alcazar 65- Rimac','F','945168883','3356672','0');
+insert into cliente values (44514798,'karla ','Chicata','cabanillas','kchicata@gmail.com','av marte- los olivos','F','945168883','3356672','0');
+insert into cliente values (44694398,'Maria Ines ','Fernandes','Rios','mFernandes@gmail.com','av los casas 546- comas','F','945168883','3356672','0');
+insert into cliente values (44541798,'Bruno','Espinoza','sandoval','bespinoza@gmail.com','av emancipacion 69 -surco','F','945168883','3356672','0');
+
+
 
