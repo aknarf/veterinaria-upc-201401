@@ -34,7 +34,7 @@ public class ClienteDAO extends BaseDAO{
 			stmt.setString(5, vo.getCorreoelectronico());
 			stmt.setString(6, vo.getDireccion());
 			
-		    File file = new File("E:\\java.gif");
+		    File file = new File("D:\\java.gif");
 		    fis = new FileInputStream(file);
 			stmt.setBinaryStream(7, fis, (int) file.length());
 			

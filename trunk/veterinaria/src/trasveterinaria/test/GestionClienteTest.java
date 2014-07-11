@@ -8,7 +8,7 @@ import trasveterinaria.negocio.GestionCliente;
 
 public class GestionClienteTest {
 
-	/*@Test
+	@Test
 	public void insertar(){
 
 		Cliente prod= new Cliente();
@@ -33,5 +33,5 @@ public class GestionClienteTest {
 			// TODO: handle exception
 			Assert.fail("No Inserto"+ e.getMessage());
 		}
-	}*/
+	}
 }
