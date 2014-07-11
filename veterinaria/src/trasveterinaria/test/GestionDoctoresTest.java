@@ -60,10 +60,10 @@ public class GestionDoctoresTest {
 	//@Test
 	public void eliminarTest(){
 
-		Doctores cat= new Doctores();
+		//Doctores cat= new Doctores();
 		//cat.setDni(43564198);
 		int dni=43564198;
-		Doctores prod= new Doctores();				
+		// Doctores prod= new Doctores();				
 		GestionDoctores negocio=new GestionDoctores();
 		try {
 			negocio.eliminar(dni);
@@ -71,9 +71,7 @@ public class GestionDoctoresTest {
 		} catch (Exception e) {
 			// TODO: handle exception
 			Assert.fail("No inserto" + e.getMessage());
-		}
-						
-		
+		}		
 	}
 
 	@Test
