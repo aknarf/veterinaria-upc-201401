@@ -65,6 +65,70 @@ public class ClienteDAO extends BaseDAO{
 		//return vo;
 	}
 
+	public int elimina(int dni) throws DAOExcepcion {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		int eliminados =-1;
+		try {
+			String sql = "delete from cliente WHERE Dni=?";
+			conn =ConexionBD.obtenerConexion();
+			pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, dni);
+			int i= pstm.executeUpdate();
+			//eliminados = pstm.executeUpdate();
+			if (i!=1){
+				throw new SQLException("No se pudo eliminar");
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarStatement(pstm);
+			this.cerrarConexion(conn);
+		}
+		return eliminados;
+	}
+	
+	public Cliente  actualiza(Cliente vo) throws DAOExcepcion {
+		String query = "update Cliente set nombre=?,apePaterno=?,apeMaterno=?,correoelectronico=?,direccion=?,foto=?,celular=?,telefonofijo=?,ruc=? where dni=?";
+		Connection con = null;
+		PreparedStatement stmt = null;
+		FileInputStream fis = null;
+		int actualizado=-1;
+		try {
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			
+			stmt.setString(1, vo.getNombre());
+			stmt.setString(2, vo.getApePaterno());
+			stmt.setString(3, vo.getApeMaterno());
+			stmt.setString(4, vo.getCorreoelectronico());
+			stmt.setString(5, vo.getDireccion());
+			
+		    File file = new File("D:\\java.gif");
+		    fis = new FileInputStream(file);
+			stmt.setBinaryStream(6, fis, (int) file.length());
+			
+			stmt.setString(7, vo.getCelular());
+			stmt.setString(8, vo.getTelefonofijo());
+			stmt.setString(9, vo.getRuc());
+			stmt.setInt(10, vo.getDni());
+			
+			
+			 actualizado = stmt.executeUpdate();
+			if (actualizado != 1) {
+				throw new SQLException("No se pudo actualizar");
+			}
+		} catch (SQLException | FileNotFoundException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
+	}
+	
 	public Cliente obtener(int dni) throws DAOExcepcion {
 		Cliente vo = new Cliente();
 		Connection con = null;
