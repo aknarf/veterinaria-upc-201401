@@ -1,5 +1,6 @@
 package trasveterinaria.dao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,8 +13,6 @@ import trasveterinaria.modelo.Doctores;
 import trasveterinaria.util.ConexionBD;
 
 public class DoctoresDAO extends BaseDAO {
-	
-	
 	
 	public void  insertar (Doctores vo) throws DAOExcepcion {
 		String query = "insert into doctores (DniDoc,Nombre,ApePaterno,ApeMaterno,Email,Telefono,Tipo,Contraseña) values (?,?,?,?,?,?,?,?)";
@@ -36,8 +35,6 @@ public class DoctoresDAO extends BaseDAO {
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
 			}
-		
-
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
@@ -48,7 +45,7 @@ public class DoctoresDAO extends BaseDAO {
 		}
 	}
 
-		public int elimina(int id) throws DAOExcepcion {
+	public int eliminar(int id) throws DAOExcepcion {
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		int eliminados =-1;
@@ -71,7 +68,7 @@ public class DoctoresDAO extends BaseDAO {
 		return eliminados;
 	}
 		
-	public Doctores  actualiza(Doctores vo) throws DAOExcepcion {
+	public Doctores  actualizar(Doctores vo) throws DAOExcepcion {
 		String query = "update Doctores set Nombre=?,ApePaterno=?,ApeMaterno=?,Email=?,Telefono=?,Tipo=?,Contraseña=? where dniDoc=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -135,5 +132,36 @@ public class DoctoresDAO extends BaseDAO {
 		return c;
 	}
 
-
+	public Doctores buscar(int dni) throws DAOExcepcion {
+		Doctores vo = new Doctores();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			String query = "select dnidoc,nombre,apePaterno,apeMaterno,email,telefono,tipo,contraseña from doctores where dnidoc=?";
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setInt(1, dni);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				vo.setDni(rs.getInt(1));
+				vo.setNombre(rs.getString(2));
+				vo.setApePaterno(rs.getString(3));
+				vo.setApeMaterno(rs.getString(4));
+				vo.setEmail(rs.getString(5));
+				vo.setTelefono(rs.getString(6));
+				vo.setTipo(rs.getString(7));
+			    vo.setContraseña(rs.getString(8));
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
+	}
+	
 }

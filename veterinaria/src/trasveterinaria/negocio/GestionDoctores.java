@@ -1,7 +1,6 @@
 package trasveterinaria.negocio;
 
 import java.util.Collection;
-
 import trasveterinaria.dao.DoctoresDAO;
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Doctores;
@@ -15,14 +14,13 @@ public class GestionDoctores {
 	public int  eliminar(int vo) throws DAOExcepcion{
 		DoctoresDAO dao= new DoctoresDAO();
 		int variable;
-		 variable= dao.elimina(vo);
+		 variable= dao.eliminar(vo);
 		 return variable;
 	}
 	
 	public Doctores actualizar(String nombre,String apePaterno,String apeMaterno, String email,
 			String telefono, String tipo, String contraseña,int dni) throws DAOExcepcion {
 		DoctoresDAO dao = new DoctoresDAO();
-
 		Doctores vo = new Doctores();
 		
 		vo.setNombre(nombre);
@@ -34,8 +32,7 @@ public class GestionDoctores {
 		vo.setContraseña(contraseña);
 		vo.setDni(dni);
 		
-
-		return dao.actualiza(vo);
+		return dao.actualizar(vo);
 	}
 
 	public Collection<Doctores> listar() throws DAOExcepcion {
@@ -43,6 +40,9 @@ public class GestionDoctores {
 		return dao.listar();
 	}
 	
-	
+	public Doctores buscar(int dni) throws DAOExcepcion {
+		DoctoresDAO dao = new DoctoresDAO();
+		return dao.buscar(dni);	
+	}
 
 }
