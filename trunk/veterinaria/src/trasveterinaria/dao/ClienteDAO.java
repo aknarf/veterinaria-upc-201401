@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Cliente;
@@ -162,5 +164,52 @@ public class ClienteDAO extends BaseDAO{
 			this.cerrarConexion(con);
 		}
 		return vo;
+	}
+	
+	public Collection<Cliente> listar() throws DAOExcepcion {
+		Collection<Cliente> c = new ArrayList<Cliente>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+
+		try {
+			con = ConexionBD.obtenerConexion();
+			String query = "select Dni,Nombre,ApePaterno,ApeMaterno,CorreoElectronico,Direccion,Foto,Celular,TelefonoFijo,Ruc  from cliente order by Dni";
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Cliente vo = new Cliente();
+				vo.setDni(rs.getInt("Dni"));
+				vo.setNombre(rs.getString("Nombre"));
+				vo.setApePaterno(rs.getString("ApePaterno"));
+				vo.setApeMaterno(rs.getString("ApeMaterno"));
+				vo.setCorreoelectronico(rs.getString("CorreoElectronico"));
+				vo.setDireccion(rs.getString("Direccion"));
+
+				File image = new File("D:\\java.gif");
+			    FileOutputStream fos = new FileOutputStream(image);
+			      byte[] buffer = new byte[1];
+			      InputStream is = rs.getBinaryStream(7);
+			      while (is.read(buffer) > 0) {
+			        fos.write(buffer);
+			      }
+			      fos.close();
+			    
+			    vo.setCelular(rs.getString("Celular"));
+			    vo.setTelefonofijo(rs.getString("TelefonoFijo"));
+			    vo.setRuc(rs.getString("Ruc"));		     
+				
+				c.add(vo);
+			}
+
+		} catch (SQLException | IOException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return c;
 	}
 }

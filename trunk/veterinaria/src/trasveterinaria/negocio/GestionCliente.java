@@ -1,10 +1,12 @@
 package trasveterinaria.negocio;
 
 import java.io.File;
+import java.util.Collection;
 
 import trasveterinaria.dao.ClienteDAO;
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Cliente;
+
 
 
 public class GestionCliente {
@@ -47,7 +49,11 @@ public class GestionCliente {
 		System.out.println("CLIENTE");
 		System.out.println("--------------------------------------------------------------------------");
 		System.out.println(dao.buscar(dni).getNombre()+"\t "+dao.buscar(dni).getApePaterno()+"\t"+dao.buscar(dni).getApeMaterno()+"\t"+dao.buscar(dni).getCorreoelectronico()+"\t"+dao.buscar(dni).getDireccion()+"\t"+dao.buscar(dni).getFoto()+"\t"+dao.buscar(dni).getCelular()+"\t"+dao.buscar(dni).getTelefonofijo()+"\t"+dao.buscar(dni).getRuc()+"\n");
-		return dao.buscar(dni);
-		
+		return dao.buscar(dni);	
+	}
+	
+	public Collection<Cliente> listar() throws DAOExcepcion {
+		ClienteDAO dao = new ClienteDAO();
+		return dao.listar();
 	}
 }

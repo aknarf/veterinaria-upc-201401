@@ -1,11 +1,14 @@
 package trasveterinaria.test;
 
+import java.util.Collection;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Cliente;
 import trasveterinaria.negocio.GestionCliente;
+
 
 
 public class GestionClienteTest {
@@ -15,7 +18,7 @@ public class GestionClienteTest {
 
 		Cliente prod= new Cliente();
 		
-		prod.setDni(43772652);
+		prod.setDni(43772653);
 		prod.setNombre("Juanito");
 		prod.setApePaterno("Martines");
 		prod.setApeMaterno("Rios");
@@ -65,7 +68,7 @@ public class GestionClienteTest {
 			}
 	}
 
-	@Test
+	//@Test
 	public void buscarTest() {
 		GestionCliente negocio= new GestionCliente();
 			try {
@@ -73,6 +76,26 @@ public class GestionClienteTest {
 				} catch (DAOExcepcion e) {
 				Assert.fail("No se encontro cliente" + e.getMessage());
 			}
+	}
+	
+	@Test
+	public void listarTest() {
+
+		GestionCliente negocio = new GestionCliente();
+		try {
+			Collection<Cliente> listado = negocio.listar();
+
+			System.out.println("Total de registros: "+ listado.size());
+			System.out.println("LISTADO DE CLIENTE");
+			System.out.println("--------------------------------------------------------------------------");
+			for (Cliente categoria : listado) {
+				System.out.println(categoria.getDni()+"\t "+categoria.getNombre()+"\t "+categoria.getApePaterno()+"\t"+categoria.getApeMaterno()+"\t"+categoria.getCorreoelectronico()+"\t"+categoria.getDireccion()+"\t"+categoria.getFoto()+"\t"+categoria.getCelular()+"\t"+categoria.getTelefonofijo()+"\t"+categoria.getRuc()+"\n");
+			}
+			Assert.assertTrue(listado.size() > 0);			
+			
+		} catch (DAOExcepcion e) {
+			Assert.fail("Falló el listado: " + e.getMessage());
+		}
 	}
 
 }
