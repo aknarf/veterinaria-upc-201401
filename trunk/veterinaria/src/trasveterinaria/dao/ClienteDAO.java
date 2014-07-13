@@ -42,15 +42,10 @@ public class ClienteDAO extends BaseDAO{
 			stmt.setString(9, vo.getTelefonofijo());
 			stmt.setString(10, vo.getRuc());
 
-			
-			//stmt.setString(2, vo.getNombre());
-			
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
 			}
-		
-
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
 			throw new DAOExcepcion(e.getMessage());
@@ -62,10 +57,9 @@ public class ClienteDAO extends BaseDAO{
 			this.cerrarStatement(stmt);
 			this.cerrarConexion(con);
 		}
-		//return vo;
 	}
 
-	public int elimina(int dni) throws DAOExcepcion {
+	public int eliminar(int dni) throws DAOExcepcion {
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		int eliminados =-1;
@@ -75,7 +69,6 @@ public class ClienteDAO extends BaseDAO{
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, dni);
 			int i= pstm.executeUpdate();
-			//eliminados = pstm.executeUpdate();
 			if (i!=1){
 				throw new SQLException("No se pudo eliminar");
 			}
@@ -89,7 +82,7 @@ public class ClienteDAO extends BaseDAO{
 		return eliminados;
 	}
 	
-	public Cliente  actualiza(Cliente vo) throws DAOExcepcion {
+	public Cliente  actualizar(Cliente vo) throws DAOExcepcion {
 		String query = "update Cliente set nombre=?,apePaterno=?,apeMaterno=?,correoelectronico=?,direccion=?,foto=?,celular=?,telefonofijo=?,ruc=? where dni=?";
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -114,7 +107,6 @@ public class ClienteDAO extends BaseDAO{
 			stmt.setString(9, vo.getRuc());
 			stmt.setInt(10, vo.getDni());
 			
-			
 			 actualizado = stmt.executeUpdate();
 			if (actualizado != 1) {
 				throw new SQLException("No se pudo actualizar");
@@ -129,7 +121,7 @@ public class ClienteDAO extends BaseDAO{
 		return vo;
 	}
 	
-	public Cliente obtener(int dni) throws DAOExcepcion {
+	public Cliente buscar(int dni) throws DAOExcepcion {
 		Cliente vo = new Cliente();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -157,7 +149,9 @@ public class ClienteDAO extends BaseDAO{
 			      }
 			      fos.close();
 			      
-			    
+			      vo.setCelular(rs.getString(8));
+			      vo.setTelefonofijo(rs.getString(9));
+			      vo.setRuc(rs.getString(10));
 			}
 		} catch (SQLException | IOException e) {
 			System.err.println(e.getMessage());
