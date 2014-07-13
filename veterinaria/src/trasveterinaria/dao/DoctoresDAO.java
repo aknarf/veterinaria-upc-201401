@@ -32,8 +32,6 @@ public class DoctoresDAO extends BaseDAO {
 			stmt.setString(7, vo.getTipo());
 			stmt.setString(8, vo.getContraseña());
 			
-			//stmt.setString(2, vo.getNombre());
-			
 			int i = stmt.executeUpdate();
 			if (i != 1) {
 				throw new SQLException("No se pudo insertar");
@@ -48,10 +46,8 @@ public class DoctoresDAO extends BaseDAO {
 			this.cerrarStatement(stmt);
 			this.cerrarConexion(con);
 		}
-		//return vo;
 	}
 
-	
 		public int elimina(int id) throws DAOExcepcion {
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -62,7 +58,6 @@ public class DoctoresDAO extends BaseDAO {
 			pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, id);
 			int i= pstm.executeUpdate();
-			//eliminados = pstm.executeUpdate();
 			if (i!=1){
 				throw new SQLException("No se pudo eliminar");
 			}
@@ -76,8 +71,6 @@ public class DoctoresDAO extends BaseDAO {
 		return eliminados;
 	}
 		
-
-
 	public Doctores  actualiza(Doctores vo) throws DAOExcepcion {
 		String query = "update Doctores set Nombre=?,ApePaterno=?,ApeMaterno=?,Email=?,Telefono=?,Tipo=?,Contraseña=? where dniDoc=?";
 		Connection con = null;

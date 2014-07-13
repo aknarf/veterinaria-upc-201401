@@ -16,11 +16,9 @@ public class GestionDoctoresTest {
 	
 	//@Test
 	public void insertar(){
-		//Doctores cat= new Doctores();
-		//cat.setDni(43564198);
-		
+
 		Doctores prod= new Doctores();
-		//prod.setDni(cat);
+		
 		prod.setDni(43564199);
 		prod.setNombre("Carmen");
 		prod.setApePaterno("Casas");
@@ -60,10 +58,7 @@ public class GestionDoctoresTest {
 	//@Test
 	public void eliminarTest(){
 
-		//Doctores cat= new Doctores();
-		//cat.setDni(43564198);
-		int dni=43564198;
-		// Doctores prod= new Doctores();				
+		int dni=43564198;			
 		GestionDoctores negocio=new GestionDoctores();
 		try {
 			negocio.eliminar(dni);
@@ -78,7 +73,6 @@ public class GestionDoctoresTest {
 	public void listarTest() {
 
 		GestionDoctores negocio = new GestionDoctores();
-//DniDoc,Nombre,ApePaterno,ApeMaterno,Tipo 
 		try {
 			Collection<Doctores> listado = negocio.listar();
 
@@ -88,10 +82,6 @@ public class GestionDoctoresTest {
 				System.out.println("            LISTADO DE DOCTORES");
 				System.out.println("--------------------------------------------------------------------------");
 				System.out.println(categoria.getDni()+"\t "+categoria.getNombre()+"\t"+categoria.getApePaterno()+"\t"+categoria.getApeMaterno()+"\t"+categoria.getTipo()+"\n");
-				/*System.out.println(categoria.getNombre());
-				System.out.println(categoria.getApePaterno());
-				System.out.println(categoria.getApeMaterno());
-				System.out.println(categoria.getTipo()); */
 			}
 			
 			Assert.assertTrue(listado.size() > 0);			
