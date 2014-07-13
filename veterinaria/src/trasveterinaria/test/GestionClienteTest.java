@@ -18,7 +18,7 @@ public class GestionClienteTest {
 
 		Cliente prod= new Cliente();
 		
-		prod.setDni(43772653);
+		prod.setDni(43772655);
 		prod.setNombre("Juanito");
 		prod.setApePaterno("Martines");
 		prod.setApeMaterno("Rios");
@@ -32,8 +32,14 @@ public class GestionClienteTest {
 		GestionCliente negocio= new GestionCliente();
 		
 		try {
-			negocio.insertar(prod);
-			System.out.println("se inserto correctamente");
+			Cliente cli = negocio.buscar(prod.getDni());
+			if(cli.getNombre()==null){
+				negocio.insertar(prod);
+				System.out.println("se inserto correctamente");
+			}
+			else{
+				System.out.println("DNI Repetido");
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 			Assert.fail("No Inserto"+ e.getMessage());
@@ -68,17 +74,26 @@ public class GestionClienteTest {
 			}
 	}
 
-	//@Test
+	@Test
 	public void buscarTest() {
 		GestionCliente negocio= new GestionCliente();
 			try {
-				negocio.buscar(43772652);
-				} catch (DAOExcepcion e) {
+				Cliente dao=negocio.buscar(43772652);
+				if(dao.getNombre()==null){
+					System.out.println("No se encontro cliente");
+				}
+				else{
+					System.out.println("Cliente encontrado \n");
+					System.out.println("CLIENTE");
+					System.out.println("--------------------------------------------------------------------------");
+					System.out.println(dao.getNombre()+"\t "+dao.getApePaterno()+"\t"+dao.getApeMaterno()+"\t"+dao.getCorreoelectronico()+"\t"+dao.getDireccion()+"\t"+dao.getFoto()+"\t"+dao.getCelular()+"\t"+dao.getTelefonofijo()+"\t"+dao.getRuc()+"\n");
+				}
+			} catch (DAOExcepcion e) {
 				Assert.fail("No se encontro cliente" + e.getMessage());
 			}
 	}
 	
-	@Test
+	//@Test
 	public void listarTest() {
 
 		GestionCliente negocio = new GestionCliente();
