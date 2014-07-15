@@ -13,7 +13,7 @@ import trasveterinaria.util.ConexionBD;
 public class CitasDAO extends BaseDAO{
 	
 	public void  insertar (Citas vo) throws DAOExcepcion {
-		String query = "insert into cita " +
+		String query = "insert into citas " +
 				"(fecha,Estado,cantidad,NotasMedicas,ImagenMedica,Tipo,idTarea,idMascota,DniDoc)" +				
 				"values (?,?,?,?,?,?,?,?,?)";
 		Connection con = null;
@@ -51,6 +51,39 @@ public class CitasDAO extends BaseDAO{
 		//return vo;
 	}
 	
+	public Citas buscar(int idcita) throws DAOExcepcion {
+		Citas vo = new Citas();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			String query = "select NroCita from citas where nrocita=? ";
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setInt(1, idcita);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				vo.setNroCita(rs.getInt(1));
+				
+			/*	vo.setDni(rs.getInt(1));
+				vo.setNombre(rs.getString(2));
+				vo.setApePaterno(rs.getString(3));
+				vo.setApeMaterno(rs.getString(4));
+				vo.setEmail(rs.getString(5));
+				vo.setTelefono(rs.getString(6));
+				vo.setTipo(rs.getString(7));
+			    vo.setContraseña(rs.getString(8));*/
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
+	}
 	
 	
 
