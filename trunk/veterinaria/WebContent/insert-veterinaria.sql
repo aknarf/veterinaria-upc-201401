@@ -87,34 +87,7 @@ insert into cliente values (44514798,'karla ','Chicata','cabanillas','kchicata@g
 insert into cliente values (44694398,'Maria Ines ','Fernandes','Rios','mFernandes@gmail.com','av los casas 546- comas','F','945168883','3356672','0');
 insert into cliente values (44541798,'Bruno','Espinoza','sandoval','bespinoza@gmail.com','av emancipacion 69 -surco','F','945168883','3356672','0');
 
-insert into mascota values (1,'Aquiles','M','DEA1','SI',71,'ALTA',7,'2013-07-21',null,44544398,17);					
-insert into mascota values (2,'Bobby','M','DEA1','SI',43,'MEDIA',3,'2009-08-10',null,44565398,27);					
-insert into mascota values (3,'Bambi','M','DEA1','NO',80,'BAJA',2,'2012-03-13',null,44565398,31);					
-insert into mascota values (4,'Adán','M','DEA1','NO',46,'ALTA',7,'2007-10-29',null,44565398,42);					
-insert into mascota values (5,'Goofy','M','DEA1','SI',68,'ALTA',4,'2007-09-12',null,44514798,32);					
-insert into mascota values (6,'Chester','M','DEA1','NO',80,'BAJA',6,'2011-03-30',null,44544398,41);					
-insert into mascota values (7,'Tilú','M','DEA2','SI',83,'BAJA',7,'2008-09-09',null,43844398,21);					
-insert into mascota values (8,'Neiron','M','DEA3','SI',40,'BAJA',3,'2009-05-20',null,44544398,42);					
-insert into mascota values (9,'Yako','M','DEA2','NO',68,'MEDIA',7,'2005-07-23',null,44694398,21);					
-insert into mascota values (10,'Peggy','F','DEA4','SI',45,'ALTA',5,'2007-09-16',null,44541798,11);					
-insert into mascota values (11,'Luah','F','DEA7','NO',84,'MEDIA',3,'2006-11-08',null,44543598,27);					
-insert into mascota values (12,'Boni','F','DEA1','NO',50,'MEDIA',5,'2008-01-17',null,44543598,19);					
-insert into mascota values (13,'Laina','F','DEA1','NO',74,'MEDIA',3,'2014-04-23',null,43844398,21);					
-insert into mascota values (14,'Abba','F','DEA1','SI',73,'BAJA',4,'2011-11-06',null,44514798,13);					
-insert into mascota values (15,'Leika','F','DEA1','SI',62,'BAJA',7,'2010-07-03',null,44541798,15);					
-insert into mascota values (16,'Tom','M','A','NO',28,'ALTA',3,'2005-05-19',null,44544798,57);					
-insert into mascota values (17,'Lalo','M','A','NO',29,'MEDIA',2,'2007-06-13',null,44544798,58);					
-insert into mascota values (18,'Poncho','M','A','SI',25,'BAJA',5,'2006-04-30',null,44994398,62);					
-insert into mascota values (19,'Ayka','M','AB','SI',28,'BAJA',5,'2013-04-27',null,44546598,60);					
-insert into mascota values (20,'Jana','F','A','SI',27,'ALTA',6,'2011-01-26',null,44546598,50);					
-insert into mascota values (21,'Wika','F','A','NO',35,'MEDIA',2,'2010-05-10',null,44544798,49);					
-insert into mascota values (22,'Grecia','F','A','NO',27,'MEDIA',4,'2010-08-16',null,44994398,60);					
-insert into mascota values (23,'Marsha','F','B','SI',20,'MEDIA',3,'2010-02-25',null,43844398,54);					
-insert into mascota values (24,'Cucho','M','No aplica','SI',16,'ALTA',1,'2014-02-21',null,44994398,70);					
-insert into mascota values (25,'Shinko','M','No aplica','NO',20,'MEDIA',1,'2005-01-14',null,44994398,70);					
-insert into mascota values (26,'Jack','M','No aplica','NO',12,'MEDIA',1,'2009-05-09',null,44474398,66);					
-insert into mascota values (27,'Aurora','F','No aplica','SI',16,'BAJA',1,'2011-05-08',null,44474398,67);					
-insert into mascota values (28,'Paola','F','No aplica','SI',19,'BAJA',1,'2010-05-02',null,44543598,67);		
+	
 insert into tarea values('21','Analisis Clinico','10');
 insert into tarea values('22','Radiologia','20');
 insert into tarea values('23','Ecografias','30');
@@ -130,6 +103,55 @@ insert into tarea values('32','Programas Senior','20');
 insert into tarea values('33','Incineracion y recuperacion de Cenizas','30');
 insert into tarea values('34','Peluqueria Canina y felina','30');
 insert into tarea values('35','Tienda Especializada','40');
+
+
+
+insert into   mascota values ('1','ADA','HEMBRA','A+','0','PEQUEÑO','ALTA','10','20131005','ATOPIA','44994398','1');
+insert into   mascota values ('2','ADI','HEMBRA','A+','0','GRANDE ','BAJA','9','20131005','ATOPIA','44694398','2');
+insert into   mascota values ('3','AFRICA','HEMBRA','A+','0','MEDIANO','ALTA','5','20131005','ATOPIA','44565398','3');
+insert into   mascota values ('4','AFRIKA','HEMBRA','A+','0','PEQUEÑO','BAJA','15','20131005','ATOPIA','44546598','1');
+insert into   mascota values ('5','AIDA','HEMBRA','A+','0','GRANDE ','ALTA','10','20131005','ATOPIA','44544798','2');
+insert into   mascota values ('6','AIKA','HEMBRA','A+','0','MEDIANO','BAJA','9','20131005','ATOPIA','44544398','3');
+insert into   mascota values ('7','AILA','HEMBRA','A+','0','PEQUEÑO','ALTA','5','20131005','ATOPIA','44543598','1');
+insert into   mascota values ('8','AISA','HEMBRA','A+','0','GRANDE ','BAJA','15','20131005','ATOPIA','44541798','1');
+insert into   mascota values ('9','AISHA','HEMBRA','A+','0','MEDIANO','ALTA','10','20131005','ATOPIA','44514798','1');
+insert into   mascota values ('10','AISS','HEMBRA','A+','0','PEQUEÑO','BAJA','9','20131005','ATOPIA','44474398','1');
+insert into   mascota values ('11','AITZ','HEMBRA','A+','0','GRANDE ','ALTA','5','20131005','ATOPIA','43844398','1');
+insert into   mascota values ('12','AKIA','HEMBRA','A+','0','MEDIANO','BAJA','15','20131005','ATOPIA','44994398','1');
+insert into   mascota values ('13','AKIRA','HEMBRA','A+','0','PEQUEÑO','ALTA','10','20131005','ATOPIA','44694398','2');
+insert into   mascota values ('14','ALANA','HEMBRA','A+','0','GRANDE ','BAJA','9','20131005','ATOPIA','44565398','3');
+insert into   mascota values ('15','ALBA','HEMBRA','A+','0','MEDIANO','ALTA','5','20131005','ATOPIA','44546598','2');
+insert into   mascota values ('16','ALDAN','HEMBRA','A+','0','PEQUEÑO','BAJA','15','20131005','ATOPIA','44544798','3');
+insert into   mascota values ('17','ALDAR','HEMBRA','A+','0','GRANDE ','ALTA','10','20131005','ATOPIA','44544398','2');
+insert into   mascota values ('18','ALFA','HEMBRA','A+','0','MEDIANO','BAJA','9','20131005','ATOPIA','44543598','3');
+insert into   mascota values ('19','ALI','HEMBRA','A+','0','PEQUEÑO','ALTA','5','20131005','ATOPIA','44541798','1');
+insert into   mascota values ('20','AMBRA','HEMBRA','A+','0','GRANDE ','BAJA','15','20131005','ATOPIA','44514798','1');
+insert into   mascota values ('21','ANAIS','HEMBRA','A+','0','MEDIANO','ALTA','10','20131005','ATOPIA','44474398','1');
+insert into   mascota values ('22','ANI','HEMBRA','A+','0','PEQUEÑO','BAJA','9','20131005','ATOPIA','43844398','1');
+insert into   mascota values ('23','ANKA','HEMBRA','A+','0','GRANDE ','ALTA','5','20131005','ATOPIA','44514798','1');
+insert into   mascota values ('24','ANNI','HEMBRA','A+','0','MEDIANO','BAJA','15','20131005','ATOPIA','44565398','1');
+insert into   mascota values ('25','CACHO','MACHO','A+','0','PEQUEÑO','ALTA','15','20131005','ATOPIA','44994398','1');
+insert into   mascota values ('26','CAIN','MACHO','A+','0','GRANDE ','BAJA','10','20131005','ATOPIA','44694398','2');
+insert into   mascota values ('27','CAN','MACHO','A+','0','MEDIANO','ALTA','9','20131005','ATOPIA','44565398','3');
+insert into   mascota values ('28','CANELO','MACHO','A+','0','PEQUEÑO','BAJA','5','20131005','ATOPIA','44546598','1');
+insert into   mascota values ('29','CANIJO','MACHO','A+','0','GRANDE ','ALTA','15','20131005','ATOPIA','44544798','2');
+insert into   mascota values ('30','CANITO','MACHO','A+','0','MEDIANO','BAJA','10','20131005','ATOPIA','44544398','3');
+insert into   mascota values ('31','CANUTO','MACHO','A+','0','PEQUEÑO','ALTA','9','20131005','ATOPIA','44543598','1');
+insert into   mascota values ('32','CAPI','MACHO','A+','0','GRANDE ','BAJA','15','20131005','ATOPIA','44541798','1');
+insert into   mascota values ('33','CAPITA','MACHO','A+','0','MEDIANO','ALTA','10','20131005','ATOPIA','44514798','1');
+insert into   mascota values ('34','CAPONE','MACHO','A+','0','PEQUEÑO','BAJA','9','20131005','ATOPIA','44474398','1');
+insert into   mascota values ('35','CAPRICHO','MACHO','A+','0','GRANDE ','ALTA','5','20131005','ATOPIA','43844398','1');
+insert into   mascota values ('36','CARLA','MACHO','A+','0','MEDIANO','BAJA','15','20131005','ATOPIA','44994398','1');
+insert into   mascota values ('37','CARLO','MACHO','A+','0','PEQUEÑO','ALTA','10','20131005','ATOPIA','44694398','2');
+insert into   mascota values ('38','CASPER','MACHO','A+','0','GRANDE ','BAJA','9','20131005','ATOPIA','44565398','3');
+insert into   mascota values ('39','CHACHO','MACHO','A+','0','MEDIANO','ALTA','15','20131005','ATOPIA','44546598','2');
+insert into   mascota values ('40','CHAMAN','MACHO','A+','0','PEQUEÑO','BAJA','10','20131005','ATOPIA','44544798','3');
+insert into   mascota values ('41','CHATO','MACHO','A+','0','GRANDE ','ALTA','9','20131005','ATOPIA','44544398','2');
+insert into   mascota values ('42','CHICO','MACHO','A+','0','MEDIANO','BAJA','5','20131005','ATOPIA','44543598','3');
+insert into   mascota values ('43','CHINO','MACHO','A+','0','PEQUEÑO','ALTA','15','20131005','ATOPIA','44541798','1');
+insert into   mascota values ('44','CHESTE','MACHO','A+','0','GRANDE ','BAJA','10','20131005','ATOPIA','44514798','1');
+insert into   mascota values ('45','CHEVEL','MACHO','A+','0','MEDIANO','ALTA','9','20131005','ATOPIA','44474398','1');
+insert into   mascota values ('46','MACHIN','MACHO','A+','0','PEQUEÑO','BAJA','9','20131005','ATOPIA','43844398','1');
 
 
 
