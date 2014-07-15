@@ -88,4 +88,21 @@ insert into cliente values (44694398,'Maria Ines ','Fernandes','Rios','mFernande
 insert into cliente values (44541798,'Bruno','Espinoza','sandoval','bespinoza@gmail.com','av emancipacion 69 -surco','F','945168883','3356672','0');
 
 
+insert into tarea values('21','Analisis Clinico','10');
+insert into tarea values('22','Radiologia','20');
+insert into tarea values('23','Ecografias','30');
+insert into tarea values('24','Cirugia','40');
+insert into tarea values('25','Hospitalizacion','50');
+insert into tarea values('26','Salud Dental','60');
+insert into tarea values('27','Programas Antiparasitos','70');
+insert into tarea values('28','Vacunaciones','80');
+insert into tarea values('29','Informe Tecnico-sanitario','90');
+insert into tarea values('30','Consulta de Especialidades','10');
+insert into tarea values('31','Atencion domiciliaria','30');
+insert into tarea values('32','Programas Senior','20');
+insert into tarea values('33','Incineracion y recuperacion de Cenizas','30');
+insert into tarea values('34','Peluqueria Canina y felina','30');
+insert into tarea values('35','Tienda Especializada','40');
+
+
 
