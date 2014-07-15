@@ -43,21 +43,21 @@ CREATE TABLE IF NOT EXISTS `Veterinaria_peru`.`Mascota` (
   `Tamaño` VARCHAR(45) NULL DEFAULT NULL,
   `Actividad` VARCHAR(45) NULL DEFAULT NULL,
   `Peso` INT(11) NULL DEFAULT NULL,
-  `FechaNacimiento` DATETIME NULL DEFAULT NULL,
+  `FechaNacimiento` DATE NULL DEFAULT NULL,
   `Alergia` VARCHAR(45) NULL DEFAULT NULL,
   `Cliente_Dni` INT(11) NOT NULL,
-  `Especie_idEspecie` INT(11) NOT NULL,
+  `Raza_idRaza` INT(11) NOT NULL,
   PRIMARY KEY (`idMascota`),
   INDEX `fk_Mascota_Cliente1_idx` (`Cliente_Dni` ASC),
-  INDEX `fk_Mascota_Especie1_idx` (`Especie_idEspecie` ASC),
+  INDEX `fk_Mascota_Especie1_idx` (`Raza_idRaza` ASC),
   CONSTRAINT `fk_Mascota_Cliente1`
     FOREIGN KEY (`Cliente_Dni`)
     REFERENCES `Veterinaria_peru`.`Cliente` (`Dni`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Mascota_Especie1`
-    FOREIGN KEY (`Especie_idEspecie`)
-    REFERENCES `Veterinaria_peru`.`Especie` (`idEspecie`)
+  CONSTRAINT `fk_Mascota_Raza1`
+    FOREIGN KEY (`Raza_idRaza`)
+    REFERENCES `Veterinaria_peru`.`raza` (`idRaza`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
