@@ -20,9 +20,10 @@ public class GestionCitas {
 		CitasDAO dao = new CitasDAO();
 		return dao.buscar(idCita);	
 	}
-	public Collection<Citas> listarVacunas() throws DAOExcepcion {
+
+	public Collection<Citas> listarVacuna() throws DAOExcepcion {
 		CitasDAO dao = new CitasDAO();
-		return dao.listarVacunas();
+		return dao.listar();
 	}
 
 

@@ -30,10 +30,10 @@ public class CitasDAO extends BaseDAO{
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setString(1, vo.getFeha());
+			stmt.setString(1, vo.getFecha());
 			stmt.setString(2, vo.getEstado());
 			stmt.setString(3, vo.getCantidad());
-			stmt.setString(4, vo.getNotasMedicas());
+			stmt.setString(4, vo.getNotas());
 			stmt.setString(5, vo.getImagen());
 			stmt.setString(6, vo.getTipo());
 			stmt.setInt(7, vo.getIdtarea());
@@ -71,7 +71,7 @@ public class CitasDAO extends BaseDAO{
 			stmt.setInt(1, idcita);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				vo.setNroCita(rs.getInt(1));
+				vo.setIdcita(rs.getInt(1));
 				
 			}
 		} catch (SQLException e) {
@@ -86,7 +86,7 @@ public class CitasDAO extends BaseDAO{
 	}
 	
 	
-	public Collection<Citas> listarVacunas() throws DAOExcepcion {
+	/*public Collection<Citas> listarVacunas() throws DAOExcepcion {
 		Collection<Citas> c = new ArrayList<Citas>();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -94,24 +94,50 @@ public class CitasDAO extends BaseDAO{
 
 		try {
 			con = ConexionBD.obtenerConexion();
-			String query = "select NroCita ,Fecha ,Estado,b.DescripcionTarea as tarea, a.Tipo as Tipo,  " +
-					"c.nombre as Mascota , d.Nombre as NombreCliente ,d.apepaterno as ApePatCliente,d.ApeMaterno as ApeMaterCliente   from citas a inner join tarea b on a.idTarea=b.idTarea" +
-					" inner join mascota c on a.idMascota=c.idMascota  inner join cliente d on c.Cliente_Dni=d.Dni where a.idTarea='28' order by NroCita asc";
+			String query = "select Fecha,estado,NotasMedicas,Tipo from citas where idTarea=28";
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Citas vo = new Citas();
+			   vo.setFeha("Fecha");
+			   vo.setEstado("Estado");
+			   vo.setNotasMedicas("NotasMedicas");
+			   vo.setTipo("Tipo");
+			   
+				
 			
-				vo.setIdcita("NroCita");
-				vo.setFeha("Fecha");
-				vo.setEstado(rs.getString("Estado"));
-				vo.setDescTarea("tarea");
-				vo.setTipo("Tipo");
-				vo.setNombreMascota("Mascota");
-				vo.setNombCliente("NombreCliente");
-				vo.setApePatCliente("ApePatCliente");
-				vo.setApeMatCliente("ApeMaterCliente");
 				c.add(vo);
+			}
+
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return c;
+	}*/
+	
+	public Collection<Citas> listar() throws DAOExcepcion {
+		Collection<Citas> c = new ArrayList<Citas>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConexionBD.obtenerConexion();
+			String query = "select Fecha,estado,NotasMedicas,Tipo from citas where idTarea='28'";
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Citas ci = new Citas();
+				ci.setFecha(rs.getString("Fecha"));
+				ci.setEstado(rs.getString("estado"));
+				ci.setNotas(rs.getString("NotasMedicas"));
+				ci.setTipo(rs.getString("Tipo"));
+				
+				c.add(ci);
 			}
 
 		} catch (SQLException e) {
