@@ -122,7 +122,8 @@ DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_swedish_ci;
 
 CREATE TABLE IF NOT EXISTS `Veterinaria_peru`.`Comprobantes` (
-  `NroComprobante` INT(11) NULL DEFAULT NULL,
+  `NroComprobante` INT(11) NOT NULL AUTO_INCREMENT,
+  `Serie` VARCHAR(45) NULL DEFAULT NULL,
   `Correlativo` VARCHAR(45) NULL DEFAULT NULL,
   `Tipo` VARCHAR(45) NULL DEFAULT NULL,
   `direccion` VARCHAR(45) NULL DEFAULT NULL,

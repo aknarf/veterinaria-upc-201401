@@ -15,8 +15,8 @@ public class ComprobantesDAO  extends BaseDAO {
 
 	public void  insertar (Comprobantes vo) throws DAOExcepcion {
 		String query = "insert into comprobantes " +
-				"(NroComprobante,Correlativo,Tipo,direccion,fechaRegistro,Citas_nroCita)" +				
-				"values (?,?,?,?,?,?)";
+				"(NroComprobante,serie,Correlativo,Tipo,direccion,fechaRegistro,Citas_nroCita)" +				
+				"values (?,?,?,?,?,?,?)";
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -24,11 +24,12 @@ public class ComprobantesDAO  extends BaseDAO {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setInt(1, vo.getNroComprobante());
-			stmt.setString(2, vo.getCorrelativo());
-			stmt.setString(3, vo.getTipo());
-			stmt.setString(4, vo.getDireccion());
-			stmt.setString(5, vo.getFechaRegistro());
-			stmt.setInt(6, vo.getNroCita());
+			stmt.setString(2, vo.getSerie());
+			stmt.setString(3, vo.getCorrelativo());
+			stmt.setString(4, vo.getTipo());
+			stmt.setString(5, vo.getDireccion());
+			stmt.setString(6, vo.getFechaRegistro());
+			stmt.setInt(7, vo.getNroCita());
 			
 			
 			//stmt.setString(2, vo.getNombre());
