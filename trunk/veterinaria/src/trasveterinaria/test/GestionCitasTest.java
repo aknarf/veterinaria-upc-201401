@@ -21,7 +21,7 @@ public class GestionCitasTest {
 		ct.setTipo("EMERGENCIA");
 		ct.setIdtarea(21);
 		ct.setIdmascota(11);
-		ct.setDnidoc(44543598);
+		ct.setDnidoc(43532198);
 		
 	
 		
