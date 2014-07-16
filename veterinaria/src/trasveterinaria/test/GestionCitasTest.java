@@ -40,28 +40,33 @@ public class GestionCitasTest {
 		}
 	}
 	
-	
+		
 	//@Test
-/*	public void listarVacunasTest() {
+	public void listarVacunasTest() {
 		GestionCitas negocio = new GestionCitas();
 		try {
-			Collection<Citas> listado = negocio.listarVacun();
+			Collection<Citas> listado = negocio.listarVacuna();
 			System.out.println("Total de registros: "+ listado.size());
+			System.out.println("                            LISTADO DE VACUNACIONES");
+			System.out.println("                                                                                                           ");
+			System.out.println("FECHA DE REGISTRO"+"\t"+"ESTADO DE LA CITA"+"\t"+"NOTAS MEDICAS"+"\t\t"+"TIPO DE SERVICIO"+"\t"+"MASCOTA"+"\t"+"DNI CLIENTE"+"\t"+"CLIENTE");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
 			for (Citas categoria : listado) {
-				System.out.println("            LISTADO DE DOCTORES");
-				System.out.println("--------------------------------------------------------------------------");
-				System.out.println(categoria.getFeha()+"\t"+categoria.getEstado()+"\t"+categoria.getTipo());
+				
+				System.out.println(categoria.getFecha()+"\t "+categoria.getEstado()+
+						"\t"+categoria.getNotas()+"\t"+ categoria.getDescripcionTarea()+"              "+
+						categoria.getNomMascota()+"\t"+categoria.getDniCliente()+"\t"+categoria.getNomCliente()+" "+categoria.getApePatCliente());
 			}
 			Assert.assertTrue(listado.size() > 0);			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló el listado: " + e.getMessage());
 		}
-	}*/
+	}
 	@Test
-	public void listarTest() {
+	public void listarTareasTest() {
 		GestionCitas negocio = new GestionCitas();
 		try {
-			Collection<Citas> listado = negocio.listarVacuna();
+			Collection<Citas> listado = negocio.listarTarea();
 			System.out.println("Total de registros: "+ listado.size());
 			System.out.println("                            LISTADO DE VACUNACIONES");
 			System.out.println("                                                                                                           ");
@@ -78,6 +83,8 @@ public class GestionCitasTest {
 			Assert.fail("Falló el listado: " + e.getMessage());
 		}
 	}
+	
+	
 	
 	
 	

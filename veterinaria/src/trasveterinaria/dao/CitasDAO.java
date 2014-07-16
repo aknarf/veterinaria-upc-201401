@@ -120,7 +120,7 @@ public class CitasDAO extends BaseDAO{
 		return c;
 	}*/
 	
-	public Collection<Citas> listar() throws DAOExcepcion {
+	public Collection<Citas> listarVacunas() throws DAOExcepcion {
 		Collection<Citas> c = new ArrayList<Citas>();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -131,6 +131,46 @@ public class CitasDAO extends BaseDAO{
 					" on  a.idTarea=b.idTarea " +
 					" inner join mascota  c on a.idMascota= c.idMascota inner join cliente d on " +
 					" c.Cliente_Dni=d.Dni  where a.idTarea='28' order by a.NroCita asc ";
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Citas ci = new Citas();
+				ci.setFecha(rs.getString("Fecha"));
+				ci.setEstado(rs.getString("estado"));
+				ci.setNotas(rs.getString("NotasMedicas"));
+				ci.setTipo(rs.getString("Tipo"));
+				ci.setDescripcionTarea(rs.getString("b.DescripcionTarea"));
+				ci.setNomMascota(rs.getString("c.nombre"));
+				ci.setDniCliente(rs.getString("d.Dni"));
+				ci.setNomCliente(rs.getString("d.Nombre"));
+				ci.setApePatCliente(rs.getString("d.ApePaterno"));
+				
+				
+				c.add(ci);
+			}
+
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return c;
+	}
+	
+	public Collection<Citas> listarTareas() throws DAOExcepcion {
+		Collection<Citas> c = new ArrayList<Citas>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = ConexionBD.obtenerConexion();
+			String query = "select Fecha,estado,NotasMedicas,Tipo,b.DescripcionTarea,c.nombre,d.Dni,d.Nombre,d.ApePaterno from citas a inner join tarea b " +
+					" on  a.idTarea=b.idTarea " +
+					" inner join mascota  c on a.idMascota= c.idMascota inner join cliente d on " +
+					" c.Cliente_Dni=d.Dni  where a.idTarea not in ('28') order by a.NroCita asc ";
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
