@@ -14,7 +14,7 @@ import trasveterinaria.negocio.GestionDoctores;
 public class GestionDoctoresTest {
 	
 	
-	@Test
+	//@Test
 	public void insertar(){
 		Doctores prod= new Doctores();
 		
@@ -67,7 +67,7 @@ public class GestionDoctoresTest {
 		}		
 	}
 
-	//@Test
+	@Test
 	public void listarTest() {
 		GestionDoctores negocio = new GestionDoctores();
 		try {
