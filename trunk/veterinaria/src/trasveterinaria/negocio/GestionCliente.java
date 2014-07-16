@@ -53,4 +53,9 @@ public class GestionCliente {
 		ClienteDAO dao = new ClienteDAO();
 		return dao.listar();
 	}
+	
+	public Cliente reporteCliente(int dni) throws DAOExcepcion {
+		ClienteDAO dao = new ClienteDAO();
+		return dao.reporteCliente(dni);	
+	}
 }

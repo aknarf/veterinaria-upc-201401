@@ -74,11 +74,11 @@ public class GestionClienteTest {
 			}
 	}
 
-	@Test
+	//@Test
 	public void buscarTest() {
 		GestionCliente negocio= new GestionCliente();
 			try {
-				Cliente dao=negocio.buscar(43772652);
+				Cliente dao=negocio.buscar(44544398);
 				if(dao.getNombre()==null){
 					System.out.println("No se encontro cliente");
 				}
@@ -113,4 +113,23 @@ public class GestionClienteTest {
 		}
 	}
 
+	@Test
+		public void reporteClienteTest() {
+
+			GestionCliente reporteCliente= new GestionCliente();
+			try {
+				Cliente dao=reporteCliente.reporteCliente(44544398);
+				if(dao.getNombre()==null){
+					System.out.println("No se encontro cliente");
+				}
+				else{
+					System.out.println("Cliente encontrado \n");
+					System.out.println("CLIENTE");
+					System.out.println("--------------------------------------------------------------------------");
+					System.out.println(dao.getDni()+"\t "+dao.getNombre()+"\t "+dao.getApePaterno()+"\t "+dao.getApeMaterno()+"\t"+dao.getCantMascota()+"\n");
+				}
+			} catch (DAOExcepcion e) {
+				Assert.fail("No se encontro cliente" + e.getMessage());
+			}
+		}
 }
