@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import trasveterinaria.excepcion.DAOExcepcion;
+import trasveterinaria.modelo.Cliente;
 import trasveterinaria.modelo.Mascota;
 import trasveterinaria.util.ConexionBD;
 
@@ -50,4 +51,35 @@ public class MascotaDAO extends BaseDAO {
 		}
 
 	}
+	/*
+	public Mascota reporteMascota(int id) throws DAOExcepcion {
+		Mascota vo = new Mascota();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String query = "select m.Nombre, c.dni, c.Nombre, c.ApePaterno, c.ApeMaterno, count(ct.idMascota) as CantidadCitas from cliente c inner join mascota m on c.Dni=m.Cliente_Dni inner join citas ct on m.idMascota=ct.idMascota where m.idMascota=14 order by ct.idMascota";
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setInt(1, id);
+			rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				vo.setDni(rs.getInt(1));
+				vo.setNombre(rs.getString(2));
+				vo.setApePaterno(rs.getString(3));
+				vo.setApeMaterno(rs.getString(4));
+				vo.setCantMascota(rs.getInt(5));
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
+		}*/
 }
