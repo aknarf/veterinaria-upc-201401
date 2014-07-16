@@ -16,6 +16,7 @@ public class Mascota {
 	private String Alergia;
 	private int Cliente_Dni;
 	private int Especie_idEspecie;
+	private int Cant_Atenciones;
 
 
 	public int getIdMascota() {
@@ -112,6 +113,14 @@ public class Mascota {
 	
 	public void setEspecie_idEspecie(int Especie_idEspecie) {
 		this.Especie_idEspecie = Especie_idEspecie;
+	}
+
+	public int getCant_Atenciones() {
+		return Cant_Atenciones;
+	}
+
+	public void setCant_Atenciones(int cant_Atenciones) {
+		Cant_Atenciones = cant_Atenciones;
 	}
 	
 }
