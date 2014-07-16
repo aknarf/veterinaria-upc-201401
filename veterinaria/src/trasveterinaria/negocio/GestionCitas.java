@@ -1,5 +1,7 @@
 package trasveterinaria.negocio;
 
+import java.util.Collection;
+
 import trasveterinaria.dao.CitasDAO;
 import trasveterinaria.dao.DoctoresDAO;
 
@@ -17,6 +19,10 @@ public class GestionCitas {
 	public Citas buscar(int idCita) throws DAOExcepcion {
 		CitasDAO dao = new CitasDAO();
 		return dao.buscar(idCita);	
+	}
+	public Collection<Citas> listarVacunas() throws DAOExcepcion {
+		CitasDAO dao = new CitasDAO();
+		return dao.listarVacunas();
 	}
 
 
