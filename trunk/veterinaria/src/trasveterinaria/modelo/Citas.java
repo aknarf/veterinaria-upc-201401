@@ -14,6 +14,63 @@ public class Citas {
     private int idmascota;
     private int dnidoc;
     
+    private String idcita;
+	public String nombreMascota;
+    public String  tarea;
+    public String NombCliente;
+    public String ApePatCliente;
+    public String ApeMatCliente;
+    public String descTarea;
+    
+    
+  
+
+    
+    
+    
+    
+    public String getIdcita() {
+  		return idcita;
+  	}
+  	public void setIdcita(String idcita) {
+  		this.idcita = idcita;
+  	}
+	public String getDescTarea() {
+		return descTarea;
+	}
+	public void setDescTarea(String descTarea) {
+		this.descTarea = descTarea;
+	}
+	public String getNombreMascota() {
+		return nombreMascota;
+	}
+	public void setNombreMascota(String nombreMascota) {
+		this.nombreMascota = nombreMascota;
+	}
+	public String getTarea() {
+		return tarea;
+	}
+	public void setTarea(String tarea) {
+		this.tarea = tarea;
+	}
+	public String getNombCliente() {
+		return NombCliente;
+	}
+	public void setNombCliente(String nombCliente) {
+		NombCliente = nombCliente;
+	}
+	public String getApePatCliente() {
+		return ApePatCliente;
+	}
+	public void setApePatCliente(String apePatCliente) {
+		ApePatCliente = apePatCliente;
+	}
+	public String getApeMatCliente() {
+		return ApeMatCliente;
+	}
+	public void setApeMatCliente(String apeMatCliente) {
+		ApeMatCliente = apeMatCliente;
+	}
 	public int getNroCita() {
 		return nroCita;
 	}
@@ -74,6 +131,7 @@ public class Citas {
 	public void setDnidoc(int dnidoc) {
 		this.dnidoc = dnidoc;
 	}
+	
 
 	
 

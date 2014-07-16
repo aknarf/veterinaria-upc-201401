@@ -1,12 +1,20 @@
 package trasveterinaria.dao;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.spec.RSAPublicKeySpec;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Citas;
+import trasveterinaria.modelo.Cliente;
 import trasveterinaria.modelo.Doctores;
 import trasveterinaria.util.ConexionBD;
 
@@ -65,14 +73,6 @@ public class CitasDAO extends BaseDAO{
 			if (rs.next()) {
 				vo.setNroCita(rs.getInt(1));
 				
-			/*	vo.setDni(rs.getInt(1));
-				vo.setNombre(rs.getString(2));
-				vo.setApePaterno(rs.getString(3));
-				vo.setApeMaterno(rs.getString(4));
-				vo.setEmail(rs.getString(5));
-				vo.setTelefono(rs.getString(6));
-				vo.setTipo(rs.getString(7));
-			    vo.setContraseña(rs.getString(8));*/
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());
@@ -85,6 +85,45 @@ public class CitasDAO extends BaseDAO{
 		return vo;
 	}
 	
+	
+	public Collection<Citas> listarVacunas() throws DAOExcepcion {
+		Collection<Citas> c = new ArrayList<Citas>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+
+		try {
+			con = ConexionBD.obtenerConexion();
+			String query = "select NroCita ,Fecha ,Estado,b.DescripcionTarea as tarea, a.Tipo as Tipo,  " +
+					"c.nombre as Mascota , d.Nombre as NombreCliente ,d.apepaterno as ApePatCliente,d.ApeMaterno as ApeMaterCliente   from citas a inner join tarea b on a.idTarea=b.idTarea" +
+					" inner join mascota c on a.idMascota=c.idMascota  inner join cliente d on c.Cliente_Dni=d.Dni where a.idTarea='28' order by NroCita asc";
+			stmt = con.prepareStatement(query);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				Citas vo = new Citas();
+			
+				vo.setIdcita("NroCita");
+				vo.setFeha("Fecha");
+				vo.setEstado(rs.getString("Estado"));
+				vo.setDescTarea("tarea");
+				vo.setTipo("Tipo");
+				vo.setNombreMascota("Mascota");
+				vo.setNombCliente("NombreCliente");
+				vo.setApePatCliente("ApePatCliente");
+				vo.setApeMatCliente("ApeMaterCliente");
+				c.add(vo);
+			}
+
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return c;
+	}
 	
 
 }
