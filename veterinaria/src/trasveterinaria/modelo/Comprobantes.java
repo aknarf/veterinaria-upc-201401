@@ -2,6 +2,13 @@ package trasveterinaria.modelo;
 
 public class Comprobantes {
 	private int nroComprobante;
+	private String serie;
+	public String getSerie() {
+		return serie;
+	}
+	public void setSerie(String serie) {
+		this.serie = serie;
+	}
 	private String correlativo;
 	private String tipo;
 	private String direccion;
