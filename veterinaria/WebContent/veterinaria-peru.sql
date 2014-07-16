@@ -122,11 +122,11 @@ DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_swedish_ci;
 
 CREATE TABLE IF NOT EXISTS `Veterinaria_peru`.`Comprobantes` (
-  `NroComprobante` INT(11) NOT NULL AUTO_INCREMENT,
+  `NroComprobante` INT(11) NULL DEFAULT NULL,
   `Correlativo` VARCHAR(45) NULL DEFAULT NULL,
+  `Tipo` VARCHAR(45) NULL DEFAULT NULL,
   `direccion` VARCHAR(45) NULL DEFAULT NULL,
   `fechaRegistro` VARCHAR(45) NULL DEFAULT NULL,
-  `Tipo` VARCHAR(45) NULL DEFAULT NULL,
   `Citas_NroCita` INT(11) NOT NULL,
   PRIMARY KEY (`NroComprobante`),
   INDEX `fk_Comprobantes_Citas1_idx` (`Citas_NroCita` ASC),
