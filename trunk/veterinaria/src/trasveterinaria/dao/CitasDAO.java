@@ -56,7 +56,7 @@ public class CitasDAO extends BaseDAO{
 			this.cerrarStatement(stmt);
 			this.cerrarConexion(con);
 		}
-		//return vo;
+		
 	}
 	
 	public Citas buscar(int idcita) throws DAOExcepcion {
@@ -85,40 +85,6 @@ public class CitasDAO extends BaseDAO{
 		return vo;
 	}
 	
-	
-	/*public Collection<Citas> listarVacunas() throws DAOExcepcion {
-		Collection<Citas> c = new ArrayList<Citas>();
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-
-		try {
-			con = ConexionBD.obtenerConexion();
-			String query = "select Fecha,estado,NotasMedicas,Tipo from citas where idTarea=28";
-			stmt = con.prepareStatement(query);
-			rs = stmt.executeQuery();
-			while (rs.next()) {
-				Citas vo = new Citas();
-			   vo.setFeha("Fecha");
-			   vo.setEstado("Estado");
-			   vo.setNotasMedicas("NotasMedicas");
-			   vo.setTipo("Tipo");
-			   
-				
-			
-				c.add(vo);
-			}
-
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			throw new DAOExcepcion(e.getMessage());
-		} finally {
-			this.cerrarResultSet(rs);
-			this.cerrarStatement(stmt);
-			this.cerrarConexion(con);
-		}
-		return c;
-	}*/
 	
 	public Collection<Citas> listarVacunas() throws DAOExcepcion {
 		Collection<Citas> c = new ArrayList<Citas>();
