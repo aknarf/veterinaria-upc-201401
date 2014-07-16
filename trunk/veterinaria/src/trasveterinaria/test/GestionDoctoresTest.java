@@ -73,10 +73,12 @@ public class GestionDoctoresTest {
 		try {
 			Collection<Doctores> listado = negocio.listar();
 			System.out.println("Total de registros: "+ listado.size());
+			System.out.println("            LISTADO DE DOCTORES");
+			System.out.println("--------------------------------------------------------------------------");
+			System.out.println("DNI"+"      \t\t"+"DOCTOR"+"   \t\t\t\t"+"CARGO");
+			System.out.println("--------------------------------------------------------------------------");
 			for (Doctores categoria : listado) {
-				System.out.println("            LISTADO DE DOCTORES");
-				System.out.println("--------------------------------------------------------------------------");
-				System.out.println(categoria.getDni()+"\t "+categoria.getNombre()+"\t"+categoria.getApePaterno()+"\t"+categoria.getApeMaterno()+"\t"+categoria.getTipo()+"\n");
+				System.out.println(categoria.getDni()+"\t "+categoria.getNombre()+" "+categoria.getApePaterno()+" "+categoria.getApeMaterno()+"\t\t\t"+categoria.getTipo()+"\n");
 			}
 			Assert.assertTrue(listado.size() > 0);			
 		} catch (DAOExcepcion e) {
