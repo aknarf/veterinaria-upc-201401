@@ -23,8 +23,14 @@ public class GestionCitas {
 
 	public Collection<Citas> listarVacuna() throws DAOExcepcion {
 		CitasDAO dao = new CitasDAO();
-		return dao.listar();
+		return dao.listarVacunas();
 	}
+
+	public Collection<Citas> listarTarea() throws DAOExcepcion{
+		CitasDAO dao= new CitasDAO();
+		return dao.listarTareas();
+	}
+	
 
 
 }
