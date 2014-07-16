@@ -14,6 +14,7 @@ public class Cliente {
 	private String celular;
 	private String telefonofijo;
 	private String ruc;
+	private int cantMascota;
 	
 	public int getDni() {
 		return dni;
@@ -74,6 +75,12 @@ public class Cliente {
 	}
 	public void setRuc(String ruc) {
 		this.ruc = ruc;
+	}
+	public int getCantMascota() {
+		return cantMascota;
+	}
+	public void setCantMascota(int cantMascota) {
+		this.cantMascota = cantMascota;
 	}
 	
 	
