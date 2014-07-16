@@ -63,12 +63,15 @@ public class GestionCitasTest {
 		try {
 			Collection<Citas> listado = negocio.listarVacuna();
 			System.out.println("Total de registros: "+ listado.size());
-			System.out.println("                            LISTADO DE DOCTORES");
-			System.out.println("--------------------------------------------------------------------------");
-			
+			System.out.println("                            LISTADO DE VACUNACIONES");
+			System.out.println("                                                                                                           ");
+			System.out.println("FECHA DE REGISTRO"+"\t"+"ESTADO DE LA CITA"+"\t"+"NOTAS MEDICAS"+"\t\t"+"TIPO DE SERVICIO"+"\t"+"MASCOTA"+"\t"+"DNI CLIENTE"+"\t"+"CLIENTE");
+			System.out.println("------------------------------------------------------------------------------------------------------------------------------------------");
 			for (Citas categoria : listado) {
 				
-				System.out.println(categoria.getFecha()+"\t "+categoria.getEstado()+"\t"+categoria.getNotas()+"\t"+categoria.getTipo());
+				System.out.println(categoria.getFecha()+"\t "+categoria.getEstado()+
+						"\t"+categoria.getNotas()+"\t"+ categoria.getDescripcionTarea()+"\t"+
+						categoria.getNomMascota()+"\t"+categoria.getDniCliente()+"\t"+categoria.getNomCliente()+" "+categoria.getApePatCliente()+"\n");
 			}
 			Assert.assertTrue(listado.size() > 0);			
 		} catch (DAOExcepcion e) {
