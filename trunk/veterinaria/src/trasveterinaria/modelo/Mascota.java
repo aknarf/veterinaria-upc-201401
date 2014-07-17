@@ -15,8 +15,8 @@ public class Mascota {
 	private Date FechaNacimiento;
 	private String Alergia;
 	private int Cliente_Dni;
-	private int Especie_idEspecie;
-	private int Cant_Atenciones;
+	private int Raza_idRaza;
+	//private int Cant_Atenciones;
 
 
 	public int getIdMascota() {
@@ -107,14 +107,15 @@ public class Mascota {
 		this.Cliente_Dni = Cliente_Dni;
 	}
 	
-	public int getEspecie_idEspecie() {
-		return Especie_idEspecie;
+	public int getRaza_idRaza() {
+		return Raza_idRaza;
 	}
 	
-	public void setEspecie_idEspecie(int Especie_idEspecie) {
-		this.Especie_idEspecie = Especie_idEspecie;
+	public void setRaza_idRaza(int Raza_idRaza) {
+		this.Raza_idRaza = Raza_idRaza;
 	}
 
+	/*
 	public int getCant_Atenciones() {
 		return Cant_Atenciones;
 	}
@@ -122,5 +123,6 @@ public class Mascota {
 	public void setCant_Atenciones(int cant_Atenciones) {
 		Cant_Atenciones = cant_Atenciones;
 	}
+	*/
 	
 }
