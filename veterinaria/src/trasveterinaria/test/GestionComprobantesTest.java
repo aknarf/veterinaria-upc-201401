@@ -21,8 +21,8 @@ public class GestionComprobantesTest {
 		ct.setIdtarea(21);
 		ct.setIdmascota(11);
 		ct.setDnidoc(43532198);*/
-		ct.setNroComprobante(1);
-		ct.setSerie("1");
+		ct.setNroComprobante(41);
+		ct.setSerie("44");
 		ct.setCorrelativo("11");
 		ct.setTipo("FACTURA");
 		ct.setDireccion("AV LIMA");

@@ -56,7 +56,7 @@ public class GestionDoctoresTest {
 
 	//@Test
 	public void eliminarTest(){
-		int dni=43564198;			
+		int dni=43564190;			
 		GestionDoctores negocio=new GestionDoctores();
 		try {
 			negocio.eliminar(dni);
@@ -67,7 +67,7 @@ public class GestionDoctoresTest {
 		}		
 	}
 
-	@Test
+	//@Test
 	public void listarTest() {
 		GestionDoctores negocio = new GestionDoctores();
 		try {
@@ -86,11 +86,11 @@ public class GestionDoctoresTest {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void buscarTest() {
 		GestionDoctores negocio= new GestionDoctores();
 			try {
-				Doctores dao=negocio.buscar(43564190);
+				Doctores dao=negocio.buscar(43532198);
 				if(dao.getNombre()==null){
 					System.out.println("No se encontro Doctor");
 				}
