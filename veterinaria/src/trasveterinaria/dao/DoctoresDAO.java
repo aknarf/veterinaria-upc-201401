@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.security.auth.login.LoginException;
+
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Doctores;
 import trasveterinaria.util.ConexionBD;
@@ -162,6 +164,37 @@ public class DoctoresDAO extends BaseDAO {
 			this.cerrarConexion(con);
 		}
 		return vo;
+	}
+		
+	public Doctores validar(String email, String contraseña) throws DAOExcepcion, LoginException {
+			Doctores vo = new Doctores();
+			Connection con = null;
+			PreparedStatement stmt = null;
+			ResultSet rs = null;
+			try {
+				String query = "select dnidoc,nombre,apePaterno,apeMaterno,telefono,tipo from doctores where email=? and contraseña=?";
+				con = ConexionBD.obtenerConexion();
+				stmt = con.prepareStatement(query);
+				stmt.setString(1, email);
+				stmt.setString(2, contraseña);
+				rs = stmt.executeQuery();
+				if (rs.next()) {
+					vo.setDni(rs.getInt(1));
+					vo.setNombre(rs.getString(2));
+					vo.setApePaterno(rs.getString(3));
+					vo.setApeMaterno(rs.getString(4));
+					vo.setTelefono(rs.getString(5));
+					vo.setTipo(rs.getString(6));
+				}
+			} catch (SQLException e) {
+				System.err.println(e.getMessage());
+				throw new DAOExcepcion(e.getMessage());
+			} finally {
+				this.cerrarResultSet(rs);
+				this.cerrarStatement(stmt);
+				this.cerrarConexion(con);
+			}
+			return vo;
 	}
 	
 }

@@ -1,6 +1,9 @@
 package trasveterinaria.negocio;
 
 import java.util.Collection;
+
+import javax.security.auth.login.LoginException;
+
 import trasveterinaria.dao.DoctoresDAO;
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Doctores;
@@ -45,4 +48,8 @@ public class GestionDoctores {
 		return dao.buscar(dni);	
 	}
 
+	public Doctores validar(String email, String contraseña) throws DAOExcepcion, LoginException {
+		DoctoresDAO dao = new DoctoresDAO();
+		return dao.validar(email,contraseña);	
+	}
 }
