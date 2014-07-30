@@ -31,38 +31,38 @@
 	     
 			<div class="col-md-12">
 
-			  <form class="form-horizontal well" method="post" action="src/trasveterinaria/servlet/IngresarDoctorServlet.java" role="form" >
+			  <form class="form-horizontal well" method="post" action="DoctorServlet" role="form" >
 				<fieldset>
 				  <legend>Ingresar Doctores</legend>             
 				  
 				  <div class="control-group">
 				  		<p class="help-block">Ingrese los datos:</p>
 				  		<br/>
-				  		DNI: <input type="text"  pattern=[0-9]{8} maxlength=8 name="txtDni" required/>
+				  		DNI:<input type="text"  pattern=[0-9]{8} maxlength=8 name="txtDni" required/>
 				  		<br/>
-				  		Nomnbre: <input type="text" name="txtNombre" required/>
+				  		Nombre:<input type="text" name="txtNombre" required/>
 				  		<br/>
-				  		Apellido Paterno: <input type="text" name="txtApellidoPaterno" required/>
+				  		Apellido Paterno:<input type="text" name="txtApellidoPaterno" required/>
 				  		<br/>
-				  		Apellido Materno: <input type="text" name="txtApellidoMaterno" required/>
+				  		Apellido Materno:<input type="text" name="txtApellidoMaterno" required/>
 				  		<br/>
-				  		Correo: <input id="email" type="email" name="txtEmail" required placeholder="Ingrese el correo aqui" />
+				  		Correo:<input id="email" type="email" name="txtEmail" required placeholder="Ingrese el correo aqui" />
 				  		<br/>
-				  		Telefono: <input id="phone" type="tel" maxlength=9 name="txtTelefono" required/>
+				  		Telefono:<input id="phone" type="tel" maxlength=9 name="txtTelefono" required/>
 				  		<br/>
-						Tipo: <input type="text" list="tipo" name="txtTipo" required/> 
+						Tipo:<input type="text" list="tipo" name="txtTipo" required/> 
 						<datalist id="tipo">
 							<option value="Doctor"/>
 							<option value="Administrador"/>
 						</datalist>
 						<br/>
-						Password: <input type="password" name="txtPassword" required/>
+						Password:<input type="password" name="txtPassword" required/>
+				  		<br/>
 				  		<br/>
 				  		<br/>
 				  		<button type="submit" class="btn btn-primary">Guardar</button>
 						<button type="reset" class="btn">Cancelar</button>  
 						<br/>
-				  		<br/>
 					 </div>	 
 				</fieldset>
 			  </form>
@@ -72,7 +72,7 @@
 		</div>
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; Veterinaria Peru</p>
       </footer>
 
 
