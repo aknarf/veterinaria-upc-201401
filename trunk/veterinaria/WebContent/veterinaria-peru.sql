@@ -5,7 +5,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 CREATE SCHEMA IF NOT EXISTS `Veterinaria_peru` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
 
 CREATE TABLE IF NOT EXISTS `Veterinaria_peru`.`Doctores` (
-  `DniDoc` INT(11) NOT NULL,
+  `DniDoc` VARCHAR(8) NOT NULL,
   `Nombre` VARCHAR(45) NULL DEFAULT NULL,
   `ApePaterno` VARCHAR(45) NULL DEFAULT NULL,
   `ApeMaterno` VARCHAR(45) NULL DEFAULT NULL,
@@ -19,7 +19,7 @@ DEFAULT CHARACTER SET = latin1
 COLLATE = latin1_swedish_ci;
 
 CREATE TABLE IF NOT EXISTS `Veterinaria_peru`.`Cliente` (
-  `Dni` INT(11) NOT NULL,
+  `Dni` VARCHAR(8) NOT NULL,
   `Nombre` VARCHAR(45) NULL DEFAULT NULL,
   `ApePaterno` VARCHAR(45) NULL DEFAULT NULL,
   `ApeMaterno` VARCHAR(45) NULL DEFAULT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `Veterinaria_peru`.`Mascota` (
   `Peso` INT(11) NULL DEFAULT NULL,
   `FechaNacimiento` DATE NULL DEFAULT NULL,
   `Alergia` VARCHAR(45) NULL DEFAULT NULL,
-  `Cliente_Dni` INT(11) NOT NULL,
+  `Cliente_Dni` VARCHAR(8) NOT NULL,
   `Raza_idRaza` INT(11) NOT NULL,
   PRIMARY KEY (`idMascota`),
   INDEX `fk_Mascota_Cliente1_idx` (`Cliente_Dni` ASC),
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `Veterinaria_peru`.`Citas` (
   `Tipo` VARCHAR(45) NULL DEFAULT NULL,
   `idTarea` INT(11) NOT NULL,
   `idMascota` INT(11) NOT NULL,
-  `DniDoc` INT(11) NOT NULL,
+  `DniDoc` VARCHAR(8) NOT NULL,
   PRIMARY KEY (`NroCita`),
   INDEX `fk_Citas_Tarea1_idx` (`idTarea` ASC),
   INDEX `fk_Citas_Mascota1_idx` (`idMascota` ASC),
