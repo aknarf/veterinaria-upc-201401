@@ -18,14 +18,14 @@ import trasveterinaria.negocio.GestionDoctores;
 /**
  * Servlet implementation class MantenimientoDoctores
  */
-@WebServlet("/DoctorServlet")
-public class DoctorServlet extends HttpServlet {
+@WebServlet("/IngresarDoctorServlet")
+public class IngresarDoctorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DoctorServlet() {
+    public IngresarDoctorServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -70,26 +70,14 @@ public class DoctorServlet extends HttpServlet {
 			Doctores doc=negocio.buscar(prod.getDni());
 			if(doc.getNombre()==null){
 				negocio.insertar(prod);
-				
-				PrintWriter out = response.getWriter();
-				out.println("<html><head></head><body onload=\"alert('Ingreso Correcto de Doctor')\"></body></html>");
-				out.close();
-				
-				//response.sendRedirect("MantenimientoDoctor.jsp");
-				
-				RequestDispatcher rd = request.getRequestDispatcher("/MantenimientoDoctor.jsp");
-				rd.forward(request, response);
-				
-				//request.setAttribute("MENSAJE", "Ingreso Correcto de Doctor");
-				//RequestDispatcher rd = request.getRequestDispatcher("/MantenimientoDoctor.jsp");
-				//rd.forward(request, response);
-				
+				request.setAttribute("msg", "ok");
+				RequestDispatcher rd = request.getRequestDispatcher("/IngresarDoctor.jsp");
+				rd.forward(request, response);		
 			}
 			else{
-
-				PrintWriter out = response.getWriter();
-				out.println("<html><head></head><body onload=\"alert('Ingreso Incorrecto de Doctor, DNI o correo duplicado')\"></body></html>");
-				out.close();
+				request.setAttribute("msg", "notok");
+				RequestDispatcher rd = request.getRequestDispatcher("/IngresarDoctor.jsp");
+				rd.forward(request, response);		
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
