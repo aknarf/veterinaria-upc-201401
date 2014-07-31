@@ -1,5 +1,9 @@
 package trasveterinaria.modelo;
 
+
+
+
+
 public class Doctores {
 	private int dni;
 	private String nombre;
@@ -9,6 +13,7 @@ public class Doctores {
 	private String telefono;
 	private String tipo;
 	private String  contraseña;
+
 	
 	
 	public int getDni() {
@@ -59,7 +64,7 @@ public class Doctores {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
-	
+
 	
 
 }

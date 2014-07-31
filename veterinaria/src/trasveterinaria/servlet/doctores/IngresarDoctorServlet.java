@@ -1,4 +1,4 @@
-package trasveterinaria.servlet;
+package trasveterinaria.servlet.doctores;
 
 import java.io.IOException;
 import java.io.PrintWriter;
