@@ -1,7 +1,6 @@
 package trasveterinaria.servlet.doctores;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.junit.Assert;
+import junit.framework.Assert;
 
 import trasveterinaria.modelo.Doctores;
 import trasveterinaria.negocio.GestionDoctores;
 
 /**
- * Servlet implementation class MantenimientoDoctores
+ * Servlet implementation class IngresarDoctorServlet
  */
 @WebServlet("/IngresarDoctorServlet")
 public class IngresarDoctorServlet extends HttpServlet {
@@ -82,10 +81,9 @@ public class IngresarDoctorServlet extends HttpServlet {
 		} catch (Exception e) {
 			// TODO: handle exception
 			Assert.fail("No Inserto"+ e.getMessage());
+		
 		}
 		
-
-
 	}
 
 }

@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+   <meta name="description" content="Veterinaria">
+	<meta name="keywords" content="Veterinaria">
+    <meta name="author" content="Veterinbaria">
+	
 <!--     <link rel="shortcut icon" href="../../assets/ico/favicon.png"> -->
 
     <title>Trastienda</title>
@@ -32,15 +34,15 @@
 		    <input type="text" name="txtDni" id="txtDni" />
 		    </label>
 		    <label>
-		    <input type="submit" name="button" id="button" value="Buscar" />
+		    <button type="submit" name="button" id="button" >Buscar</button>
 		    </label>
 		    <label>
-		    <input type="button" name="button2" id="button2" value="Nuevo" onclick="window.location='roles_nuevo.jsp' "  />
+		   <!--   <input type="button" name="button2" id="button2" value="Nuevo" onclick="window.location='roles_nuevo.jsp' "  />-->
 		    </label>
 		  </p>
 		</form>
 		<div class="table-responsive">
-		<table width="550" height="65" border="1" cellpadding="0" cellspacing="0" class="table table-hover">
+		<table width="550" height="65" border="5" cellpadding="0" cellspacing="0" class="table table-hover">
 		  <tr>
 		    <th scope="col">Nro.</th>
 		    <th scope="col">DNI</th>

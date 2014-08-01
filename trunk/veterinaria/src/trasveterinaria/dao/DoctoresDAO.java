@@ -110,7 +110,7 @@ public class DoctoresDAO extends BaseDAO {
 		ResultSet rs = null;
 		try {
 			con = ConexionBD.obtenerConexion();
-			String query = "select DniDoc,Nombre,ApePaterno,ApeMaterno,Tipo  from doctores order by DniDoc";
+			String query = "select DniDoc,Nombre,ApePaterno,ApeMaterno,Email,Telefono,Tipo from doctores order by DniDoc";
 			stmt = con.prepareStatement(query);
 			rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -119,7 +119,10 @@ public class DoctoresDAO extends BaseDAO {
 				vo.setNombre(rs.getString("Nombre"));
 				vo.setApePaterno(rs.getString("ApePaterno"));
 				vo.setApeMaterno(rs.getString("ApeMaterno"));
+				vo.setEmail(rs.getString("Email"));
+				vo.setTelefono(rs.getString("Telefono"));
 				vo.setTipo(rs.getString("Tipo"));
+
 				
 				c.add(vo);
 			}

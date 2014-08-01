@@ -42,7 +42,7 @@ public class BuscarDoctorServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		System.out.println("Dentro de doPost del servlet RolBuscarSerlvet");
+		System.out.println("Dentro de doPost del servlet Buscar Doctor Servlet");
 		String x = request.getParameter("nombre");
 			
 		GestionDoctores negocio = new GestionDoctores();
@@ -51,10 +51,11 @@ public class BuscarDoctorServlet extends HttpServlet {
 			
 			// Guardar en el ambiente de request
 			
-			request.setAttribute("roles", lista);
+			request.setAttribute("doctores", lista);
 			RequestDispatcher rd = request
-					.getRequestDispatcher("BuscarDoctorServlet.jsp");
+					.getRequestDispatcher("BuscarDoctor.jsp");
 			rd.forward(request, response);
+			System.out.println("CORRECTO ");
 
 		} catch (DAOExcepcion e) {
 			System.out.println(e.getMessage());
