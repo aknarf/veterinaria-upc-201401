@@ -10,7 +10,7 @@ import java.util.Collection;
 
 import javax.security.auth.login.LoginException;
 
-import trastienda.modelo.Rol;
+
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Doctores;
 import trasveterinaria.util.ConexionBD;

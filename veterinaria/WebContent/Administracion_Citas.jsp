@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<link href="Funciones/FUNCIONES.js">
+<LINK href="css/calendar-blue.css" type=text/css rel=stylesheet>
+<link href="css/displaytag.css" rel="stylesheet" type="text/css"><!--  //esta la importacion de la hoja de estilo del display--> 
+
+<SCRIPT src="js/calendar.js" type=text/javascript></SCRIPT>
+<SCRIPT src="js/calendar-es.js" type=text/javascript></SCRIPT>
+<SCRIPT src="js/calendar-setup.js" type=text/javascript></SCRIPT>
 </head>
 <body>
 <form action="">
@@ -19,43 +21,61 @@
 			</tr>
 			<tr>
 				<td>Nro Cita :</td>
-				<td><input></td>
+				<td><input type="text" name="txtCita" id="txtCita"></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>Fecha de Atencion:</td>
-				<td><input></td>
-				<td><input type="submit" value="..."></td>
+				<td><input type="text" name="fechaIni" id="campo_fecha1" readonly="readonly"></td>
+             <td><input type="button" id="lanzador1"  value="..." >
+                 <SCRIPT type=text/javascript>
+	               Calendar.setup({inputField :"campo_fecha1",ifFormat:"%Y-%m-%d",button:"lanzador1"});
+                 </SCRIPT>
+             </td>
 			</tr>
 			<tr>
 				<td>Tipo:</td>
-				<td><select></select></td>
+				<td><select name="cboTipo">
+				<option>--Seleccione--</option>
+				<option value="EMERGENCIAS">EMERGENCIAS</option>
+				<option value="CITAS">CITAS</option>
+				
+				</select></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>Estado :</td>
-				<td><select></select></td>
+				<td><select name="cboEstado">
+				<option >--Seleccione--</option>
+				<option value="PENDIENTE">PENDIENTE</option>
+				<option value="ATENDIDO">ATENDIDO</option>
+				</select></td>
 				<td></td>
 
 			</tr>
 			<tr>
 				<td>Dueño:</td>
-				<td><input></td>
-				<td><input type="submit" value="..."></td>
+				<td><input type="text" name="txtDueño" id="txtDueño"></td>
+				<td><input type="button" value="..." onclick="abrirVentanaConsulta('buscarDueño.jsp')"></td>
 			</tr>
 			<tr>
 				<td>Mascota</td>
-				<td><select></select></td>
+				<td><select name="cboMascota">
+				
+				<option>--Seleccione--</option>
+				</select></td>
 				<td></td>
 			</tr>
 			<tr>
 				<td>Doctor</td>
-				<td><select></select></td>
+				<td><select name="cboDcotor">
+				<option>--Seleccione--</option>
+				</select></td>
 				<td><input type="submit" value="..."></td>
 			</tr>
 			<tr>
 				<td>Imagen Medicaa:</td>
-				<td><input></td>
+				<td><input type="text" name="txtImagen" id="txtImagen"></td>
 				<td><input type="submit" value="..."></td>
 			</tr>
 			<tr>
