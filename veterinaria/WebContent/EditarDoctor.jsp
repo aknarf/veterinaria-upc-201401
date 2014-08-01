@@ -26,56 +26,73 @@
 
   <body>
   
+<%@page import="trasveterinaria.modelo.Doctores;"%>
+<%
+Doctores vo = (Doctores)request.getAttribute("vo");
+%>
 
     <div class="container">
 	     
 			<div class="col-md-12">
 
-			  <form class="form-horizontal well" method="post" action="IngresarDoctorServlet" role="form" >
+			  <form class="form-horizontal well" method="post" action="ActualizarDoctorServlet" role="form" >
 				<fieldset>
-				  <legend>Ingresar Doctores</legend>             
+				  <legend>Editar Doctores</legend>             
 				  
 				  <% String x = (String)request.getAttribute("msg");
 				  if("ok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Ingreso Correcto de Doctor')\"></body></html>");
+					  out.println("<html><head></head><body onload=\"alert('Se edito el Doctor')\"></body></html>");
 				  }
 				  else if("notok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Ingreso Incorrecto de Doctor, DNI o correo duplicado')\"></body></html>");
+					  out.println("<html><head></head><body onload=\"alert('Edicion Incorrecto de Doctor, DNI o correo duplicado')\"></body></html>");
 				  }
 				  %>
 				  				  
 				  <div class="control-group">
-				  		<p class="help-block">Ingresar datos:</p>
+				  		<p class="help-block">Editar los datos:</p>
 				  		<div class="table-responsive">
 				  		<table>
 				  		<tr>
 				  		<td>DNI:</td>
-				  		<td><input type="text"  pattern=[0-9]{8} maxlength=8 name="txtDni" required/></td>
+				  		<td><input type="text"  pattern=[0-9]{8} maxlength=8 name="txtDni"  required
+				  		value="<%=vo.getDni()%>" />
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Nombre:</td>
-				  		<td><input type="text" name="txtNombre" required/></td>
+				  		<td><input type="text" name="txtNombre" required
+				  		value="<%=vo.getNombre()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Apellido Paterno:</td>
-				  		<td><input type="text" name="txtApellidoPaterno" required/></td>
+				  		<td><input type="text" name="txtApellidoPaterno" required
+				  		value="<%=vo.getApePaterno()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Apellido Materno:</td>
-				  		<td><input type="text" name="txtApellidoMaterno" required/></td>
+				  		<td><input type="text" name="txtApellidoMaterno" required
+				  		value="<%=vo.getApeMaterno()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Correo:</td>
-				  		<td><input id="email" type="email" name="txtEmail" required placeholder="Ingrese el correo aqui" /></td>
+				  		<td><input id="email" type="email" name="txtEmail" required placeholder="Ingrese el correo aqui"
+				  		value="<%=vo.getEmail()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Telefono:</td>
-				  		<td><input id="phone" type="tel" maxlength=9 name="txtTelefono" required/></td>
+				  		<td><input id="phone" type="tel" maxlength=9 name="txtTelefono" required
+				  		value="<%=vo.getTelefono()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
 						<td>Tipo: </td>
 						<td><select name="txtTipo">
-							<option value="Doctor" selected>Doctor</option>
+							<!--><option value="<%=vo.getTipo().equals("Doctor")%>" selected>Doctor</option><!-->
+							<option value="Doctor">Doctor</option>
 							<option value="Administrador">Administrador</option>
 						</select></td>
 						</tr>
@@ -84,7 +101,7 @@
 						<td><input type="password" name="txtPassword" required/></td>		 
 				  		</tr>
 				  		<tr>
-				  		<td colspan="2"><button type="submit" class="btn btn-primary">Guardar</button>
+				  		<td colspan="2"><button type="submit" class="btn btn-primary">Actualizar</button>
 						<button type="reset" class="btn">Cancelar</button></td>
 						</tr>  
 						</table>

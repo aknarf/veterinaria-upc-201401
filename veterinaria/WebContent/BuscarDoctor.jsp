@@ -70,7 +70,7 @@
 		    <td><% out.print(x.getEmail()); %></td>
 		    <td><% out.print(x.getTelefono()); %></td>
 		    <td><% out.print(x.getTipo()); %></td>
-		    <td><a href="<%=request.getContextPath() %>/EditarDoctorServlet?dni=<%=x.getDni() %>">Editar</a> - <a href="<%=request.getContextPath()%>
+		    <td><a href="<%=request.getContextPath() %>/EditarDoctorServlet?dni=<%=x.getDni()%>">Editar</a> - <a href="<%=request.getContextPath()%>
 		/EliminarDoctorServlet?dni=<%=x.getDni()%>" onclick="return confirm('¿Está seguro que desea eliminar');">Eliminar</a></td>
 		  </tr>
 		<% }  

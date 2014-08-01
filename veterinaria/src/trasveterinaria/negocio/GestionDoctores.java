@@ -43,6 +43,7 @@ public class GestionDoctores {
 		
 		return dao.actualizar(vo);
 	}
+	
 
 	public Collection<Doctores> listar() throws DAOExcepcion {
 		DoctoresDAO dao = new DoctoresDAO();
