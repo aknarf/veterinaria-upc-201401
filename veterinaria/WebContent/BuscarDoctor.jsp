@@ -37,12 +37,12 @@
 		    <button type="submit" name="button" id="button" >Buscar</button>
 		    </label>
 		    <label>
-		   <!--   <input type="button" name="button2" id="button2" value="Nuevo" onclick="window.location='roles_nuevo.jsp' "  />-->
+		   	<input type="button" name="button2" id="button2" value="Nuevo" onclick="window.location='IngresarDoctor.jsp' "  />
 		    </label>
 		  </p>
 		</form>
 		<div class="table-responsive">
-		<table width="550" height="65" border="5" cellpadding="0" cellspacing="0" class="table table-hover">
+		<table width="550" height="65" border="1" cellpadding="0" cellspacing="0" class="table table-hover">
 		  <tr>
 		    <th scope="col">Nro.</th>
 		    <th scope="col">DNI</th>
@@ -70,8 +70,8 @@
 		    <td><% out.print(x.getEmail()); %></td>
 		    <td><% out.print(x.getTelefono()); %></td>
 		    <td><% out.print(x.getTipo()); %></td>
-		    <td><a href="<%=request.getContextPath() %>/EditarDoctorServlet?id=<%=x.getDni() %>">Editar</a> - <a href="<%=request.getContextPath()%>
-		/EliminarDoctorServlet?id=<%=x.getDni()%>" onclick="return confirm('¿Está seguro que desea eliminar');">Eliminar</a></td>
+		    <td><a href="<%=request.getContextPath() %>/EditarDoctorServlet?dni=<%=x.getDni() %>">Editar</a> - <a href="<%=request.getContextPath()%>
+		/EliminarDoctorServlet?dni=<%=x.getDni()%>" onclick="return confirm('¿Está seguro que desea eliminar');">Eliminar</a></td>
 		  </tr>
 		<% }  
 		  } %>
@@ -82,7 +82,7 @@
  		<!-- Site footer -->
 	   <div class="footer">
 	   	 <p>&nbsp;</p>
-	     <p>&copy; RCondezo 2014 </p>
+	     <p>&copy; Veterinaria Peru </p>
 	   </div>
 	   
 	 </div> <!-- /container -->

@@ -63,17 +63,17 @@ insert into raza values (68,'Guacamayo rojo ',3);
 insert into raza values (69,'Guacamayo rojo de alas verdes',3);
 insert into raza values (70,'Guacamayo azul y amarillo ',3);
 
-insert into doctores values ('43564198','Carmen','Rios','Samaniego','askur@gmail.com','3356643','ADMINISTRADOR','564$65');
-insert into doctores values ('43564197','Esteban','Sandro','Casas','esandro@gmail.com','3355343','ADMINISTRADOR','564$65');
-insert into doctores values ('43567718','Grecia','Samaniego','Ojeda','gSamaniego@hotmail.com','3345643','ADMINISTRADOR','564$65');
-insert into doctores values ('43364198','Javier','Casas','Peña','Jcasas@gmail.com','3356643','DOCTOR','564$65');
-insert into doctores values ('43564772','Juan','Rios','Samaniego','jrios@gmail.com','3356643','DOCTOR','564$65');
-insert into doctores values ('43564643','Jose','Alvarez','Olguin','jAlvarez@gmail.com','3356643','DOCTOR','564$65');
-insert into doctores values ('43654198','Maria','Flores','cervantes','mflores@gmail.com','3356643','DOCTOR','564$65');
-insert into doctores values ('43565698','Esteban','Palomino','llaury','epalomino@gmail.com','3356643','DOCTOR','564$65');
-insert into doctores values ('43568698','Roberto','Ku','Cortes','Rku@gmail.com','3356643','DOCTOR','564$65');
-insert into doctores values ('43579198','Lorena','cabanillas','Rios','askur@gmail.com','3356643','DOCTOR','564$65');
-insert into doctores values ('43532198','Viviana','castillo','sandoval','vcastillo@gmail.com','3356643','DOCTOR','564$65');
+insert into Doctores values ('43564198','Carmen','Rios','Samaniego','askur@gmail.com','3356643','Administrador','564$65');
+insert into Doctores values ('43564197','Esteban','Sandro','Casas','esandro@gmail.com','3355343','Administrador','564$65');
+insert into Doctores values ('43567718','Grecia','Samaniego','Ojeda','gSamaniego@hotmail.com','3345643','Administrador','564$65');
+insert into Doctores values ('43364198','Javier','Casas','Peña','Jcasas@gmail.com','3356643','Doctor','564$65');
+insert into Doctores values ('43564772','Juan','Rios','Samaniego','jrios@gmail.com','3356643','Doctor','564$65');
+insert into Doctores values ('43564643','Jose','Alvarez','Olguin','jAlvarez@gmail.com','3356643','Doctor','564$65');
+insert into Doctores values ('43654198','Maria','Flores','cervantes','mflores@gmail.com','3356643','Doctor','564$65');
+insert into Doctores values ('43565698','Esteban','Palomino','llaury','epalomino@gmail.com','3356643','Doctor','564$65');
+insert into Doctores values ('43568698','Roberto','Ku','Cortes','Rku@gmail.com','3356643','Doctor','564$65');
+insert into Doctores values ('43579198','Lorena','cabanillas','Rios','askur@gmail.com','3356643','Doctor','564$65');
+insert into Doctores values ('43532198','Viviana','castillo','sandoval','vcastillo@gmail.com','3356643','Doctor','564$65');
 
 insert into cliente values ('44544398','Carmen','Palomo','Casas','cpalomo@gmail.com','av las flores 254 - SJL','F','945168883','3356672','0');
 insert into cliente values ('44565398','Sandra','Rivera','Mejia','srivera@gmail.com','av los sauces 365 -SMP','F','945168883','3356672','0');
