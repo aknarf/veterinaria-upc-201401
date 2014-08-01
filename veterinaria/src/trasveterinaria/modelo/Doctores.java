@@ -1,6 +1,7 @@
 package trasveterinaria.modelo;
 
-
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 
@@ -13,7 +14,7 @@ public class Doctores {
 	private String telefono;
 	private String tipo;
 	private String  contraseña;
-
+	private Collection<Doctores> Doctores = new ArrayList<Doctores>();
 	
 	
 	public int getDni() {

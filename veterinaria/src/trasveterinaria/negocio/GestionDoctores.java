@@ -4,11 +4,17 @@ import java.util.Collection;
 
 import javax.security.auth.login.LoginException;
 
+
 import trasveterinaria.dao.DoctoresDAO;
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Doctores;
 
 public class GestionDoctores {
+	
+	public Collection<Doctores> buscarPorNombre(String nombre) throws DAOExcepcion {
+		DoctoresDAO dao = new DoctoresDAO();
+		return dao.listar();
+	}
 	
 	public void insertar(Doctores vo) throws DAOExcepcion {
 		DoctoresDAO dao= new DoctoresDAO();
