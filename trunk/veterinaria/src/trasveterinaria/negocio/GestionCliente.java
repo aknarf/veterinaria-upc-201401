@@ -16,7 +16,7 @@ public class GestionCliente {
 		dao.insertar(vo);
 	}
 
-	public int  eliminar(int vo) throws DAOExcepcion{
+	public int  eliminar(String vo) throws DAOExcepcion{
 		ClienteDAO dao= new ClienteDAO();
 		int variable;
 		 variable= dao.eliminar(vo);
@@ -24,7 +24,7 @@ public class GestionCliente {
 	}
 	
 	public Cliente actualizar(String nombre, String apePaterno, String apeMaterno, String correoelectronico, 
-			String direccion, File foto, String celular, String telefonofijo, String ruc, int dni) throws DAOExcepcion {
+			String direccion, File foto, String celular, String telefonofijo, String ruc, String dni) throws DAOExcepcion {
 		
 		ClienteDAO dao = new ClienteDAO();
 
@@ -44,7 +44,7 @@ public class GestionCliente {
 		return dao.actualizar(vo);
 	}
 	
-	public Cliente buscar(int dni) throws DAOExcepcion {
+	public Cliente buscar(String dni) throws DAOExcepcion {
 		ClienteDAO dao = new ClienteDAO();
 		return dao.buscar(dni);	
 	}
@@ -54,7 +54,7 @@ public class GestionCliente {
 		return dao.listar();
 	}
 	
-	public Cliente reporteCliente(int dni) throws DAOExcepcion {
+	public Collection<Cliente> reporteCliente(String dni) throws DAOExcepcion {
 		ClienteDAO dao = new ClienteDAO();
 		return dao.reporteCliente(dni);	
 	}
