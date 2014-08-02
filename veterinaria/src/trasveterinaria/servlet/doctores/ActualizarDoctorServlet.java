@@ -1,6 +1,8 @@
 package trasveterinaria.servlet.doctores;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -54,6 +56,10 @@ public class ActualizarDoctorServlet extends HttpServlet {
 		GestionDoctores negocio = new GestionDoctores();
 		try {
 			negocio.actualizar(Nonbre,ApePaterno,ApeMaterno,Email,Telefono,Tipo,Contraseña,dni);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("BuscarDoctor.jsp");
+			rd.forward(request, response);
+			
 		} catch (DAOExcepcion e) {
 			Assert.fail("Falló la actualización: " + e.getMessage());
 		}
