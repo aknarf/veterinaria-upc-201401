@@ -1,14 +1,13 @@
 package trasveterinaria.negocio;
 
-import java.sql.Date;
 import java.util.Collection;
 
-import trasveterinaria.dao.ClienteDAO;
-import trasveterinaria.dao.DoctoresDAO;
+//import trasveterinaria.dao.ClienteDAO;
+//import trasveterinaria.dao.DoctoresDAO;
 import trasveterinaria.dao.MascotaDAO;
 import trasveterinaria.excepcion.DAOExcepcion;
-import trasveterinaria.modelo.Cliente;
-import trasveterinaria.modelo.Doctores;
+//import trasveterinaria.modelo.Cliente;
+//import trasveterinaria.modelo.Doctores;
 import trasveterinaria.modelo.Mascota;
 
 public class GestionMascota {
@@ -26,7 +25,7 @@ public class GestionMascota {
 	}
 	
 	public Mascota actualizar(String Nombre,String Genero,String TipoSangre, String Esterilizado,
-			String Tamaño, String Actividad, int Peso,Date FechaNacimiento, String Alergia) throws DAOExcepcion {
+			String Tamaño, String Actividad, int Peso,String FechaNacimiento, String Alergia) throws DAOExcepcion {
 		MascotaDAO dao = new MascotaDAO();
 		Mascota vo = new Mascota();
 		
@@ -53,6 +52,10 @@ public class GestionMascota {
 		return dao.listar();
 	}
 	
+	public Mascota buscar(int IdMascota) throws DAOExcepcion {
+		MascotaDAO dao = new MascotaDAO();
+		return dao.buscar(IdMascota);
+	}
 	/*
 	public Mascota reporteMascota(int id) throws DAOExcepcion {
 		MascotaDAO dao = new MascotaDAO();

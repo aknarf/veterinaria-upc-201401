@@ -1,7 +1,6 @@
 package trasveterinaria.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import trasveterinaria.excepcion.DAOExcepcion;
-import trasveterinaria.modelo.Doctores;
 //import trasveterinaria.modelo.Doctores;
 //import trasveterinaria.modelo.Doctores;
 //import trasveterinaria.modelo.Cliente;
@@ -34,7 +32,7 @@ public class MascotaDAO extends BaseDAO {
 			stmt.setString(6, vo.getTamaño());
 			stmt.setString(7, vo.getActividad());
 			stmt.setInt(8, vo.getPeso());
-			stmt.setDate(9, (Date) vo.getFechaNacimiento());
+			stmt.setString(9, vo.getFechaNacimiento());
 			stmt.setString(10, vo.getAlergia());
 			stmt.setInt(11, vo.getCliente_Dni());
 			stmt.setInt(12, vo.getRaza_idRaza());
@@ -73,7 +71,7 @@ public class MascotaDAO extends BaseDAO {
 			stmt.setString(5,vo.getTamaño());
 			stmt.setString(6, vo.getActividad());
 			stmt.setInt(7, vo.getPeso());
-			stmt.setDate(8, (Date) vo.getFechaNacimiento());
+			stmt.setString(8, vo.getFechaNacimiento());
 			stmt.setString(9, vo.getAlergia());
 			stmt.setInt(10, vo.getCliente_Dni());
 			stmt.setInt(11, vo.getRaza_idRaza());
@@ -136,7 +134,7 @@ public class MascotaDAO extends BaseDAO {
 				vo.setTamaño(rs.getString("Tamaño"));
 				vo.setActividad(rs.getString("Actividad"));
 				vo.setPeso(rs.getInt("Peso"));
-				vo.setFechaNacimiento(rs.getDate("FechaNacimiento"));
+				vo.setFechaNacimiento(rs.getString("FechaNacimiento"));
 				vo.setAlergia(rs.getString("Alergia"));
 				vo.setCliente_Dni(rs.getInt("Cliente_Dni"));
 				vo.setRaza_idRaza(rs.getInt("Raza_idRaza"));
@@ -175,7 +173,7 @@ public class MascotaDAO extends BaseDAO {
 				vo.setTamaño(rs.getString(6));
 				vo.setActividad(rs.getString(7));
 			    vo.setPeso(rs.getInt(8));
-			    vo.setFechaNacimiento(rs.getDate(9));
+			    vo.setFechaNacimiento(rs.getString(9));
 			    vo.setAlergia(rs.getString(10));
 			    vo.setCliente_Dni(rs.getInt(11));
 			    vo.setRaza_idRaza(rs.getInt(12));
