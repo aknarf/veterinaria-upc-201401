@@ -68,7 +68,7 @@
 				  		<tr>
 				  		<td>Estado:</td>
 				  		<td>
-                           <select>
+                           <select name="cboEstado">
                            <option value="PENDIENTE">PENDIENTE</option>
                            <option value="ATENDIDO">ATENDIDO</option>
                            
@@ -82,18 +82,33 @@
 				  		</tr>
 				  		<tr>
 				  		<td>Mascota:</td>
-				  		<td><input id="phone" type="tel" maxlength=9 name="txtTelefono" required/></td>
+				  		<td>
+				  		<select name="cboMascota"> 
+				  		<option>--selecione--</option>
+				  		</select>
+				  		</td>
 				  		</tr>
 				  		<tr>
-						<td>Tipo: </td>
-						<td><select name="txtTipo">
-							<option value="Doctor" selected>Doctor</option>
-							<option value="Administrador">Administrador</option>
+						<td>Doctor: </td>
+						<td><select name="cboDoctor">
+							<option  selected>--Seleccione--</option>
+							
 						</select></td>
 						</tr>
 						<tr>
-						<td>Password:</td>
-						<td><input type="password" name="txtPassword" required/></td>		 
+						<td>Imagen Medica:</td>
+						<td><input type="Imagen" name="txtImagen" required/></td>
+						<td><input type="button" value="..."> </td>		 
+				  		</tr>
+				  		<tr>
+				  		 <td>Notas Medicas:</td>
+				  		 <td><textarea name="txtSNotas"></textarea></td>
+				  		</tr>
+				  		<tr>
+				  		<td>Atencion:</td>
+				  		<td>
+				  		<textarea name="txtSAtencion"></textarea>
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td colspan="2"><button type="submit" class="btn btn-primary">Guardar</button>
