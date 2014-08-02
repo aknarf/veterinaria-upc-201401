@@ -30,7 +30,7 @@ public class ClienteDAO extends BaseDAO{
 			con = ConexionBD.obtenerConexion();
 
 			stmt = con.prepareStatement(query);
-			stmt.setInt(1, vo.getDni());
+			stmt.setString(1, vo.getDni());
 			stmt.setString(2, vo.getNombre());
 			stmt.setString(3, vo.getApePaterno());
 			stmt.setString(4, vo.getApeMaterno());
@@ -62,7 +62,7 @@ public class ClienteDAO extends BaseDAO{
 		}
 	}
 
-	public int eliminar(int dni) throws DAOExcepcion {
+	public int eliminar(String dni) throws DAOExcepcion {
 		Connection conn = null;
 		PreparedStatement pstm = null;
 		int eliminados =-1;
@@ -70,7 +70,7 @@ public class ClienteDAO extends BaseDAO{
 			String sql = "delete from cliente WHERE Dni=?";
 			conn =ConexionBD.obtenerConexion();
 			pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, dni);
+			pstm.setString(1, dni);
 			int i= pstm.executeUpdate();
 			if (i!=1){
 				throw new SQLException("No se pudo eliminar");
@@ -108,7 +108,7 @@ public class ClienteDAO extends BaseDAO{
 			stmt.setString(7, vo.getCelular());
 			stmt.setString(8, vo.getTelefonofijo());
 			stmt.setString(9, vo.getRuc());
-			stmt.setInt(10, vo.getDni());
+			stmt.setString(10, vo.getDni());
 			
 			 actualizado = stmt.executeUpdate();
 			if (actualizado != 1) {
@@ -124,7 +124,7 @@ public class ClienteDAO extends BaseDAO{
 		return vo;
 	}
 	
-	public Cliente buscar(int dni) throws DAOExcepcion {
+	public Cliente buscar(String dni) throws DAOExcepcion {
 		Cliente vo = new Cliente();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -133,10 +133,10 @@ public class ClienteDAO extends BaseDAO{
 			String query = "select dni,nombre,apePaterno,apeMaterno,correoelectronico,direccion,foto,celular,telefonofijo,ruc from cliente where dni=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setInt(1, dni);
+			stmt.setString(1, dni);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				vo.setDni(rs.getInt(1));
+				vo.setDni(rs.getString(1));
 				vo.setNombre(rs.getString(2));
 				vo.setApePaterno(rs.getString(3));
 				vo.setApeMaterno(rs.getString(4));
@@ -180,7 +180,7 @@ public class ClienteDAO extends BaseDAO{
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Cliente vo = new Cliente();
-				vo.setDni(rs.getInt("Dni"));
+				vo.setDni(rs.getString("Dni"));
 				vo.setNombre(rs.getString("Nombre"));
 				vo.setApePaterno(rs.getString("ApePaterno"));
 				vo.setApeMaterno(rs.getString("ApeMaterno"));
@@ -214,8 +214,8 @@ public class ClienteDAO extends BaseDAO{
 		return c;
 	}
 	
-	public Cliente reporteCliente(int dni) throws DAOExcepcion {
-		Cliente vo = new Cliente();
+	public Collection<Cliente> reporteCliente(String dni) throws DAOExcepcion {
+		Collection<Cliente> rc = new ArrayList<Cliente>();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -224,11 +224,12 @@ public class ClienteDAO extends BaseDAO{
 			String query = "select c.dni, c.Nombre, c.ApePaterno, c.ApeMaterno, count(m.idMascota) as CantidadMascotas from cliente c inner join mascota m on c.dni=m.Cliente_Dni inner join raza r on m.Raza_idRaza=r.idRaza inner join especie e on r.idEspecie=e.idEspecie where c.dni=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setInt(1, dni);
+			stmt.setString(1, dni);
 			rs = stmt.executeQuery();
 			
 			if (rs.next()) {
-				vo.setDni(rs.getInt(1));
+				Cliente vo = new Cliente();
+				vo.setDni(rs.getString(1));
 				vo.setNombre(rs.getString(2));
 				vo.setApePaterno(rs.getString(3));
 				vo.setApeMaterno(rs.getString(4));
@@ -242,6 +243,6 @@ public class ClienteDAO extends BaseDAO{
 			this.cerrarStatement(stmt);
 			this.cerrarConexion(con);
 		}
-		return vo;
+		return rc;
 		}
 }

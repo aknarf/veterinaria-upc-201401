@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Cliente {
 	
-	private int dni;
+	private String dni;
 	private String nombre;
 	private String apePaterno;
 	private String apeMaterno;
@@ -16,10 +16,10 @@ public class Cliente {
 	private String ruc;
 	private int cantMascota;
 	
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 	public String getNombre() {

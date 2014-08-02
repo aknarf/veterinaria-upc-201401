@@ -18,7 +18,7 @@ public class GestionClienteTest {
 
 		Cliente prod= new Cliente();
 		
-		prod.setDni(43772655);
+		prod.setDni("43772655");
 		prod.setNombre("Juanito");
 		prod.setApePaterno("Martines");
 		prod.setApeMaterno("Rios");
@@ -50,7 +50,7 @@ public class GestionClienteTest {
 	//@Test
 	public void eliminar(){
 	
-		int dni=43772652;
+		String dni="43772652";
 		GestionCliente negocio= new GestionCliente();
 		
 		try {
@@ -67,7 +67,7 @@ public class GestionClienteTest {
 	public void actualizarTest() {
 		GestionCliente negocio= new GestionCliente();
 			try {
-				negocio.actualizar("Marleni","Samaniego", "Escobar", "horuz0305@outlook", "Oscar R Benavides 367",null, "966192823", "4209158","20501424775",43772652);
+				negocio.actualizar("Marleni","Samaniego", "Escobar", "horuz0305@outlook", "Oscar R Benavides 367",null, "966192823", "4209158","20501424775","43772652");
 				System.out.println("Se actualizo correctamente");
 			} catch (DAOExcepcion e) {
 				Assert.fail("Falló la actualización: " + e.getMessage());
@@ -78,7 +78,7 @@ public class GestionClienteTest {
 	public void buscarTest() {
 		GestionCliente negocio= new GestionCliente();
 			try {
-				Cliente dao=negocio.buscar(44544398);
+				Cliente dao=negocio.buscar("44544398");
 				if(dao.getNombre()==null){
 					System.out.println("No se encontro cliente");
 				}
@@ -93,7 +93,7 @@ public class GestionClienteTest {
 			}
 	}
 	
-	@Test
+	//@Test
 	public void listarTest() {
 
 		GestionCliente negocio = new GestionCliente();
@@ -113,19 +113,17 @@ public class GestionClienteTest {
 		}
 	}
 
-	//@Test
+	@Test
 		public void reporteClienteTest() {
 
 			GestionCliente reporteCliente= new GestionCliente();
 			try {
-				Cliente dao=reporteCliente.reporteCliente(44544398);
-				if(dao.getNombre()==null){
-					System.out.println("No se encontro cliente");
-				}
-				else{
+				Collection<Cliente> listado = reporteCliente.reporteCliente("44544398");
+				
 					System.out.println("Cliente encontrado \n");
 					System.out.println("CLIENTE");
 					System.out.println("--------------------------------------------------------------------------");
+					for (Cliente dao : listado) {
 					System.out.println(dao.getDni()+"\t "+dao.getNombre()+"\t "+dao.getApePaterno()+"\t "+dao.getApeMaterno()+"\t"+dao.getCantMascota()+"\n");
 				}
 			} catch (DAOExcepcion e) {
