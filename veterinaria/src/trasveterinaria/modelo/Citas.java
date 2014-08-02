@@ -12,7 +12,7 @@ private String imagen;
 private String tipo;
 private int idtarea;
 private int idmascota;
-private int dnidoc;
+private String dnidoc;
 private String descripcionTarea;
 private String nomMascota;
 private String dniCliente;
@@ -104,10 +104,10 @@ public int getIdmascota() {
 public void setIdmascota(int idmascota) {
 	this.idmascota = idmascota;
 }
-public int getDnidoc() {
+public String getDnidoc() {
 	return dnidoc;
 }
-public void setDnidoc(int dnidoc) {
+public void setDnidoc(String dnidoc) {
 	this.dnidoc = dnidoc;
 }
     

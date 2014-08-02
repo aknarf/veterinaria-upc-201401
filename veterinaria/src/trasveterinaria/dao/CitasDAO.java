@@ -38,7 +38,7 @@ public class CitasDAO extends BaseDAO{
 			stmt.setString(6, vo.getTipo());
 			stmt.setInt(7, vo.getIdtarea());
 			stmt.setInt(8, vo.getIdmascota());
-			stmt.setInt(9, vo.getDnidoc());
+			stmt.setString(9, vo.getDnidoc());
 			
 			//stmt.setString(2, vo.getNombre());
 			
