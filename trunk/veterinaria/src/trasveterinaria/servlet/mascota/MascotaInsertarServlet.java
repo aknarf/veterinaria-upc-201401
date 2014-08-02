@@ -36,14 +36,17 @@ public class MascotaInsertarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String DNIDoc = request.getParameter("txtDni");
 		String Nonbre = request.getParameter("txtNombre");
-		String ApePaterno = request.getParameter("txtApellidoPaterno");
-		String ApeMaterno = request.getParameter("txtApellidoMaterno");
-		String Email = request.getParameter("txtEmail");
-		String Telefono = request.getParameter("txtTelefono");
-		String Tipo = request.getParameter("txtTipo");
-		String Contraseña = request.getParameter("txtPassword");
+		String Genero = request.getParameter("txtGenero");
+		String TipoSangre = request.getParameter("txtTipoSangre");
+		String Esterilizado = request.getParameter("txtEsterilizado");
+		String Tamaño = request.getParameter("txtTamaño");
+		String Actividad = request.getParameter("txtActividad");
+		String Peso = request.getParameter("txtPeso");
+		String FechaNacimiento = request.getParameter("txtFechaNacimiento");
+		String Alergia = request.getParameter("txtAlergia");
+		String Cliente_Dni = request.getParameter("txtCliente_Dni");
+		String Raza_idRaza = request.getParameter("txtIdRaza");
 	}
 
 }
