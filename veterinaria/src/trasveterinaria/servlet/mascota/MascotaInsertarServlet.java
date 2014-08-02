@@ -1,6 +1,7 @@
 package trasveterinaria.servlet.mascota;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +35,15 @@ public class MascotaInsertarServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		String DNIDoc = request.getParameter("txtDni");
+		String Nonbre = request.getParameter("txtNombre");
+		String ApePaterno = request.getParameter("txtApellidoPaterno");
+		String ApeMaterno = request.getParameter("txtApellidoMaterno");
+		String Email = request.getParameter("txtEmail");
+		String Telefono = request.getParameter("txtTelefono");
+		String Tipo = request.getParameter("txtTipo");
+		String Contraseña = request.getParameter("txtPassword");
 	}
 
 }

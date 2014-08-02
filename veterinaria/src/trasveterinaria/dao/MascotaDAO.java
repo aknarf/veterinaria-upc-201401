@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import trasveterinaria.excepcion.DAOExcepcion;
+import trasveterinaria.modelo.Doctores;
 //import trasveterinaria.modelo.Doctores;
 //import trasveterinaria.modelo.Doctores;
 //import trasveterinaria.modelo.Cliente;
@@ -152,6 +153,43 @@ public class MascotaDAO extends BaseDAO {
 			this.cerrarConexion(con);
 		}
 		return c;
+	}
+	
+	public Mascota buscar(int IdMascota) throws DAOExcepcion {
+		Mascota vo = new Mascota();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			String query = "select idMascota,nombre,Genero,TipoSangre,Esterilizado,Tamaño,Actividad,Peso,FechaNacimiento,Alergia,Cliente_Dni,Raza_idRaza from mascota where idMascota=?";
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setInt(1, IdMascota);
+			rs = stmt.executeQuery();
+			if (rs.next()) {
+				vo.setIdMascota(rs.getInt(1));
+				vo.setNombre(rs.getString(2));
+				vo.setGenero(rs.getString(3));
+				vo.setTipoSangre(rs.getString(4));
+				vo.setEsterilizado(rs.getString(5));
+				vo.setTamaño(rs.getString(6));
+				vo.setActividad(rs.getString(7));
+			    vo.setPeso(rs.getInt(8));
+			    vo.setFechaNacimiento(rs.getDate(9));
+			    vo.setAlergia(rs.getString(10));
+			    vo.setCliente_Dni(rs.getInt(11));
+			    vo.setRaza_idRaza(rs.getInt(12));
+			    
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return vo;
 	}
 	/*
 	public Mascota reporteMascota(int id) throws DAOExcepcion {
