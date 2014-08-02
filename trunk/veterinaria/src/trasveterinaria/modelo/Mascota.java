@@ -1,6 +1,5 @@
 package trasveterinaria.modelo;
 
-import java.util.Date;
 
 public class Mascota {
 
@@ -12,7 +11,7 @@ public class Mascota {
 	private String Tamaño;
 	private String Actividad;
 	private int Peso;
-	private Date FechaNacimiento;
+	private String FechaNacimiento;
 	private String Alergia;
 	private int Cliente_Dni;
 	private int Raza_idRaza;
@@ -83,11 +82,11 @@ public class Mascota {
 		this.Peso = Peso;
 	}
 	
-	public Date getFechaNacimiento() {
+	public String getFechaNacimiento() {
 		return FechaNacimiento;
 	}
 	
-	public void setFechaNacimiento(Date FechaNacimiento) {
+	public void setFechaNacimiento(String FechaNacimiento) {
 		this.FechaNacimiento = FechaNacimiento;
 	}
 	
