@@ -4,9 +4,11 @@ import java.sql.Date;
 import java.util.Collection;
 
 import trasveterinaria.dao.ClienteDAO;
+import trasveterinaria.dao.DoctoresDAO;
 import trasveterinaria.dao.MascotaDAO;
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Cliente;
+import trasveterinaria.modelo.Doctores;
 import trasveterinaria.modelo.Mascota;
 
 public class GestionMascota {
@@ -42,6 +44,11 @@ public class GestionMascota {
 	}
 	
 	public Collection<Mascota> listar() throws DAOExcepcion {
+		MascotaDAO dao = new MascotaDAO();
+		return dao.listar();
+	}
+	
+	public Collection<Mascota> buscarPorNombre(String nombre) throws DAOExcepcion {
 		MascotaDAO dao = new MascotaDAO();
 		return dao.listar();
 	}
