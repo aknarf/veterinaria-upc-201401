@@ -56,6 +56,6 @@ public class GestionCliente {
 	
 	public Collection<Cliente> reporteCliente(String dni) throws DAOExcepcion {
 		ClienteDAO dao = new ClienteDAO();
-		return dao.reporteCliente(dni);	
+		return dao.listar();	
 	}
 }
