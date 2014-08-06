@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>  
-	<meta charset="utf-8">	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Veterinaria">
-	<meta name="keywords" content="Veterinaria">
-    <meta name="author" content="Veterinbaria">
-	
-    <title>Veterinaria</title>
-	
-	<script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap-3.1.1.js"></script>
 
-	<link href="css/bootstrap-3.1.1.css" rel="stylesheet">	
-	<link href="css/bootstrap-theme-3.1.1.css" rel="stylesheet">
-	<link href="css/offcanvas.css" rel="stylesheet">	
-	
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!--     <link rel="shortcut icon" href="../../assets/ico/favicon.png"> -->
+
+    <title>Veterinaria</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap-3.1.1.css" rel="stylesheet" media="screen">
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
-    
   </head>
 
   <body>
-  
+
+	  <!-- Static navbar -->
+	  <div class="navbar navbar-default navbar-static-top">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="principal.jsp">Veterinaria</a>
+	      </div>
+	      <div class="navbar-collapse collapse">
+	        <ul class="nav navbar-nav">
+	          <li><a href="principal.jsp">Inicio</a></li>
+	          <li class="dropdown active">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mantenimientos <b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
+	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>	              
+	            </ul>
+	          </li>
+	          <li><a href="#">Reportes</a></li>	          
+	          <li><a href="LogoutServlet">Salir</a></li>
+	        </ul>
+	      </div><!--/.nav-collapse -->
+	    </div>
+	  </div>
+      
+	 <div class="container"> </div>
+	   
 <%@page import="trasveterinaria.modelo.Doctores;"%>
 <%
 Doctores vo = (Doctores)request.getAttribute("vo");
@@ -39,14 +65,7 @@ Doctores vo = (Doctores)request.getAttribute("vo");
 				<fieldset>
 				  <legend>Editar Doctores</legend>             
 				  
-				  <% String x = (String)request.getAttribute("msg");
-				  if("ok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Se edito el Doctor')\"></body></html>");
-				  }
-				  else if("notok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Edicion Incorrecto de Doctor, DNI o correo duplicado')\"></body></html>");
-				  }
-				  %>
+
 				  				  
 				  <div class="control-group">
 				  		<p class="help-block">Editar los datos:</p>
@@ -91,7 +110,6 @@ Doctores vo = (Doctores)request.getAttribute("vo");
 				  		<tr>
 						<td>Tipo: </td>
 						<td><select name="txtTipo">
-							<!--><option value="<%=vo.getTipo().equals("Doctor")%>" selected>Doctor</option><!-->
 							<option value="Doctor">Doctor</option>
 							<option value="Administrador">Administrador</option>
 						</select></td>
@@ -118,6 +136,15 @@ Doctores vo = (Doctores)request.getAttribute("vo");
         <p>&copy; Veterinaria Peru</p>
       </footer>
 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap-3.1.1.js"></script>
+    
 
 
   </body>

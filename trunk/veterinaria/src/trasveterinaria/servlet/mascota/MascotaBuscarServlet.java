@@ -62,5 +62,5 @@ public class MascotaBuscarServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
 			rd.forward(request, response);
 	}
-
+	}
 }

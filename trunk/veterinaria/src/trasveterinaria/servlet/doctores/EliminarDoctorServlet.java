@@ -42,16 +42,11 @@ public class EliminarDoctorServlet extends HttpServlet {
 		GestionDoctores doctor = new GestionDoctores();
 		try {
 			doctor.eliminar(dni);
-			
-			GestionDoctores negocio = new GestionDoctores();
-		
-				Collection<Doctores> lista = negocio.buscarPorNombre(x);
-				
-				// Guardar en el ambiente de request
-				
+					
+				Collection<Doctores> lista = doctor.buscarPorNombre(x);
 				request.setAttribute("doctores", lista);
-				RequestDispatcher rd = request
-						.getRequestDispatcher("BuscarDoctor.jsp");
+				
+				RequestDispatcher rd = request.getRequestDispatcher("BuscarDoctor.jsp");
 				rd.forward(request, response);
 			
 			

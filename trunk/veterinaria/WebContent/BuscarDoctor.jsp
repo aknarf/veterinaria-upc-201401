@@ -1,4 +1,58 @@
 <!DOCTYPE html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!--     <link rel="shortcut icon" href="../../assets/ico/favicon.png"> -->
+
+    <title>Veterinaria</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap-3.1.1.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+        
+	  <!-- Static navbar -->
+	  <div class="navbar navbar-default navbar-static-top">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="principal.jsp">Veterinaria</a>
+	      </div>
+	      <div class="navbar-collapse collapse">
+	        <ul class="nav navbar-nav">
+	          <li><a href="principal.jsp">Inicio</a></li>
+	          <li class="dropdown active">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mantenimientos <b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
+	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>	              
+	            </ul>
+	          </li>
+	          <li><a href="#">Reportes</a></li>	          
+	          <li><a href="LogoutServlet">Salir</a></li>
+	        </ul>
+	      </div><!--/.nav-collapse -->
+	    </div>
+	  </div>
+      
+<div class="container">  </div>
+
+				  
+				  
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -29,6 +83,14 @@
 		<p><strong>Mantenimiento de Doctores</strong></p>
 		
 		<form id="form1" name="form1" method="post" action="BuscarDoctorServlet" class="form-horizontal" role="form">
+		<% String d = (String)request.getAttribute("msg");
+				  if("ok".equals(d)){
+					  out.println("<html><head></head><body onload=\"alert('Se edito el Doctor')\"></body></html>");
+				  }
+				  else if("notok".equals(d)){
+					  out.println("<html><head></head><body onload=\"alert('Edicion Incorrecto de Doctor, DNI o correo duplicado')\"></body></html>");
+				  }
+				  %>
 		  <p>Buscar: 
 		    <label>
 		    <input type="text" name="txtDni" id="txtDni" />
@@ -74,20 +136,17 @@
 		/EliminarDoctorServlet?dni=<%=x.getDni()%>" onclick="return confirm('¿Está seguro que desea eliminar');">Eliminar</a></td>
 		  </tr>
 		<% }  
-		  } %>
+		  } %> 
 		  
 		</table>
 		</div>
 
- 		<!-- Site footer -->
-	   <div class="footer">
-	   	 <p>&nbsp;</p>
-	     <p>&copy; Veterinaria Peru </p>
-	   </div>
-	   
+  
 	 </div> <!-- /container -->
     
-   
+    <footer>
+        <p>&copy; Veterinaria Peru</p>
+    </footer>
 
 
     <!-- Bootstrap core JavaScript
