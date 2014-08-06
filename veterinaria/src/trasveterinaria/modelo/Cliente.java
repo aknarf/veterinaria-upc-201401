@@ -14,6 +14,13 @@ public class Cliente {
 	private String celular;
 	private String telefonofijo;
 	private String ruc;
+	private String nombreCompleto;
+	public String getNombreCompleto() {
+		return nombreCompleto;
+	}
+	public void setNombreCompleto(String nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
+	}
 	private int cantMascota;
 	
 	public String getDni() {
