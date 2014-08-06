@@ -40,7 +40,8 @@
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mantenimientos <b class="caret"></b></a>
 	            <ul class="dropdown-menu">
 	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
-	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>	              
+	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>
+	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>	              
 	            </ul>
 	          </li>
 	          <li><a href="#">Reportes</a></li>	          

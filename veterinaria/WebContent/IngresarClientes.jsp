@@ -61,16 +61,16 @@
 	     
 			<div class="col-md-12">
 
-			  <form class="form-horizontal well" method="post" action="IngresarDoctorServlet" role="form" >
+			  <form class="form-horizontal well" method="post" action="IngresarClientesServlet" role="form" >
 				<fieldset>
-				  <legend>Ingresar Doctores</legend>             
+				  <legend>Ingresar Clientes</legend>             
 				  
 				  <% String x = (String)request.getAttribute("msg");
 				  if("ok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Ingreso Correcto de Doctor')\"></body></html>");
+					  out.println("<html><head></head><body onload=\"alert('Ingreso Correcto de Cliente')\"></body></html>");
 				  }
 				  else if("notok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Ingreso Incorrecto de Doctor, DNI o correo duplicado')\"></body></html>");
+					  out.println("<html><head></head><body onload=\"alert('Ingreso Incorrecto de Clientes, DNI o correo duplicado')\"></body></html>");
 				  }
 				  %>
 				  				  
@@ -99,19 +99,27 @@
 				  		<td><input id="email" type="email" name="txtEmail" required placeholder="Ingrese el correo aqui" /></td>
 				  		</tr>
 				  		<tr>
-				  		<td>Telefono:</td>
-				  		<td><input id="phone" type="tel" maxlength=9 name="txtTelefono" required/></td>
+				  		<tr>
+						<td>Dirección:</td>
+						<td><input type="text" name="txtDireccion" required/></td>		 
 				  		</tr>
 				  		<tr>
-						<td>Tipo: </td>
-						<td><select name="txtTipo">
-							<option value="Doctor" selected>Doctor</option>
-							<option value="Administrador">Administrador</option>
-						</select></td>
+				  		<tr>
+						<td>Foto:</td>
+						<td colspan="1"><input class="input-file" name="fileInput" type="file"></td>	 
 						</tr>
+				  		<tr>
+				  		<td>Celular:</td>
+				  		<td><input id="phone" type="tel" maxlength=9 name="txtCelular" required/></td>
+				  		</tr>
 						<tr>
-						<td>Password:</td>
-						<td><input type="password" name="txtPassword" required/></td>		 
+				  		<tr>
+				  		<td>Telefono:</td>
+				  		<td><input id="phone" type="tel" maxlength=8 name="txtTelefono" required/></td>
+				  		</tr>
+						<tr>
+						<td>RUC:</td>
+						<td><input type="text" name="txtRuc"/></td>		 
 				  		</tr>
 				  		<tr>
 				  		<td colspan="2"><button type="submit" class="btn btn-primary">Guardar</button>
