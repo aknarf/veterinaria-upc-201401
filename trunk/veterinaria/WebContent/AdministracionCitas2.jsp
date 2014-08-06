@@ -17,6 +17,7 @@
 	<link href="css/bootstrap-3.1.1.css" rel="stylesheet">	
 	<link href="css/bootstrap-theme-3.1.1.css" rel="stylesheet">
 	<link href="css/offcanvas.css" rel="stylesheet">	
+	<script src='js/ajaxDWRSelector.js'></script>
 	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,7 +32,8 @@
 <SCRIPT src="js/calendar-es.js" type=text/javascript></SCRIPT>
 <SCRIPT src="js/calendar-setup.js" type=text/javascript></SCRIPT>
 </head>
-<body>
+<body onload="cargaCliente();" leftmargin="0" topmargin="0"
+	rightmargin="0" bottommargin="0" marginheight="0" marginwidth="0">
 
   <div>
      <div class="col-md-12">
@@ -77,14 +79,18 @@
 				  		</tr>
 				  		<tr>
 				  		<td>Dueño:</td>
-				  		<td><input id="dueño" type="dueño" name="txtDueño" required placeholder="Ingrese Dueño" /></td>
-				  		<td><input type="button" value="..."> </td>
+				  		<td>
+				  		<select name="cboDueño" id="idDueño">
+				  		<option>--Seleccione--</option>
+				  		</select>
+				  		</td>
+				  		
 				  		</tr>
 				  		<tr>
 				  		<td>Mascota:</td>
 				  		<td>
 				  		<select name="cboMascota"> 
-				  		<option>--selecione--</option>
+				  		<option>--Seleccione--</option>
 				  		</select>
 				  		</td>
 				  		</tr>

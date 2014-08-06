@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Citas;
@@ -165,6 +166,41 @@ public class CitasDAO extends BaseDAO{
 		}
 		return c;
 	}
+	
+	
+	public List<Cliente> traerClientes() throws DAOExcepcion {
+		List<Cliente> lista= new ArrayList<Cliente>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = ConexionBD.obtenerConexion();
+			String query="SELECT distinct dni,concat_ws(' ', Nombre, Apepaterno,ApeMaterno) as persona FROM cliente ";
+			stmt=con.prepareStatement(query);
+			rs= stmt.executeQuery();
+			while(rs.next()){
+			 Cliente cli= new Cliente();
+			 cli.setDni("dni");
+			 cli.setNombreCompleto("persona");
+			 lista.add(cli);
+			}
+			
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		}finally{
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		
+		return lista;
+		
+	}
+
 	
 
 }
