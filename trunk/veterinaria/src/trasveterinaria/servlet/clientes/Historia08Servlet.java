@@ -15,9 +15,9 @@ import trasveterinaria.modelo.Cliente;
 import trasveterinaria.negocio.GestionCliente;
 
 /**
- * Servlet implementation class Historia08
+ * Servlet implementation class Historia08Servlet
  */
-@WebServlet("/Historia08")
+@WebServlet("/Historia08Servlet")
 public class Historia08Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

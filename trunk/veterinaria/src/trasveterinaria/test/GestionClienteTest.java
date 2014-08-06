@@ -116,9 +116,9 @@ public class GestionClienteTest {
 	@Test
 		public void reporteClienteTest() {
 
-			GestionCliente reporteCliente= new GestionCliente();
+			GestionCliente gc = new GestionCliente();
 			try {
-				Collection<Cliente> listado = reporteCliente.reporteCliente("44544398");
+				Collection<Cliente> listado = gc.reporteCliente("44994398");
 				
 					System.out.println("Cliente encontrado \n");
 					System.out.println("CLIENTE");
