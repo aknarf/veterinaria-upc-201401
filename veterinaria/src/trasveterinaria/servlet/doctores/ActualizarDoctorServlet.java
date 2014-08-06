@@ -1,6 +1,7 @@
 package trasveterinaria.servlet.doctores;
 
 import java.io.IOException;
+import java.util.Collection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.junit.Assert;
 
 import trasveterinaria.excepcion.DAOExcepcion;
+import trasveterinaria.modelo.Doctores;
 import trasveterinaria.negocio.GestionDoctores;
 
 /**
@@ -41,10 +43,9 @@ public class ActualizarDoctorServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
 		String DNIDoc = request.getParameter("txtDni");
 		int dni = Integer.parseInt(DNIDoc);
-	    System.out.println(dni);
+	    //System.out.println(dni);
 		String Nonbre = request.getParameter("txtNombre");
 		String ApePaterno = request.getParameter("txtApellidoPaterno");
 		String ApeMaterno = request.getParameter("txtApellidoMaterno");
@@ -57,10 +58,13 @@ public class ActualizarDoctorServlet extends HttpServlet {
 		try {
 			negocio.actualizar(Nonbre,ApePaterno,ApeMaterno,Email,Telefono,Tipo,Contraseña,dni);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("BuscarDoctor.jsp");
-			rd.forward(request, response);
+				Collection<Doctores> lista = negocio.buscarPorNombre("");
+				request.setAttribute("doctores", lista);
+				RequestDispatcher rd = request.getRequestDispatcher("BuscarDoctor.jsp");
+				rd.forward(request, response);
 			
 		} catch (DAOExcepcion e) {
+			  System.out.println(e.toString());
 			Assert.fail("Falló la actualización: " + e.getMessage());
 		}
 	}
