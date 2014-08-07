@@ -64,6 +64,7 @@ public class IngresarClientesServlet extends HttpServlet {
 		prod.setCelular(Celular);
 		prod.setTelefonofijo(Telefono);
 		prod.setRuc(Ruc);
+		
 			
 		GestionCliente negocio= new GestionCliente();
 		

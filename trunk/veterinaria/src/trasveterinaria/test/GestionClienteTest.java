@@ -13,12 +13,12 @@ import trasveterinaria.negocio.GestionCliente;
 
 public class GestionClienteTest {
 
-	//@Test
+	@Test
 	public void insertar(){
 
 		Cliente prod= new Cliente();
 		
-		prod.setDni("43772655");
+		prod.setDni("43772680");
 		prod.setNombre("Juanito");
 		prod.setApePaterno("Martines");
 		prod.setApeMaterno("Rios");
@@ -113,7 +113,7 @@ public class GestionClienteTest {
 		}
 	}
 
-	@Test
+	//@Test
 		public void reporteClienteTest() {
 
 			GestionCliente gc = new GestionCliente();
