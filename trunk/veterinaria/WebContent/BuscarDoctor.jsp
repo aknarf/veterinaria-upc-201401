@@ -40,7 +40,8 @@
 	            <ul class="dropdown-menu">
 	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
 	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>
-	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>	              
+	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>
+	              <li><a href="BuscarClientes.jsp">Buscar Clientes</a></li>		              
 	            </ul>
 	          </li>
 	          <li><a href="#">Reportes</a></li>	          

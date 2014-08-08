@@ -40,7 +40,8 @@
 	            <ul class="dropdown-menu">
 	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
 	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>
-	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>	              
+	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>
+	              <li><a href="BuscarClientes.jsp">Buscar Clientes</a></li>	              
 	            </ul>
 	          </li>
 	          <li><a href="#">Reportes</a></li>	          
@@ -83,7 +84,7 @@
 
 		<p><strong>Mantenimiento de Clientes</strong></p>
 		
-		<form id="form1" name="form1" method="post" action="BuscarDoctorServlet" class="form-horizontal" role="form">
+		<form id="form1" name="form1" method="post" action="BuscarClientesServlet" class="form-horizontal" role="form">
 		<% String d = (String)request.getAttribute("msg");
 				  if("ok".equals(d)){
 					  out.println("<html><head></head><body onload=\"alert('Se edito el Cliente')\"></body></html>");
@@ -100,7 +101,7 @@
 		    <button type="submit" name="button" id="button" >Buscar</button>
 		    </label>
 		    <label>
-		   	<input type="button" name="button2" id="button2" value="Nuevo" onclick="window.location='IngresarCliente.jsp' "  />
+		   	<input type="button" name="button2" id="button2" value="Nuevo" onclick="window.location='IngresarClientes.jsp' "  />
 		    </label>
 		  </p>
 		</form>
@@ -113,8 +114,10 @@
 		    <th scope="col">Ape. Paterno</th>
 		    <th scope="col">Ape. Materno</th>
 		    <th scope="col">Email</th>
-		    <th scope="col">Telefono</th>
-		    <th scope="col">Tipo</th>
+		    <th scope="col">Dirección</th>
+		    <th scope="col">Celular</th>
+		    <th scope="col">Telefono Fijo</th>
+		    <th scope="col">Ruc</th>
 		  </tr>
 		
 		<%@page import="java.util.*,trasveterinaria.modelo.Cliente" %>
@@ -122,7 +125,7 @@
 		Collection<Cliente> arreglo = (ArrayList<Cliente>)request.getAttribute("clientes");
 		if(arreglo != null) { 
 		int i = 1;
-		for(Doctores x : arreglo) {
+		for(Cliente x : arreglo) {
 		%>  
 		  <tr>
 		    <td><%=i++ %></td>
@@ -130,10 +133,12 @@
 		    <td><% out.print(x.getNombre()); %></td>
 		    <td><% out.print(x.getApePaterno()); %></td>
 		    <td><% out.print(x.getApeMaterno()); %></td>
-		    <td><% out.print(x.getEmail()); %></td>
-		    <td><% out.print(x.getTelefono()); %></td>
-		    <td><% out.print(x.getTipo()); %></td>
-		    <td><a href="<%=request.getContextPath() %>/EditarDoctorServlet?dni=<%=x.getDni()%>">Editar</a> - <a href="<%=request.getContextPath()%>
+		    <td><% out.print(x.getCorreoelectronico()); %></td>
+		    <td><% out.print(x.getDireccion()); %></td>
+		    <td><% out.print(x.getCelular()); %></td>
+		    <td><% out.print(x.getTelefonofijo()); %></td>
+		    <td><% out.print(x.getRuc()); %></td>
+		    <td><a href="<%=request.getContextPath() %>/EditarClienteServlet?dni=<%=x.getDni()%>">Editar</a> - <a href="<%=request.getContextPath()%>
 		/EliminarDoctorServlet?dni=<%=x.getDni()%>" onclick="return confirm('¿Está seguro que desea eliminar');">Eliminar</a></td>
 		  </tr>
 		<% }  
