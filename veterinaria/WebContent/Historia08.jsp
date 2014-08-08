@@ -22,6 +22,35 @@
   </head>
 
   <body>
+  <!-- Static navbar -->
+	  <div class="navbar navbar-default navbar-static-top">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="principal.jsp">Veterinaria</a>
+	      </div>
+	      <div class="navbar-collapse collapse">
+	        <ul class="nav navbar-nav">
+	          <li><a href="principal.jsp">Inicio</a></li>
+	          <li class="dropdown active">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes <b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+	              <li><a href="Historia08.jsp">Reporte de dueños</a></li>
+	              <li><a href="#">Reporte de paciente</a></li>
+	              <li><a href="#">Reporte de atenciones</a></li>             
+	            </ul>
+	          </li>
+	          <li><a href="#">Mantenimiento</a></li>	          
+	          <li><a href="LogoutServlet">Salir</a></li>
+	        </ul>
+	      </div><!--/.nav-collapse -->
+	      
+	      </div>
+	  </div>
         
    	 <div class="container"> 
 
