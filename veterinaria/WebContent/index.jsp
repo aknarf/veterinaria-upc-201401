@@ -7,7 +7,7 @@
     <meta name="author" content="">
 <!--     <link rel="shortcut icon" href="../../assets/ico/favicon.png"> -->
 
-    <title>Trastienda</title>
+    <title>Veterinaria Perú - Bienvenid@</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap-3.1.1.css" rel="stylesheet" media="screen">
@@ -70,7 +70,7 @@
    
    	<form class="form-signin" action="LoginServlet" method="post">
         <h2 class="form-signin-heading">Bienvenid@</h2>
-        <input type="text" class="form-control" placeholder="Usuario" autofocus name="usuario">
+        <input type="text" class="form-control" placeholder="Usuario (correo electrónico)" autofocus name="usuario">
         <input type="password" class="form-control" placeholder="Clave" name="clave">        
         <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
         <span style="color: red;">${MENSAJE }</span>
