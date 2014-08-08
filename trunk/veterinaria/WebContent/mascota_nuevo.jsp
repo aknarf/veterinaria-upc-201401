@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>  
-	<meta charset="utf-8">	
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Veterinaria">
-	<meta name="keywords" content="Veterinaria">
-    <meta name="author" content="Veterinbaria - Perú">
-	
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!--     <link rel="shortcut icon" href="../../assets/ico/favicon.png"> -->
+
     <title>Veterinaria</title>
-	
-	<script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap-3.1.1.js"></script>
 
-	<link href="css/bootstrap-3.1.1.css" rel="stylesheet">	
-	<link href="css/bootstrap-theme-3.1.1.css" rel="stylesheet">
-	<link href="css/offcanvas.css" rel="stylesheet">	
-	
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-  	<LINK href="css/calendar-blue.css" type=text/css rel=stylesheet>
-	<link href="css/displaytag.css" rel="stylesheet" type="text/css"><!--  //esta la importacion de la hoja de estilo del display--> 
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap-3.1.1.css" rel="stylesheet" media="screen">
 
+    
 	<SCRIPT src="js/calendar.js" type=text/javascript></SCRIPT>
 	<SCRIPT src="js/calendar-es.js" type=text/javascript></SCRIPT>
 	<SCRIPT src="js/calendar-setup.js" type=text/javascript></SCRIPT>  
@@ -31,6 +21,37 @@
   </head>
 
   <body>
+  
+  <!-- Static navbar -->
+	  <div class="navbar navbar-default navbar-static-top">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </button>
+	        <a class="navbar-brand" href="principal.jsp">Veterinaria</a>
+	      </div>
+	      <div class="navbar-collapse collapse">
+	        <ul class="nav navbar-nav">
+	          <li><a href="principal.jsp">Inicio</a></li>
+	          <li class="dropdown active">
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mantenimientos <b class="caret"></b></a>
+	            <ul class="dropdown-menu">
+	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
+	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>
+	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>
+	              <li><a href="mascota_nuevo.jsp">Ingresar Pacientes</a></li>
+	              <li><a href="mascota_buscar.jsp">Buscar Pacientes</a></li>	              
+	            </ul>
+	          </li>
+	          <li><a href="#">Reportes</a></li>	          
+	          <li><a href="LogoutServlet">Salir</a></li>
+	        </ul>
+	      </div><!--/.nav-collapse -->
+	    </div>
+	  </div>
   
 
     <div class="container">
