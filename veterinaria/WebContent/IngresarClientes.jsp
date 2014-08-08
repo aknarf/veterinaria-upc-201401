@@ -41,7 +41,8 @@
 	            <ul class="dropdown-menu">
 	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
 	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>
-	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>	              
+	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>
+	              <li><a href="BuscarClientes.jsp">Buscar Clientes</a></li>	              
 	            </ul>
 	          </li>
 	          <li><a href="#">Reportes</a></li>	          
@@ -105,9 +106,9 @@
 				  		</tr>
 				  		<tr>
 				  		<tr>
-						<td>Foto:</td>
+						<!--<td>Foto:</td>
 						<td colspan="1"><input class="input-file" name="fileInput" type="file"></td>	 
-						</tr>
+						</tr> -->
 				  		<tr>
 				  		<td>Celular:</td>
 				  		<td><input id="phone" type="tel" maxlength=9 name="txtCelular" required/></td>

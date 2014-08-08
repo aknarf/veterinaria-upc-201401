@@ -10,6 +10,11 @@ import trasveterinaria.modelo.Cliente;
 
 
 public class GestionCliente {
+	
+	public Collection<Cliente> buscarPorNombre(String nombre) throws DAOExcepcion {
+		ClienteDAO dao = new ClienteDAO();
+		return dao.listar();
+	}
 
 	public void insertar(Cliente vo) throws DAOExcepcion {
 		ClienteDAO dao= new ClienteDAO();

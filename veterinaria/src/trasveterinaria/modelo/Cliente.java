@@ -1,6 +1,8 @@
 package trasveterinaria.modelo;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class Cliente {
 	
@@ -15,6 +17,8 @@ public class Cliente {
 	private String telefonofijo;
 	private String ruc;
 	private String nombreCompleto;
+	private Collection<Cliente> Cliente = new ArrayList<Cliente>();
+
 	public String getNombreCompleto() {
 		return nombreCompleto;
 	}
