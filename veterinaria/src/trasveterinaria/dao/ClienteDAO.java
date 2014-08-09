@@ -215,7 +215,7 @@ public class ClienteDAO extends BaseDAO{
 	}
 	
 	public Collection<Cliente> reporteCliente(String dni) throws DAOExcepcion {
-		Collection<Cliente> rc = new ArrayList<Cliente>();
+		ArrayList<Cliente> rc = new ArrayList<Cliente>();
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -234,6 +234,8 @@ public class ClienteDAO extends BaseDAO{
 				vo.setApePaterno(rs.getString(3));
 				vo.setApeMaterno(rs.getString(4));
 				vo.setCantMascota(rs.getInt(5));
+				
+				rc.add(vo);
 			}
 		} catch (SQLException e) {
 			System.err.println(e.getMessage());

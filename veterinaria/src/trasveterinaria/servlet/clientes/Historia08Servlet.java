@@ -43,15 +43,15 @@ public class Historia08Servlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		System.out.println("Dentro de doPost del servlet Historia08 Servlet");
-		String dni = request.getParameter("dni");
+		String x = request.getParameter("dni");
 			
 		GestionCliente negocio = new GestionCliente();
 		try {
-			Collection<Cliente> c = negocio.reporteCliente(dni);
+			Collection<Cliente> lista = negocio.reporteCliente(x);
 			
 			// Guardar en el ambiente de request
 			
-			request.setAttribute("cliente", c);
+			request.setAttribute("clientes", lista);
 			RequestDispatcher rd = request
 					.getRequestDispatcher("Historia08.jsp");
 			rd.forward(request, response);
