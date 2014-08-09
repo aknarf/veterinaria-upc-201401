@@ -117,7 +117,7 @@
 		    <th scope="col">Dirección</th>
 		    <th scope="col">Celular</th>
 		    <th scope="col">Telefono Fijo</th>
-		    <th scope="col">Ruc</th>
+		    <th scope="col">RUC</th>
 		  </tr>
 		
 		<%@page import="java.util.*,trasveterinaria.modelo.Cliente" %>
