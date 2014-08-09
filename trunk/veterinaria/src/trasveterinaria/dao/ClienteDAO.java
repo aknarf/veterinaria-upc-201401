@@ -221,7 +221,8 @@ public class ClienteDAO extends BaseDAO{
 		ResultSet rs = null;
 		
 		try {
-			String query = "select c.dni, c.Nombre, c.ApePaterno, c.ApeMaterno, count(m.idMascota) as CantidadMascotas from cliente c inner join mascota m on c.dni=m.Cliente_Dni inner join raza r on m.Raza_idRaza=r.idRaza inner join especie e on r.idEspecie=e.idEspecie where c.dni=?";
+			//String query = "select c.dni as dni, c.Nombre as nombre, c.ApePaterno as paterno, c.ApeMaterno as materno, count(m.idMascota) as CantidadMascotas from cliente c inner join mascota m on c.dni=m.Cliente_Dni inner join raza r on m.Raza_idRaza=r.idRaza inner join especie e on r.idEspecie=e.idEspecie where c.dni=?";
+			String query="select a.dni,a.nombre,a.apepaterno,a.apematerno, count(b.idMascota) as cantidad from cliente a inner join  mascota b on a.dni=b.Cliente_Dni and a.Dni=? group by  nombre,apepaterno,apematerno";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
 			stmt.setString(1, dni);
@@ -229,11 +230,11 @@ public class ClienteDAO extends BaseDAO{
 			
 			if (rs.next()) {
 				Cliente vo = new Cliente();
-				vo.setDni(rs.getString(1));
-				vo.setNombre(rs.getString(2));
-				vo.setApePaterno(rs.getString(3));
-				vo.setApeMaterno(rs.getString(4));
-				vo.setCantMascota(rs.getInt(5));
+				vo.setDni(rs.getString("dni"));
+				vo.setNombre(rs.getString("nombre"));
+				vo.setApePaterno(rs.getString("apepaterno"));
+				vo.setApeMaterno(rs.getString("apematerno"));
+				vo.setCantMascota(Integer.parseInt(("cantidad")));
 				
 				rc.add(vo);
 			}

@@ -14,10 +14,11 @@
 	<script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap-3.1.1.js"></script>
 
-	<link href="css/bootstrap-3.1.1.css" rel="stylesheet">	
-	<link href="css/bootstrap-theme-3.1.1.css" rel="stylesheet">
-	<link href="css/offcanvas.css" rel="stylesheet">	
-	<script src='js/ajaxDWRSelector.js'></script>
+<link rel="stylesheet" type="text/css" href="css/estilos.css" />
+<script src='dwr/interface/UbigeoService.js'></script>
+<script src='dwr/engine.js'></script>
+<script src='dwr/util.js'></script><
+<script src='js/ajaxDWRSelector.js'></script>
 	
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -32,7 +33,7 @@
 <SCRIPT src="js/calendar-es.js" type=text/javascript></SCRIPT>
 <SCRIPT src="js/calendar-setup.js" type=text/javascript></SCRIPT>
 </head>
-<body onload="cargaCliente();" leftmargin="0" topmargin="0"
+<body onload="traerCliente();" leftmargin="0" topmargin="0"
 	rightmargin="0" bottommargin="0" marginheight="0" marginwidth="0">
 
   <div>

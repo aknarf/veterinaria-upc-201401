@@ -17,6 +17,7 @@ public class Cliente {
 	private String telefonofijo;
 	private String ruc;
 	private String nombreCompleto;
+	private int cantMascota;
 	private Collection<Cliente> Cliente = new ArrayList<Cliente>();
 
 	public String getNombreCompleto() {
@@ -25,7 +26,7 @@ public class Cliente {
 	public void setNombreCompleto(String nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
 	}
-	private int cantMascota;
+	
 	
 	public String getDni() {
 		return dni;
