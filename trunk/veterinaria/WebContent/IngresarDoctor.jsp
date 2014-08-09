@@ -85,7 +85,7 @@
 				  		</tr>
 				  		<tr>
 				  		<td>Nombre:</td>
-				  		<td><input type="text" pattern=[a-z] name="txtNombre" required/></td>
+				  		<td><input type="text" name="txtNombre" required/></td>
 				  		</tr>
 				  		<tr>
 				  		<td>Apellido Paterno:</td>

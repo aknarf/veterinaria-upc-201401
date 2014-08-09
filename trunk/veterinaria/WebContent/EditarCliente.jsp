@@ -21,7 +21,7 @@
   </head>
 
   <body>
-        
+
 	  <!-- Static navbar -->
 	  <div class="navbar navbar-default navbar-static-top">
 	    <div class="container">
@@ -40,9 +40,7 @@
 	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mantenimientos <b class="caret"></b></a>
 	            <ul class="dropdown-menu">
 	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
-	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>
-	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>
-	              <li><a href="BuscarClientes.jsp">Buscar Clientes</a></li>	              
+	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>	              
 	            </ul>
 	          </li>
 	          <li><a href="#">Reportes</a></li>	          
@@ -53,77 +51,81 @@
 	  </div>
       
 	 <div class="container"> </div>
-
-
-
-
+	   
+<%@page import="trasveterinaria.modelo.Cliente;"%>
+<%
+Cliente vo = (Cliente)request.getAttribute("vo");
+%>
 
     <div class="container">
 	     
 			<div class="col-md-12">
 
-			  <form class="form-horizontal well" method="post" action="IngresarClientesServlet" role="form" >
+			  <form class="form-horizontal well" method="post" action="ActualizarClienteServlet" role="form" >
 				<fieldset>
-				  <legend>Ingresar Clientes</legend>             
+				  <legend>Editar Cliente</legend>             
 				  
-				  <% String x = (String)request.getAttribute("msg");
-				  if("ok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Ingreso Correcto de Cliente')\"></body></html>");
-				  }
-				  else if("notok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Ingreso Incorrecto de Clientes, DNI o correo duplicado')\"></body></html>");
-				  }
-				  %>
+
 				  				  
 				  <div class="control-group">
-				  		<p class="help-block">Ingresar datos:</p>
+				  		<p class="help-block">Editar los datos:</p>
 				  		<div class="table-responsive">
 				  		<table>
 				  		<tr>
 				  		<td>DNI:</td>
-				  		<td><input type="text"  pattern=[0-9]{8} maxlength=8 name="txtDni" required/></td>
+				  		<td><input type="text"  pattern=[0-9]{8} maxlength=8 name="txtDni"  readonly required
+				  		value="<%=vo.getDni()%>" />
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Nombre:</td>
-				  		<td><input type="text"  name="txtNombre" required/></td>
+				  		<td><input type="text" name="txtNombre" required
+				  		value="<%=vo.getNombre()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Apellido Paterno:</td>
-				  		<td><input type="text" name="txtApellidoPaterno" required/></td>
+				  		<td><input type="text" name="txtApellidoPaterno" required
+				  		value="<%=vo.getApePaterno()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Apellido Materno:</td>
-				  		<td><input type="text" name="txtApellidoMaterno" required/></td>
+				  		<td><input type="text" name="txtApellidoMaterno" required
+				  		value="<%=vo.getApeMaterno()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Correo:</td>
-				  		<td><input id="email" type="email" name="txtEmail" required placeholder="Ingrese el correo aqui" /></td>
+				  		<td><input id="email" type="email" name="txtEmail" required placeholder="Ingrese el correo aqui"
+				  		value="<%=vo.getCorreoelectronico()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
-				  		<tr>
-						<td>Dirección:</td>
-						<td><input type="text" name="txtDireccion" required/></td>		 
+				  		<td>Dirección:</td>
+				  		<td><input id="direccion" type="text" name="txtDireccion" required"
+				  		value="<%=vo.getDireccion()%>"/>
+				  		</td>
 				  		</tr>
-				  		<tr>
-				  		<tr>
-						<!--<td>Foto:</td>
-						<td colspan="1"><input class="input-file" name="fileInput" type="file"></td>	 
-						</tr> -->
 				  		<tr>
 				  		<td>Celular:</td>
-				  		<td><input id="phone" type="tel" maxlength=9 name="txtCelular" required/></td>
-				  		</tr>
-						<tr>
+				  		<td><input id="phone" type="tel" maxlength=9 name="txtCelular" required
+				  		value="<%=vo.getCelular()%>"/>
+				  		</td>
 				  		<tr>
 				  		<td>Telefono:</td>
-				  		<td><input id="phone" type="tel"  maxlength=8 name="txtTelefono" required/></td>
-				  		</tr>
-						<tr>
-						<td>RUC:</td>
-						<td><input type="text" maxlength=11 name="txtRuc"/></td>		 
+				  		<td><input id="phone" type="tel" maxlength=9 name="txtTelefono" required
+				  		value="<%=vo.getTelefonofijo()%>"/>
+				  		</td>
 				  		</tr>
 				  		<tr>
-				  		<td colspan="2"><button type="submit" class="btn btn-primary">Guardar</button>
+				  		<tr>
+				  		<td>RUC:</td>
+				  		<td><input id="ruc" type="text" name="txtRuc" required"
+				  		value="<%=vo.getRuc()%>"/>
+				  		</td>
+				  		</tr>
+				  		<td colspan="2"><button type="submit" class="btn btn-primary">Actualizar</button>
 						<button type="reset" class="btn">Cancelar</button></td>
 						</tr>  
 						</table>
@@ -139,7 +141,7 @@
       <footer>
         <p>&copy; Veterinaria Peru</p>
       </footer>
-      
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -148,6 +150,7 @@
     <script src="js/jquery-1.10.2.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap-3.1.1.js"></script>
+    
 
 
   </body>
