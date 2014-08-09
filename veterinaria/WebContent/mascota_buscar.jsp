@@ -97,7 +97,7 @@
 		    <td><%=i++ %></td>
 		    <td><% out.print(x.getNombre()); %></td>
 		    <td><% out.print(x.getCliente_Dni()); %></td>
-		    <td><a href="<%=request.getContextPath() %>/MascotaEditarServlet?id=<%=x.getNombre() %>">Editar</a> - <a href="<%=request.getContextPath()%>
+		    <td><a href="<%=request.getContextPath() %>/MascotaEditarServlet?id=<%=x.getIdMascota() %>">Editar</a> - <a href="<%=request.getContextPath()%>
 		/MascotaEliminarServlet?id=<%=x.getNombre()%>" onclick="return confirm('¿Está seguro que desea eliminar');">Eliminar</a> - <a href="<%=request.getContextPath()%>
 		/MascotaInformacionServlet?id=<%=x.getNombre()%>">Información detallada</a></td>
 		  </tr>

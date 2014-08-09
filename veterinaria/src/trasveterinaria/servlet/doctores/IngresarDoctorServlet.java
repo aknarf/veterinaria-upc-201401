@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import junit.framework.Assert;
 
 import trasveterinaria.modelo.Doctores;
 import trasveterinaria.negocio.GestionDoctores;
@@ -79,8 +78,8 @@ public class IngresarDoctorServlet extends HttpServlet {
 				rd.forward(request, response);		
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
-			Assert.fail("No Inserto"+ e.getMessage());
+			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+			rd.forward(request, response);
 		
 		}
 		
