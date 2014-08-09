@@ -13,7 +13,7 @@ import trasveterinaria.negocio.GestionCliente;
 
 public class GestionClienteTest {
 
-	@Test
+	//@Test
 	public void insertar(){
 
 		Cliente prod= new Cliente();
@@ -113,18 +113,23 @@ public class GestionClienteTest {
 		}
 	}
 
-	//@Test
+	@Test
 		public void reporteClienteTest() {
 
 			GestionCliente gc = new GestionCliente();
 			try {
-				Collection<Cliente> listado = gc.reporteCliente("44994398");
-				
+				Collection<Cliente> listado =gc.reporteCliente("44994398");
+				if(listado == null){
+					System.out.println("No se encontro cliente");
+				}
+				else{
 					System.out.println("Cliente encontrado \n");
 					System.out.println("CLIENTE");
 					System.out.println("--------------------------------------------------------------------------");
 					for (Cliente dao : listado) {
 					System.out.println(dao.getDni()+"\t "+dao.getNombre()+"\t "+dao.getApePaterno()+"\t "+dao.getApeMaterno()+"\t"+dao.getCantMascota()+"\n");
+					}
+					Assert.assertTrue(listado.size() > 0);
 				}
 			} catch (DAOExcepcion e) {
 				Assert.fail("No se encontro cliente" + e.getMessage());

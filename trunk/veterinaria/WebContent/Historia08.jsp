@@ -37,20 +37,27 @@
 	        <ul class="nav navbar-nav">
 	          <li><a href="principal.jsp">Inicio</a></li>
 	          <li class="dropdown active">
-	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes <b class="caret"></b></a>
+	            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mantenimientos <b class="caret"></b></a>
 	            <ul class="dropdown-menu">
-	              <li><a href="Historia08.jsp">Reporte de dueños</a></li>
-	              <li><a href="#">Reporte de paciente</a></li>
-	              <li><a href="#">Reporte de atenciones</a></li>             
+	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
+	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>
+	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>
+	              <li><a href="BuscarClientes.jsp">Buscar Clientes</a></li>	              
 	            </ul>
 	          </li>
-	          <li><a href="#">Mantenimiento</a></li>	          
+	          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	          	<li><a href="Historia08.jsp">Reporte de dueños</a></li>
+	          	<li><a href="#">Reporte de pacientes</a></li>
+	          	<li><a href="#">Reporte de atenciones</a></li>
+	          	</ul>
+	          </li>	          
 	          <li><a href="LogoutServlet">Salir</a></li>
 	        </ul>
 	      </div><!--/.nav-collapse -->
-	      
-	      </div>
+	    </div>
 	  </div>
+
         
    	 <div class="container"> 
 
@@ -60,7 +67,7 @@
 		<form id="form1" name="form1" method="post" action="Historia08Servlet" class="form-horizontal" role="form">
 		  <p>Buscar: 
 		    <label>
-		    <input type="text" name="txtDni" id="txtDni" />
+		    <input type="text" name="dni" id="dni" />
 		    </label>
 		    <label>
 		    <button type="submit" name="button" id="button" >Buscar</button>
@@ -70,7 +77,7 @@
 		<div class="table-responsive">
 		<table width="550" height="65" border="1" cellpadding="0" cellspacing="0" class="table table-hover">
 		  <tr>
-		    <th scope="col">Nro.</th>
+		  	<th scope="col">Nro.</th>
 		    <th scope="col">DNI</th>
 		    <th scope="col">Nombre</th>
 		    <th scope="col">Ape. Paterno</th>
@@ -78,15 +85,16 @@
 		    <th scope="col">Cant. Mascotas</th>
 		  </tr>
 		
-		<%@page import="java.util.*,trasveterinaria.modelo.Cliente" %>
+		<%@page import="java.util.*,trasveterinaria.modelo.Cliente, trasveterinaria.modelo.Mascota" %>
 		<%
-		Collection<Cliente> arreglo = (ArrayList<Cliente>)request.getAttribute("dni");
-		if(arreglo != null) { 
+		ArrayList<Cliente> arreglo = (ArrayList<Cliente>)request.getAttribute("clientes");
+		if(arreglo !=null){
 		int i = 1;
-		for(Cliente x : arreglo) {
+		for (Cliente x: arreglo){
+			
 		%>  
 		  <tr>
-		    <td><%=i++ %></td>
+		  	<td><%=i++ %></td>
 		    <td><% out.print(x.getDni()); %></td>
 		    <td><% out.print(x.getNombre()); %></td>
 		    <td><% out.print(x.getApePaterno()); %></td>
@@ -94,7 +102,7 @@
 		    <td><% out.print(x.getCantMascota()); %></td>
 		    
 		  </tr>
-		<% }  
+		<%  } 
 		  } %>
 		  
 		</table>
