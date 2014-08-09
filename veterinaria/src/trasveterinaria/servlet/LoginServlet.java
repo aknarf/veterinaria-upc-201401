@@ -54,24 +54,55 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements
 
 		String usuario = request.getParameter("usuario");
 		String clave = request.getParameter("clave");
-
-		GestionDoctores negocio = new GestionDoctores();
-
-		try {
-			Doctores vo = negocio.validar(usuario, clave);
+		
+		if(usuario.length()== 0 || clave.length()==0){
+			String msgVacio = "" ;
+			if (usuario.length() == 0 && clave.length() == 0) {
+				msgVacio += "!!Ingrese Usuario y clave";
+			} else if (usuario.length() == 0) {
+				msgVacio += "!!Ingrese usuario";
+			} else if (clave.length() == 0) {		
+				msgVacio += "!!Ingrese clave";
+			}
+			request.setAttribute("TEXTO", msgVacio);
+			RequestDispatcher rd = getServletContext().getRequestDispatcher(
+					"/index.jsp");
+			rd.forward(request, response);
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("USUARIO_ACTUAL", vo);
 			
-			response.sendRedirect("PortadaServlet");
-			return;
-		} catch (DAOExcepcion e) {
-			request.setAttribute("MENSAJE", "Hubo un error al procesar la operación: " + e.getMessage());	
-		} catch (LoginException e) {
-			request.setAttribute("MENSAJE", "Usuario y/o clave incorrectos");
+			
+		}else{
+			GestionDoctores negocio = new GestionDoctores();
+
+			try {
+				Doctores vo = negocio.validar(usuario, clave);
+				if(vo != null){
+					HttpSession session = request.getSession();
+					session.setAttribute("USUARIO_ACTUAL", vo);
+					
+					response.sendRedirect("PortadaServlet");
+					//return;
+				}else{
+					String mensaje="!! Usuario no existe";
+					request.setAttribute("TEXTO", mensaje);
+					RequestDispatcher rd = getServletContext()
+							.getRequestDispatcher("/index.jsp");
+					rd.forward(request, response);
+				}			
+				
+				
+			} catch (DAOExcepcion e) {
+				request.setAttribute("MENSAJE", "Hubo un error al procesar la operación: " + e.getMessage());	
+			} catch (LoginException e) {
+				request.setAttribute("MENSAJE", "Usuario y/o clave incorrectos");
+			}
+
+		//	RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+		//	rd.forward(request, response);
 		}
+		
+		
 
-		RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-		rd.forward(request, response);
+		
 	}
 }

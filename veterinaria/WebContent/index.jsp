@@ -66,13 +66,28 @@
   <body>
 
     <div class="container">
+    <table align="center">
+                    <tr>
+                    
+                      <td>
+                              <%
+                                String  mensaje=(String)request.getAttribute("TEXTO");
+                                if (mensaje==null) mensaje="";
+                                              
+                              %>
+                              <font color="red" style="font: medium"><%=mensaje %></font>                  
+                           
+                           </td>
+                    
+                    </tr>
+                    </table>
    
    
    	<form class="form-signin" action="LoginServlet" method="post">
         <h2 class="form-signin-heading">Bienvenid@</h2>
         <input type="text" class="form-control" placeholder="Usuario (correo electrónico)" autofocus name="usuario">
         <input type="password" class="form-control" placeholder="Clave" name="clave">        
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
+       <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
         <span style="color: red;">${MENSAJE }</span>
     </form>
 	
