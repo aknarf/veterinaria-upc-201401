@@ -1,5 +1,8 @@
 package trasveterinaria.modelo;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 
 public class Mascota {
 
@@ -13,11 +16,21 @@ public class Mascota {
 	private int Peso;
 	private String FechaNacimiento;
 	private String Alergia;
-	private int Cliente_Dni;
+	//private int Cliente_Dni; (Se cambió el tipo de dato en la BD)
+	private String Cliente_Dni;
 	private int Raza_idRaza;
 	//private int Cant_Atenciones;
+	private Collection<Mascota> Mascotas = new ArrayList<Mascota>();
 
 
+	public Collection<Mascota> getMascota() {
+		return Mascotas;
+	}
+
+	public void setMascota(Collection<Mascota> mascotas) {
+		Mascotas = mascotas;
+	}
+	
 	public int getIdMascota() {
 		return IdMascota;
 	}
@@ -98,11 +111,11 @@ public class Mascota {
 		this.Alergia = Alergia;
 	}
 
-	public int getCliente_Dni() {
+	public String getCliente_Dni() {
 		return Cliente_Dni;
 	}
 	
-	public void setCliente_Dni(int Cliente_Dni) {
+	public void setCliente_Dni(String Cliente_Dni) {
 		this.Cliente_Dni = Cliente_Dni;
 	}
 	

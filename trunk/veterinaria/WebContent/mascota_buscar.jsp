@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 
   <head>
     <meta charset="utf-8">
@@ -21,8 +20,7 @@
   </head>
 
   <body>
-        
-	  <!-- Static navbar -->
+        <!-- Static navbar -->
 	  <div class="navbar navbar-default navbar-static-top">
 	    <div class="container">
 	      <div class="navbar-header">
@@ -62,13 +60,54 @@
 	    </div>
 	  </div>
 
-	  
-	 
-	 
-	 
-	 
-	 
-	     <footer>
+	  <div class="container"> 
+
+		<p><strong>Mantenimiento de Pacientes &gt; Buscar</strong></p>
+		
+		<form id="form1" name="form1" method="post" action="MascotaBuscarServlet" class="form-horizontal" role="form">
+		  <p>Buscar: 
+		    <label>
+		    <input type="text" name="nombre" id="nombre" />
+		    </label>
+		    <label>
+		    <input type="submit" name="button" id="button" value="Buscar" />
+		    </label>
+		    <label>
+		    <input type="button" name="button2" id="button2" value="Nuevo" onclick="window.location='roles_nuevo.jsp' "  />
+		    </label>
+		  </p>
+		</form>
+		<div class="table-responsive">
+		<table width="550" height="65" border="1" cellpadding="0" cellspacing="0" class="table table-hover">
+		  <tr>
+		    <th width="49" scope="col">Nro.</th>
+		    <th width="192" scope="col">Nombre</th>
+		    <th width="107" scope="col">Dueño al que pertenece</th>
+		    <th width="192" scope="col">Acciones</th>
+		  </tr>
+		
+		<%@page import="java.util.*, trasveterinaria.modelo.Mascota" %>
+		<%
+		Collection<Mascota> arreglo = (ArrayList<Mascota>)request.getAttribute("Mascotas");
+		if(arreglo != null) { 
+		int i = 1;
+		for(Mascota x : arreglo) {
+		%>  
+		  <tr>
+		    <td><%=i++ %></td>
+		    <td><% out.print(x.getNombre()); %></td>
+		    <td><% out.print(x.getCliente_Dni()); %></td>
+		    <td><a href="<%=request.getContextPath() %>/MascotaEditarServlet?id=<%=x.getNombre() %>">Editar</a> - <a href="<%=request.getContextPath()%>
+		/MascotaEliminarServlet?id=<%=x.getNombre()%>" onclick="return confirm('¿Está seguro que desea eliminar');">Eliminar</a> - <a href="<%=request.getContextPath()%>
+		/MascotaInformacionServlet?id=<%=x.getNombre()%>">Información detallada</a></td>
+		  </tr>
+		<% }  
+		  } %>
+		  
+		</table>
+		</div>
+	
+	<footer>
         <p>&copy; Veterinaria Peru</p>
     </footer>
 
@@ -83,4 +122,4 @@
     <script src="js/bootstrap-3.1.1.js"></script>
   </body>
 </html>
-	 
+	
