@@ -28,7 +28,7 @@ public class GestionDoctores {
 	}
 	
 	public Doctores actualizar(String nombre,String apePaterno,String apeMaterno, String email,
-			String telefono, String tipo, String contraseña,int dni) throws DAOExcepcion {
+			String telefono, String tipo, String contraseña,String dni) throws DAOExcepcion {
 		DoctoresDAO dao = new DoctoresDAO();
 		Doctores vo = new Doctores();
 		
@@ -50,7 +50,7 @@ public class GestionDoctores {
 		return dao.listar();
 	}
 	
-	public Doctores buscar(int dni) throws DAOExcepcion {
+	public Doctores buscar(String dni) throws DAOExcepcion {
 		DoctoresDAO dao = new DoctoresDAO();
 		return dao.buscar(dni);	
 	}

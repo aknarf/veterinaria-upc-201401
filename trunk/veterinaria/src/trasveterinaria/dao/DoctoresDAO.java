@@ -25,7 +25,7 @@ public class DoctoresDAO extends BaseDAO {
 		try {
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setInt(1, vo.getDni());
+			stmt.setString(1, vo.getDni());
 			stmt.setString(2, vo.getNombre());
 			stmt.setString(3, vo.getApePaterno());
 			stmt.setString(4, vo.getApeMaterno());
@@ -87,7 +87,7 @@ public class DoctoresDAO extends BaseDAO {
 			stmt.setString(5,vo.getTelefono());
 			stmt.setString(6, vo.getTipo());
 			stmt.setString(7, vo.getContraseña());
-			stmt.setInt(8, vo.getDni());
+			stmt.setString(8, vo.getDni());
 			
 			 actualizado = stmt.executeUpdate();
 			if (actualizado != 1) {
@@ -115,7 +115,7 @@ public class DoctoresDAO extends BaseDAO {
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				Doctores vo = new Doctores();
-				vo.setDni(rs.getInt("DniDoc"));
+				vo.setDni(rs.getString("DniDoc"));
 				vo.setNombre(rs.getString("Nombre"));
 				vo.setApePaterno(rs.getString("ApePaterno"));
 				vo.setApeMaterno(rs.getString("ApeMaterno"));
@@ -138,7 +138,7 @@ public class DoctoresDAO extends BaseDAO {
 		return c;
 	}
 
-	public Doctores buscar(int dni) throws DAOExcepcion {
+	public Doctores buscar(String dni) throws DAOExcepcion {
 		Doctores vo = new Doctores();
 		Connection con = null;
 		PreparedStatement stmt = null;
@@ -147,10 +147,10 @@ public class DoctoresDAO extends BaseDAO {
 			String query = "select dnidoc,nombre,apePaterno,apeMaterno,email,telefono,tipo,contraseña from doctores where dnidoc=?";
 			con = ConexionBD.obtenerConexion();
 			stmt = con.prepareStatement(query);
-			stmt.setInt(1, dni);
+			stmt.setString(1, dni);
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				vo.setDni(rs.getInt(1));
+				vo.setDni(rs.getString(1));
 				vo.setNombre(rs.getString(2));
 				vo.setApePaterno(rs.getString(3));
 				vo.setApeMaterno(rs.getString(4));
@@ -183,7 +183,7 @@ public class DoctoresDAO extends BaseDAO {
 				stmt.setString(2, contraseña);
 				rs = stmt.executeQuery();
 				if (rs.next()) {
-					vo.setDni(rs.getInt(1));
+					vo.setDni(rs.getString(1));
 					vo.setNombre(rs.getString(2));
 					vo.setApePaterno(rs.getString(3));
 					vo.setApeMaterno(rs.getString(4));

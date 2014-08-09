@@ -41,7 +41,7 @@ public class IngresarDoctorServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String DNIDoc = request.getParameter("txtDni");
+		String DNI = request.getParameter("txtDni");
 		String Nonbre = request.getParameter("txtNombre");
 		String ApePaterno = request.getParameter("txtApellidoPaterno");
 		String ApeMaterno = request.getParameter("txtApellidoMaterno");
@@ -52,8 +52,7 @@ public class IngresarDoctorServlet extends HttpServlet {
 		
 		Doctores prod= new Doctores();
 		
-		int DNI = Integer.parseInt(DNIDoc);
-		
+			
 		prod.setDni(DNI);
 		prod.setNombre(Nonbre);
 		prod.setApePaterno(ApePaterno);

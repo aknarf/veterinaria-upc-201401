@@ -34,8 +34,8 @@ public class EditarDoctorServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String a = request.getParameter("dni");
-		int dni = Integer.parseInt(a);
+		String dni = request.getParameter("dni");
+
 		
 		GestionDoctores doctor = new GestionDoctores();
 		

@@ -43,9 +43,7 @@ public class ActualizarDoctorServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String DNIDoc = request.getParameter("txtDni");
-		int dni = Integer.parseInt(DNIDoc);
-	    //System.out.println(dni);
+		String dni = request.getParameter("txtDni");
 		String Nonbre = request.getParameter("txtNombre");
 		String ApePaterno = request.getParameter("txtApellidoPaterno");
 		String ApeMaterno = request.getParameter("txtApellidoMaterno");
