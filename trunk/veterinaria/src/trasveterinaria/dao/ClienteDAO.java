@@ -234,7 +234,7 @@ public class ClienteDAO extends BaseDAO{
 				vo.setNombre(rs.getString("nombre"));
 				vo.setApePaterno(rs.getString("paterno"));
 				vo.setApeMaterno(rs.getString("materno"));
-				vo.setCantMascota(rs.getInt(Integer.parseInt("CantidadMascotas")));
+				vo.setCantMascota(rs.getInt("CantidadMascotas"));
 				
 				rc.add(vo);
 			}
