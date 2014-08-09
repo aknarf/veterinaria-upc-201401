@@ -56,10 +56,5 @@ public class GestionMascota {
 		MascotaDAO dao = new MascotaDAO();
 		return dao.buscar(IdMascota);
 	}
-	/*
-	public Mascota reporteMascota(int id) throws DAOExcepcion {
-		MascotaDAO dao = new MascotaDAO();
-		return dao.reporteMascota(id);	
-	}
-	*/
+	
 }

@@ -17,6 +17,7 @@ import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Citas;
 import trasveterinaria.modelo.Cliente;
 import trasveterinaria.modelo.Doctores;
+import trasveterinaria.modelo.Mascota;
 import trasveterinaria.util.ConexionBD;
 
 public class CitasDAO extends BaseDAO{
@@ -201,6 +202,40 @@ public class CitasDAO extends BaseDAO{
 		
 	}
 
+public Collection<Citas> reporteMeses(int mes) throws DAOExcepcion {
+		Collection<Citas> c = new ArrayList<Citas>();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String query = "select d.Fecha, d.NroCita, m.nombre as NombreMascota, c.dni, c.Nombre, c.ApePaterno from cliente c inner join mascota m on c.dni=m.Cliente_Dni inner join citas d on m.idMascota=d.idMascota where month(d.Fecha)=? order by d.Fecha";
+			con = ConexionBD.obtenerConexion();
+			stmt = con.prepareStatement(query);
+			stmt.setInt(1, mes);
+			rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				Citas ci = new Citas();
+				ci.setFecha(rs.getString(1));
+				ci.setIdcita(rs.getInt(2));
+				ci.setNomMascota(rs.getString(3));
+				ci.setDniCliente(rs.getString(4));
+				ci.setNomCliente(rs.getString(5));
+				ci.setApePatCliente(rs.getString(6));
+								
+				c.add(ci);
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			throw new DAOExcepcion(e.getMessage());
+		} finally {
+			this.cerrarResultSet(rs);
+			this.cerrarStatement(stmt);
+			this.cerrarConexion(con);
+		}
+		return c;
+		}
 	
 
 }

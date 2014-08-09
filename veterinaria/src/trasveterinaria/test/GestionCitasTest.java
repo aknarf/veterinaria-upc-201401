@@ -7,8 +7,10 @@ import org.junit.Test;
 
 import trasveterinaria.excepcion.DAOExcepcion;
 import trasveterinaria.modelo.Citas;
+import trasveterinaria.modelo.Cliente;
 import trasveterinaria.modelo.Doctores;
 import trasveterinaria.negocio.GestionCitas;
+import trasveterinaria.negocio.GestionCliente;
 import trasveterinaria.negocio.GestionDoctores;
 
 public class GestionCitasTest {
@@ -84,7 +86,28 @@ public class GestionCitasTest {
 		}
 	}
 	
-	
+	@Test
+			public void reporteMesesTest() {
+
+				GestionCitas gc = new GestionCitas();
+				try {
+					Collection<Citas> listado =gc.reporteMeses(6);
+					if(listado == null){
+						System.out.println("No se encontraron citas");
+					}
+					else{
+						System.out.println("Citas encontradas \n");
+						System.out.println("CITAS");
+						System.out.println("--------------------------------------------------------------------------");
+						for (Citas dao : listado) {
+						System.out.println(dao.getFecha()+"\t "+dao.getIdcita()+"\t "+dao.getNomMascota()+"\t "+dao.getDniCliente()+"\t"+dao.getNomCliente()+"\t"+dao.getApePatCliente()+"\n");
+						}
+						Assert.assertTrue(listado.size() > 0);
+					}
+				} catch (DAOExcepcion e) {
+					Assert.fail("No se encontraron citas" + e.getMessage());
+				}
+			}
 	
 	
 	
