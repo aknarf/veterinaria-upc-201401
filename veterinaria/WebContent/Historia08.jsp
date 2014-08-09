@@ -99,7 +99,7 @@
 		    <td><% out.print(x.getNombre()); %></td>
 		    <td><% out.print(x.getApePaterno()); %></td>
 		    <td><% out.print(x.getApeMaterno()); %></td>
-		    <td><% out.print(x.getCantMascota()); %></td>
+		    
 		    
 		  </tr>
 		<%  } 

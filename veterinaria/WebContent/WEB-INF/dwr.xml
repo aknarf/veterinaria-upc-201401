@@ -1,14 +1,16 @@
 <dwr>
-<allow>
-<convert converter="bean" match="trasveterinaria.modelo.Cliente"/>
+    <allow>
+    	<convert converter="bean" match="demo.recursos.beans.BeanVendedor"/>
+        <convert converter="bean" match="trasveterinaria.modelo.BeanSelector"/>
+        
+ 
 
-<create creator="new" javascript="ClienteService" class="trasveterinaria.dao.CitasDAO">
-
-<include method="traerClientes"/>
-</create>
-
-</allow>
-
-
-
+        <create creator="new" javascript="UbigeoService" 
+        		class="trasveterinaria.dao.SelectorDAO">
+            <include method="traerCliente"/>
+            
+        </create>
+        
+        
+  </allow>
 </dwr>

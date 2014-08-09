@@ -1,4 +1,4 @@
-function cargaCliente(){
+function traerCliente(){
 	DWRUtil.removeAllOptions("idDueño");
 	UbigeoService.traerClientes(muestraDataCliente);
 }

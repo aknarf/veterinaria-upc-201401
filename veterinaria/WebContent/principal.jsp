@@ -42,7 +42,9 @@
 	              <li><a href="IngresarDoctor.jsp">Ingresar Doctores</a></li>
 	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>
 	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>
-	              <li><a href="BuscarClientes.jsp">Buscar Clientes</a></li>	              
+	              <li><a href="BuscarClientes.jsp">Buscar Clientes</a></li>	
+	              <li><a href="AdministracionCitas2.jsp">Citas</a></li>
+	                            
 	            </ul>
 	          </li>
 	          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes <b class="caret"></b></a>
