@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import junit.framework.Assert;
+
 import trasveterinaria.modelo.Mascota;
 import trasveterinaria.negocio.GestionMascota;
 
@@ -56,7 +56,7 @@ public class MascotaInsertarServlet extends HttpServlet {
 		Mascota prod= new Mascota();
 		
 		int Weight = Integer.parseInt(Peso);
-		int DNI = Integer.parseInt(Cliente_Dni);
+		//int DNI = Integer.parseInt(Cliente_Dni);
 		int Raza = Integer.parseInt(Raza_idRaza);
 		
 		prod.setNombre(Nombre);
@@ -68,7 +68,7 @@ public class MascotaInsertarServlet extends HttpServlet {
 		prod.setPeso(Weight);
 		prod.setFechaNacimiento(FechaNacimiento);
 		prod.setAlergia(Alergia);
-		prod.setCliente_Dni(DNI);
+		prod.setCliente_Dni(Cliente_Dni);
 		prod.setRaza_idRaza(Raza);
 		
 		
@@ -87,8 +87,8 @@ public class MascotaInsertarServlet extends HttpServlet {
 				rd.forward(request, response);		
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
-			Assert.fail("No Inserto"+ e.getMessage());
+			RequestDispatcher rd = request.getRequestDispatcher("error.jsp");
+			rd.forward(request, response);
 		
 		}
 		

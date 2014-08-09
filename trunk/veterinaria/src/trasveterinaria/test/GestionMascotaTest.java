@@ -29,7 +29,7 @@ public class GestionMascotaTest {
 		prod.setPeso(12);
 		prod.setFechaNacimiento(null);
 		prod.setAlergia("Sí");
-		prod.setCliente_Dni(44541798);
+		prod.setCliente_Dni("44541798");
 		prod.setRaza_idRaza(13);
 		
 		

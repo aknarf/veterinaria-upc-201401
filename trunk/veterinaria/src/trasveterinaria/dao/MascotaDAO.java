@@ -34,7 +34,7 @@ public class MascotaDAO extends BaseDAO {
 			stmt.setInt(8, vo.getPeso());
 			stmt.setString(9, vo.getFechaNacimiento());
 			stmt.setString(10, vo.getAlergia());
-			stmt.setInt(11, vo.getCliente_Dni());
+			stmt.setString(11, vo.getCliente_Dni());
 			stmt.setInt(12, vo.getRaza_idRaza());
 			
 			int i = stmt.executeUpdate();
@@ -73,7 +73,7 @@ public class MascotaDAO extends BaseDAO {
 			stmt.setInt(7, vo.getPeso());
 			stmt.setString(8, vo.getFechaNacimiento());
 			stmt.setString(9, vo.getAlergia());
-			stmt.setInt(10, vo.getCliente_Dni());
+			stmt.setString(10, vo.getCliente_Dni());
 			stmt.setInt(11, vo.getRaza_idRaza());
 			
 			
@@ -136,7 +136,7 @@ public class MascotaDAO extends BaseDAO {
 				vo.setPeso(rs.getInt("Peso"));
 				vo.setFechaNacimiento(rs.getString("FechaNacimiento"));
 				vo.setAlergia(rs.getString("Alergia"));
-				vo.setCliente_Dni(rs.getInt("Cliente_Dni"));
+				vo.setCliente_Dni(rs.getString("Cliente_Dni"));
 				vo.setRaza_idRaza(rs.getInt("Raza_idRaza"));
 				
 				c.add(vo);
@@ -175,7 +175,7 @@ public class MascotaDAO extends BaseDAO {
 			    vo.setPeso(rs.getInt(8));
 			    vo.setFechaNacimiento(rs.getString(9));
 			    vo.setAlergia(rs.getString(10));
-			    vo.setCliente_Dni(rs.getInt(11));
+			    vo.setCliente_Dni(rs.getString(11));
 			    vo.setRaza_idRaza(rs.getInt(12));
 			    
 			}
