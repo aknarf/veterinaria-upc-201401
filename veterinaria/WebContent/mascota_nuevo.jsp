@@ -111,7 +111,7 @@
 				  		</tr>
 				  		<tr>
 						<td>Peso: </td>
-						<td><input type="text"  pattern=[0-9]{2} maxlength=2 name="txtPeso" required/></td>
+						<td><input type="text"  pattern=[0-9] maxlength=2 name="txtPeso" required/></td>
 						</tr>
 						<tr>
 						<td>Fecha de Nacimiento:</td>
