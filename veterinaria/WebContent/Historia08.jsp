@@ -82,7 +82,8 @@
 		    <th scope="col">Nombre</th>
 		    <th scope="col">Ape. Paterno</th>
 		    <th scope="col">Ape. Materno</th>
-		    <th scope="col">Cant. Mascotas</th>
+		    <th scope="col">Cantidad</th>
+		    
 		  </tr>
 		
 		<%@page import="java.util.*,trasveterinaria.modelo.Cliente, trasveterinaria.modelo.Mascota" %>
@@ -99,6 +100,8 @@
 		    <td><% out.print(x.getNombre()); %></td>
 		    <td><% out.print(x.getApePaterno()); %></td>
 		    <td><% out.print(x.getApeMaterno()); %></td>
+		    <td><% out.print(x.getCantMascota());%></td>
+		    
 		    
 		    
 		  </tr>

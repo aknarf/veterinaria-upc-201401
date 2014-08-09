@@ -113,7 +113,7 @@ public class GestionClienteTest {
 		}
 	}
 
-	//@Test
+	@Test
 		public void reporteClienteTest() {
 
 			GestionCliente gc = new GestionCliente();
