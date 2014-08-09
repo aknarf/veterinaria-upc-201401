@@ -86,7 +86,7 @@
 		    
 		  </tr>
 		
-		<%@page import="java.util.*,trasveterinaria.modelo.Cliente, trasveterinaria.modelo.Mascota" %>
+		<%@page import="java.util.*,trasveterinaria.modelo.Cliente" %>
 		<%
 		ArrayList<Cliente> arreglo = (ArrayList<Cliente>)request.getAttribute("clientes");
 		if(arreglo !=null){
