@@ -139,7 +139,7 @@
 		    <td><% out.print(x.getTelefonofijo()); %></td>
 		    <td><% out.print(x.getRuc()); %></td>
 		    <td><a href="<%=request.getContextPath() %>/EditarClienteServlet?dni=<%=x.getDni()%>">Editar</a> - <a href="<%=request.getContextPath()%>
-		/EliminarDoctorServlet?dni=<%=x.getDni()%>" onclick="return confirm('¿Está seguro que desea eliminar');">Eliminar</a></td>
+		/EliminarClienteServlet?dni=<%=x.getDni()%>" onclick="return confirm('¿Está seguro que desea eliminar');">Eliminar</a></td>
 		  </tr>
 		<% }  
 		  } %> 

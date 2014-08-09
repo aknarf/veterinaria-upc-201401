@@ -73,25 +73,25 @@ Doctores vo = (Doctores)request.getAttribute("vo");
 				  		<table>
 				  		<tr>
 				  		<td>DNI:</td>
-				  		<td><input type="text"  pattern=[0-9]{8} maxlength=8 name="txtDni"  required
+				  		<td><input type="text"  pattern=[0-9]{8} maxlength=8 name="txtDni"  readonly required
 				  		value="<%=vo.getDni()%>" />
 				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Nombre:</td>
-				  		<td><input type="text" name="txtNombre" required
+				  		<td><input type="text" pattern=[a-z] name="txtNombre" required
 				  		value="<%=vo.getNombre()%>"/>
 				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Apellido Paterno:</td>
-				  		<td><input type="text" name="txtApellidoPaterno" required
+				  		<td><input type="text" pattern=[a-z] name="txtApellidoPaterno" required
 				  		value="<%=vo.getApePaterno()%>"/>
 				  		</td>
 				  		</tr>
 				  		<tr>
 				  		<td>Apellido Materno:</td>
-				  		<td><input type="text" name="txtApellidoMaterno" required
+				  		<td><input type="text" pattern=[a-z] name="txtApellidoMaterno" required
 				  		value="<%=vo.getApeMaterno()%>"/>
 				  		</td>
 				  		</tr>
@@ -103,7 +103,7 @@ Doctores vo = (Doctores)request.getAttribute("vo");
 				  		</tr>
 				  		<tr>
 				  		<td>Telefono:</td>
-				  		<td><input id="phone" type="tel" maxlength=9 name="txtTelefono" required
+				  		<td><input id="phone" pattern=[0-9] type="tel" maxlength=9 name="txtTelefono" required
 				  		value="<%=vo.getTelefono()%>"/>
 				  		</td>
 				  		</tr>
