@@ -48,10 +48,10 @@
 	          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes <b class="caret"></b></a>
 	          <ul class="dropdown-menu">
 	          	<li><a href="Historia08.jsp">Reporte de dueños</a></li>
-	          	<li><a href="#">Reporte de pacientes</a></li>
+	          	<li><a href="Historia09.jsp">Reporte de pacientes</a></li>
 	          	<li><a href="#">Reporte de atenciones</a></li>
 	          	</ul>
-	          </li>	          
+	          </li>       
 	          <li><a href="LogoutServlet">Salir</a></li>
 	        </ul>
 	      </div><!--/.nav-collapse -->
