@@ -65,10 +65,22 @@
 		<p><strong>Reporte de pacientes</strong></p>
 		
 		<form id="form1" name="form1" method="post" action="Historia09Servlet" class="form-horizontal" role="form">
-		  <p>Buscar: 
-		    <label>
-		    <input type="text" name="mes" id="mes" />
-		    </label>
+		  <p>Buscar:
+						<select name="mes">
+							<option value="0" selected>- Seleccione un mes -</option>
+							<option value="1">Enero</option>
+							<option value="2">Febrero</option>
+							<option value="3">Marzo</option>
+							<option value="4">Abril</option>
+							<option value="5">Mayo</option>
+							<option value="6">Junio</option>
+							<option value="7">Julio</option>
+							<option value="8">Agosto</option>
+							<option value="9">Septiembre</option>
+							<option value="10">Octubre</option>
+							<option value="11">Noviembre</option>
+							<option value="12">Diciembre</option>
+						</select>
 		    <label>
 		    <button type="submit" name="button" id="button" >Buscar</button>
 		    </label>
