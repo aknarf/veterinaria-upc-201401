@@ -31,6 +31,10 @@ public class GestionCitas {
 		return dao.listarTareas();
 	}
 	
+	public Collection<Citas> reporteMeses(int mes) throws DAOExcepcion {
+		CitasDAO dao = new CitasDAO();
+		return dao.reporteMeses(mes);	
+	}
 
 
 }
