@@ -13,11 +13,11 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap-3.1.1.css" rel="stylesheet" media="screen">
 
-    
-	<SCRIPT src="js/calendar.js" type=text/javascript></SCRIPT>
-	<SCRIPT src="js/calendar-es.js" type=text/javascript></SCRIPT>
-	<SCRIPT src="js/calendar-setup.js" type=text/javascript></SCRIPT>  
-  
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
   </head>
 
   <body>
@@ -43,50 +43,46 @@
 	              <li><a href="BuscarDoctor.jsp">Buscar Doctores</a></li>
 	              <li><a href="IngresarClientes.jsp">Ingresar Clientes</a></li>
 	              <li><a href="BuscarClientes.jsp">Buscar Clientes</a></li>
-	              <li><a href="mascota_nuevo.jsp">Ingresar Pacientes</a></li>
-	              <li><a href="mascota_buscar.jsp">Buscar Pacientes</a></li>	
-	              <li><a href="AdministracionCitas2.jsp">Citas</a></li>
-	                            
+	              <li><a href="mascota_nuevo.jsp">Ingresar Paciente</a></li>
+	              <li><a href="mascota_buscar.jsp">Buscar Pacientes</a></li>
 	            </ul>
 	          </li>
-	          <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Reportes <b class="caret"></b></a>
-	          <ul class="dropdown-menu">
-	          	<li><a href="Historia08.jsp">Reporte de dueños</a></li>
-	          	<li><a href="#">Reporte de pacientes</a></li>
-	          	<li><a href="#">Reporte de atenciones</a></li>
-	          	</ul>
-	          </li>	          
+	          <li><a href="#">Reportes</a></li>	          
 	          <li><a href="LogoutServlet">Salir</a></li>
 	        </ul>
 	      </div><!--/.nav-collapse -->
 	    </div>
 	  </div>
-  
 
-    <div class="container">
+<%@page import="trasveterinaria.modelo.Mascota;"%>
+<%
+Mascota vo = (Mascota)request.getAttribute("vo");
+%>
+
+<div class="container">
 	     
 			<div class="col-md-12">
 
-			  <form class="form-horizontal well" method="post" action="MascotaInsertarServlet" role="form" >
+			  <form class="form-horizontal well" method="post" action="MascotaActualizarServlet" role="form" >
 				<fieldset>
-				  <legend>Ingresar Mascotas</legend>             
+				  <legend>Editar Mascotas</legend>             
 				  
-				  <% String x = (String)request.getAttribute("msg");
-				  if("ok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Ingreso Correcto de Mascota')\"></body></html>");
-				  }
-				  else if("notok".equals(x)){
-					  out.println("<html><head></head><body onload=\"alert('Ingreso Incorrecto de Mascota, No existe dueño')\"></body></html>");
-				  }
-				  %>
+
 				  				  
 				  <div class="control-group">
-				  		<p class="help-block">Ingresar datos:</p>
+				  		<p class="help-block">Editar los datos:</p>
 				  		<div class="table-responsive">
 				  		<table>
 				  		<tr>
+				  		<td>ID:</td>
+				  		<td><input type="text"  pattern=[0-9]{4} maxlength=4 name="txtIdMascota"  readonly required
+				  		value="<%=vo.getIdMascota()%>" />
+				  		</td>
+				  		</tr>
+				  		<tr>
 				  		<td>Nombre:</td>
-				  		<td><input type="text"  name="txtNombre" required/></td>
+				  		<td><input type="text"  name="txtNombre" required
+				  		value="<%=vo.getNombre()%>" /></td>
 				  		</tr>
 				  		<tr>
 				  		<td>Genero:</td>
@@ -97,11 +93,13 @@
 				  		</tr>
 				  		<tr>
 				  		<td>Tipo Sangre:</td>
-				  		<td><input type="text" name="txtTipoSangre" required/></td>
+				  		<td><input type="text" name="txtTipoSangre" required
+				  		value="<%=vo.getTipoSangre()%>" /></td>
 				  		</tr>
 				  		<tr>
 				  		<td>Esterilizado:</td>
-				  		<td><input type="text" name="txtEsterilizado" required/></td>
+				  		<td><input type="text" name="txtEsterilizado" required
+				  		value="<%=vo.getEsterilizado()%>" /></td>
 				  		</tr>
 				  		<tr>
 				  		<td>Tamaño:</td>
@@ -120,7 +118,8 @@
 				  		</tr>
 				  		<tr>
 						<td>Peso: </td>
-						<td><input type="text"  pattern=[0-9] maxlength=2 name="txtPeso" required/></td>
+						<td><input type="text"  pattern=[0-9] maxlength=2 name="txtPeso" required
+						value="<%=vo.getPeso()%>" /></td>
 						</tr>
 						<tr>
 						<td>Fecha de Nacimiento:</td>
@@ -133,22 +132,25 @@
              			</tr>
              			<tr>
              			<td>Alergia:</td>
-				  		<td><input type="text" name="txtAlergia" required/></td>
+				  		<td><input type="text" name="txtAlergia" required
+				  		value="<%=vo.getAlergia()%>" /></td>
 				  		</tr>
 				  		<tr>
 				  		<td>DNI Dueño:</td>
-				  		<td><input type="text"  pattern=[0-9]{8} maxlength=8 name="txtCliente_Dni" required/></td>
+				  		<td><input type="text"  pattern=[0-9]{8} maxlength=8 name="txtCliente_Dni" readonly required
+				  		value="<%=vo.getCliente_Dni()%>" /></td>
 				  		</tr>
 				  		<tr>
              			<td>Identificador Raza:</td>
-				  		<td><input type="text" pattern=[0-9]{2} maxlength=2 name="txtIdRaza" required/></td>
+				  		<td><input type="text" pattern=[0-9]{2} maxlength=2 name="txtIdRaza" required
+				  		value="<%=vo.getRaza_idRaza()%>" /></td>
 				  		</tr>
 				  		<tr>
-				  		<td colspan="2"><button type="submit" class="btn btn-primary">Guardar</button>
+				  		<td colspan="2"><button type="submit" class="btn btn-primary">Actualizar</button>
 						<button type="reset" class="btn">Cancelar</button></td>
 						</tr>  
 						</table>
-						</div>	
+					</div>	
 					 </div>	 
 				</fieldset>
 			  </form>
@@ -161,6 +163,15 @@
         <p>&copy; Veterinaria Peru</p>
       </footer>
 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap-3.1.1.js"></script>
+    
 
 
   </body>

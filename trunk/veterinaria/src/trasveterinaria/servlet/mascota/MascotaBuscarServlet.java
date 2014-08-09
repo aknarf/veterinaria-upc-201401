@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import trasveterinaria.excepcion.DAOExcepcion;
-import trasveterinaria.modelo.Doctores;
-import trasveterinaria.negocio.GestionDoctores;
+
+import trasveterinaria.modelo.Mascota;
+
+import trasveterinaria.negocio.GestionMascota;
 
 /**
  * Servlet implementation class MascotaBuscarServlet
@@ -45,15 +47,15 @@ public class MascotaBuscarServlet extends HttpServlet {
 		System.out.println("Dentro de doPost del servlet Buscar Mascota Servlet");
 		String x = request.getParameter("nombre");
 			
-		GestionDoctores negocio = new GestionDoctores();
+		GestionMascota negocio = new GestionMascota();
 		try {
-			Collection<Doctores> lista = negocio.buscarPorNombre(x);
+			Collection<Mascota> lista = negocio.buscarPorNombre(x);
 			
 			// Guardar en el ambiente de request
 			
-			request.setAttribute("doctores", lista);
+			request.setAttribute("Mascotas", lista);
 			RequestDispatcher rd = request
-					.getRequestDispatcher("BuscarDoctor.jsp");
+					.getRequestDispatcher("mascota_buscar.jsp");
 			rd.forward(request, response);
 			System.out.println("CORRECTO ");
 

@@ -6,11 +6,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import trasveterinaria.excepcion.DAOExcepcion;
-import trasveterinaria.modelo.Cliente;
-import trasveterinaria.modelo.Doctores;
+//import trasveterinaria.modelo.Cliente;
+//import trasveterinaria.modelo.Doctores;
 import trasveterinaria.modelo.Mascota;
-import trasveterinaria.negocio.GestionCliente;
-import trasveterinaria.negocio.GestionDoctores;
+//import trasveterinaria.negocio.GestionCliente;
+//import trasveterinaria.negocio.GestionDoctores;
 import trasveterinaria.negocio.GestionMascota;
 
 public class GestionMascotaTest {
